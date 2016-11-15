@@ -1,0 +1,78 @@
+$font-primary: 'Proxima Nova', Arial, sans-serif;
+$proximaNovaPath: '../fonts/ProximaNova/ProximaNova-';
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot?srf3rx');
+	src:url('../fonts/icomoon/icomoon.eot?srf3rx#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.ttf?srf3rx') format('truetype'),
+		url('../fonts/icomoon/icomoon.woff?srf3rx') format('woff'),
+		url('../fonts/icomoon/icomoon.svg?srf3rx#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'Light.otf'}) format('opentype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'LightItalic.otf'}) format('opentype');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'Regular.otf'}) format('opentype');
+	font-weight: 400;
+	font-style: normal;
+}	
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'RegularItalic.otf'}) format('opentype');
+	font-weight: 400;
+	font-style: italic;
+}	
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'Semibold.otf'}) format('opentype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'SemiboldItalic.otf'}) format('opentype');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'Bold.otf'}) format('opentype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'BoldItalic.otf'}) format('opentype');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url(#{$proximaNovaPath + 'Black.otf'}) format('opentype');
+	font-weight: 800;
+	font-style: normal;
+}
+
+
