@@ -775,8 +775,8 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-
-.fh5co-project {
+#fh5co-project {
+	.fh5co-project {
 		background: _palette($theme,brand-white);
 		margin-bottom: 30px;
 		h2 {
@@ -806,9 +806,6 @@ h1, h2, h3, h4, h5, h6, figure {
 				right: 0;
 				top: 0;
 				background: rgba(_palette($theme,brand-black), .7);
-				// -webkit-box-shadow: inset 0px -86px 116px -8px rgba(0,0,0,0.75);
-				// -moz-box-shadow: inset 0px -86px 116px -8px rgba(0,0,0,0.75);
-				// box-shadow: inset 0px -86px 116px -8px rgba(0,0,0,0.75);
 				z-index: 8;
 				@include transition(.5s)
 			}
@@ -895,6 +892,7 @@ h1, h2, h3, h4, h5, h6, figure {
 			}
 		}
 	}
+}
 
 
 
@@ -1152,12 +1150,12 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 	span {
 		display: block;
-		margin-bottom: 30px;
+		margin-bottom: 15px;
 		text-transform: uppercase;
-		font-weight: 600;
-		font-size: 12px;
+		font-weight: 400;
+		font-size: 13px;
 		letter-spacing: 2px;
-		color: tint(_palette($theme,brand-black), 30%);
+		color: tint(_palette($theme,brand-black), 0%);
 		// text-shadow: 0 0 10px rgba(_palette($theme,brand-black), 0.1);
 	}
 	&.glyph {
@@ -1179,14 +1177,15 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 #fh5co-started {
-	background: _palette($theme,brand-light-gray);
+	background: rgba(_palette($theme,brand-gray),0.5);
 	
 	.fh5co-heading {
 		h2 {
 			color: _palette($theme,brand-black);
 			margin-bottom: 20px !important;
-			font-weight: 600;
+			font-weight: 300;
 			font-size: 55px;
+			font-family: $font-secondary
 		}
 		p {
 			color: _palette($theme,brand-black);

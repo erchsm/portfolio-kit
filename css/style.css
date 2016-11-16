@@ -854,15 +854,15 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-left: 3px;
 }
 
-.fh5co-project {
+#fh5co-project .fh5co-project {
   background: #fff;
   margin-bottom: 30px;
 }
-.fh5co-project h2 {
+#fh5co-project .fh5co-project h2 {
   font-size: 48px;
   font-weight: 600;
 }
-.fh5co-project > a {
+#fh5co-project .fh5co-project > a {
   display: block;
   color: #353535;
   position: relative;
@@ -874,7 +874,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.fh5co-project > a img {
+#fh5co-project .fh5co-project > a img {
   position: relative;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -882,7 +882,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.fh5co-project > a:after {
+#fh5co-project .fh5co-project > a:after {
   opacity: 0;
   visibility: hidden;
   content: "";
@@ -899,7 +899,7 @@ h1, h2, h3, h4, h5, h6, figure {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.fh5co-project > a .fh5co-copy {
+#fh5co-project .fh5co-project > a .fh5co-copy {
   z-index: 12;
   position: absolute;
   right: 20px;
@@ -919,22 +919,22 @@ h1, h2, h3, h4, h5, h6, figure {
   -ms-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.fh5co-project > a .fh5co-copy h3 {
+#fh5co-project .fh5co-project > a .fh5co-copy h3 {
   margin: 0 0 5px 0;
   padding: 0;
   color: #fff;
   font-size: 32px;
   font-weight: 400;
 }
-.fh5co-project > a .fh5co-copy p {
+#fh5co-project .fh5co-project > a .fh5co-copy p {
   color: #dededc;
   font-size: 24px;
 }
-.fh5co-project > a .fh5co-copy p:last-child {
+#fh5co-project .fh5co-project > a .fh5co-copy p:last-child {
   margin-bottom: 0;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a .fh5co-copy {
+  #fh5co-project .fh5co-project > a .fh5co-copy {
     position: relative;
     visibility: visible;
     opacity: 1;
@@ -944,27 +944,27 @@ h1, h2, h3, h4, h5, h6, figure {
     background: #fff;
   }
 }
-.fh5co-project > a:hover {
+#fh5co-project .fh5co-project > a:hover {
   -webkit-box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15) !important;
   -moz-box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15) !important;
   box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15) !important;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a:hover {
+  #fh5co-project .fh5co-project > a:hover {
     bottom: 0;
   }
 }
-.fh5co-project > a:hover:after {
+#fh5co-project .fh5co-project > a:hover:after {
   opacity: 1;
   visibility: visible;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a:hover:after {
+  #fh5co-project .fh5co-project > a:hover:after {
     opacity: 0;
     visibility: hidden;
   }
 }
-.fh5co-project > a:hover .fh5co-copy {
+#fh5co-project .fh5co-project > a:hover .fh5co-copy {
   opacity: 1;
   visibility: visible;
   -moz-transform: translateY(50%);
@@ -974,20 +974,20 @@ h1, h2, h3, h4, h5, h6, figure {
   transform: translateY(50%);
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a:hover .fh5co-copy {
+  #fh5co-project .fh5co-project > a:hover .fh5co-copy {
     bottom: 0;
     padding: 20px;
     background: #fff;
   }
 }
-.fh5co-project > a:hover img {
+#fh5co-project .fh5co-project > a:hover img {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
 @media screen and (max-width: 768px) {
-  .fh5co-project > a:hover img {
+  #fh5co-project .fh5co-project > a:hover img {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -o-transform: scale(1);
@@ -1254,12 +1254,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-heading span {
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 13px;
   letter-spacing: 2px;
-  color: #727272;
+  color: #353535;
 }
 .fh5co-heading.glyph:last-child:after {
   content: '';
@@ -1273,13 +1273,14 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-started {
-  background: #f2f2f1;
+  background: rgba(222, 222, 220, 0.5);
 }
 #fh5co-started .fh5co-heading h2 {
   color: #353535;
   margin-bottom: 20px !important;
-  font-weight: 600;
+  font-weight: 300;
   font-size: 55px;
+  font-family: "Times New Roman", times, serif;
 }
 #fh5co-started .fh5co-heading p {
   color: #353535;
