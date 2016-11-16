@@ -527,8 +527,34 @@ h1, h2, h3, h4, h5, h6, figure {
 				color: _palette($theme,brand-white);
 			}
 
+			&:not(:first-of-type) {
+				margin-top: calc(45px + 10px);
+				&:before, &:after {
+					content: '';
+					position: absolute;
+					background: _palette($theme,brand-white);
+					width: 45px;
+					height: 2px;
+					left: 15px;
+					margin-top: calc((-45px / 2) - 10px);
+				}
+				&:before {
+					@include rotate(-45deg);
+				}
+				&:after {
+					@include rotate(45deg);
+				}
+			}
+
 			@media screen and (max-width: $screen-sm) {
 				font-size: 38px;
+				&:not(:first-of-type) {
+					margin-top: calc(38px + 10px);
+					&:before, &:after {
+						width: 38px;
+						margin-top: calc((-38px / 2) - 10px);
+					}
+				}
 			}
 		}
 		h2 {
@@ -1127,49 +1153,49 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-.fh5co-heading {
-	margin-bottom: 2em;
-	&.fh5co-heading-sm {
+.fh5co-section {
+	.fh5co-heading {
 		margin-bottom: 2em;
-	}
-	h2 {
-		font-size: 48px;
-		// margin-bottom: 0px;
-		line-height: 1;
-		font-weight: 300;
-		color: _palette($theme,brand-black);
-
-		@media screen and (max-width: $screen-sm) {
-			font-size: 38px;
+		&.fh5co-heading-sm {
+			margin-bottom: 2em;
 		}
-	}
-	p {
-		font-size: 16px;
-		line-height: 1.5;
-		color: _palette($theme,brand-black);
-	}
-	span {
-		display: block;
-		margin-bottom: 15px;
-		text-transform: uppercase;
-		font-weight: 400;
-		font-size: 13px;
-		letter-spacing: 2px;
-		color: tint(_palette($theme,brand-black), 0%);
-		// text-shadow: 0 0 10px rgba(_palette($theme,brand-black), 0.1);
-	}
-	&.glyph {
-		&:last-child {
-			&:after {
-				content: '';
-				position: absolute;
-				display: block;
-				left: 50%;
-				width: 1px;
-				height: 62px;
-				background: shade(_palette($theme, brand-gray), 10%);
-				margin-top: 20px;
-				// @include rotate(90deg);
+		h2 {
+			font-size: 48px;
+			line-height: 1;
+			font-weight: 300;
+			color: _palette($theme,brand-black);
+
+			@media screen and (max-width: $screen-sm) {
+				font-size: 38px;
+			}
+
+		}
+		p {
+			font-size: 16px;
+			line-height: 1.5;
+			color: _palette($theme,brand-black);
+		}
+		> span {
+			display: block;
+			margin-bottom: 15px;
+			text-transform: uppercase;
+			font-weight: 400;
+			font-size: 13px;
+			letter-spacing: 2px;
+			color: tint(_palette($theme,brand-black), 0%);
+		}
+		&.glyph {
+			&:last-child {
+				&:after {
+					content: '';
+					position: absolute;
+					display: block;
+					left: 50%;
+					width: 1px;
+					height: 70px;
+					background: shade(_palette($theme, brand-gray), 10%);
+					margin-top: 20px;
+				}
 			}
 		}
 	}
@@ -1183,9 +1209,9 @@ h1, h2, h3, h4, h5, h6, figure {
 		h2 {
 			color: _palette($theme,brand-black);
 			margin-bottom: 20px !important;
-			font-weight: 300;
+			font-weight: 600;
 			font-size: 55px;
-			font-family: $font-secondary
+			// font-family: $font-secondary
 		}
 		p {
 			color: _palette($theme,brand-black);

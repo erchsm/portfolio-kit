@@ -582,11 +582,60 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-cover .display-tc h1.white {
   color: #fff;
 }
+#fh5co-header .display-tc h1:not(:first-of-type),
+#fh5co-counter .display-tc h1:not(:first-of-type),
+.fh5co-cover .display-tc h1:not(:first-of-type) {
+  margin-top: calc(45px + 10px);
+}
+#fh5co-header .display-tc h1:not(:first-of-type):before, #fh5co-header .display-tc h1:not(:first-of-type):after,
+#fh5co-counter .display-tc h1:not(:first-of-type):before,
+#fh5co-counter .display-tc h1:not(:first-of-type):after,
+.fh5co-cover .display-tc h1:not(:first-of-type):before,
+.fh5co-cover .display-tc h1:not(:first-of-type):after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  width: 45px;
+  height: 2px;
+  left: 15px;
+  margin-top: calc((-45px / 2) - 10px);
+}
+#fh5co-header .display-tc h1:not(:first-of-type):before,
+#fh5co-counter .display-tc h1:not(:first-of-type):before,
+.fh5co-cover .display-tc h1:not(:first-of-type):before {
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+#fh5co-header .display-tc h1:not(:first-of-type):after,
+#fh5co-counter .display-tc h1:not(:first-of-type):after,
+.fh5co-cover .display-tc h1:not(:first-of-type):after {
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 @media screen and (max-width: 768px) {
   #fh5co-header .display-tc h1,
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
     font-size: 38px;
+  }
+  #fh5co-header .display-tc h1:not(:first-of-type),
+  #fh5co-counter .display-tc h1:not(:first-of-type),
+  .fh5co-cover .display-tc h1:not(:first-of-type) {
+    margin-top: calc(38px + 10px);
+  }
+  #fh5co-header .display-tc h1:not(:first-of-type):before, #fh5co-header .display-tc h1:not(:first-of-type):after,
+  #fh5co-counter .display-tc h1:not(:first-of-type):before,
+  #fh5co-counter .display-tc h1:not(:first-of-type):after,
+  .fh5co-cover .display-tc h1:not(:first-of-type):before,
+  .fh5co-cover .display-tc h1:not(:first-of-type):after {
+    width: 38px;
+    margin-top: calc((-38px / 2) - 10px);
   }
 }
 #fh5co-header .display-tc h2,
@@ -1230,29 +1279,29 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 
-.fh5co-heading {
+.fh5co-section .fh5co-heading {
   margin-bottom: 2em;
 }
-.fh5co-heading.fh5co-heading-sm {
+.fh5co-section .fh5co-heading.fh5co-heading-sm {
   margin-bottom: 2em;
 }
-.fh5co-heading h2 {
+.fh5co-section .fh5co-heading h2 {
   font-size: 48px;
   line-height: 1;
   font-weight: 300;
   color: #353535;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-heading h2 {
+  .fh5co-section .fh5co-heading h2 {
     font-size: 38px;
   }
 }
-.fh5co-heading p {
+.fh5co-section .fh5co-heading p {
   font-size: 16px;
   line-height: 1.5;
   color: #353535;
 }
-.fh5co-heading span {
+.fh5co-section .fh5co-heading > span {
   display: block;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -1261,13 +1310,13 @@ h1, h2, h3, h4, h5, h6, figure {
   letter-spacing: 2px;
   color: #353535;
 }
-.fh5co-heading.glyph:last-child:after {
+.fh5co-section .fh5co-heading.glyph:last-child:after {
   content: '';
   position: absolute;
   display: block;
   left: 50%;
   width: 1px;
-  height: 62px;
+  height: 70px;
   background: #c8c8c6;
   margin-top: 20px;
 }
@@ -1278,9 +1327,8 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-started .fh5co-heading h2 {
   color: #353535;
   margin-bottom: 20px !important;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 55px;
-  font-family: "Times New Roman", times, serif;
 }
 #fh5co-started .fh5co-heading p {
   color: #353535;

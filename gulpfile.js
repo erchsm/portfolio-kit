@@ -107,6 +107,7 @@ gulp.task('default', function() {
 	browserSync.init({
 		open: false,
     	port: 35731,
+    	ui: false,
         server: {
             baseDir: "./"
         }
