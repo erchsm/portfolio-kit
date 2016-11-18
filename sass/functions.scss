@@ -1,0 +1,14 @@
+@function val($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}
+
+@function _palette($keys...) {
+	@return val($palette, $keys...);
+}
+
+@function _animation($keys...) {
+	@return val($animation, $keys...);
+}

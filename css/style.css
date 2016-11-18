@@ -59,11 +59,6 @@
   font-weight: 800;
   font-style: normal;
 }
-/* =======================================================
-*
-* 	Template Style 
-*
-* ======================================================= */
 *::-webkit-scrollbar {
   display: none;
 }
@@ -73,7 +68,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #828282;
+  color: #353535;
   background: #fff;
 }
 
@@ -585,7 +580,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-header .display-tc h1:not(:first-of-type),
 #fh5co-counter .display-tc h1:not(:first-of-type),
 .fh5co-cover .display-tc h1:not(:first-of-type) {
-  margin-top: calc(45px + 10px);
+  margin-top: calc(45px + 22.5px);
 }
 #fh5co-header .display-tc h1:not(:first-of-type):before, #fh5co-header .display-tc h1:not(:first-of-type):after,
 #fh5co-counter .display-tc h1:not(:first-of-type):before,
@@ -597,7 +592,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #fff;
   width: 45px;
   height: 2px;
-  left: 15px;
+  left: calc(50% - (45px / 2));
   margin-top: calc((-45px / 2) - 10px);
 }
 #fh5co-header .display-tc h1:not(:first-of-type):before,
@@ -925,13 +920,18 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-project .fh5co-project > a img {
   position: relative;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+  -moz-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -o-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-#fh5co-project .fh5co-project > a:after {
+#fh5co-project .fh5co-project > a img:after {
   opacity: 0;
   visibility: hidden;
   content: "";
@@ -950,33 +950,26 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-project .fh5co-project > a .fh5co-copy {
   z-index: 12;
-  position: absolute;
+  position: relative;
   right: 20px;
   left: 20px;
   bottom: 50%;
-  text-align: center;
-  -moz-transform: translateY(100%);
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%);
-  opacity: 0;
-  visibility: hidden;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  text-align: left;
+  -moz-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -o-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -ms-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 #fh5co-project .fh5co-project > a .fh5co-copy h3 {
   margin: 0 0 5px 0;
   padding: 0;
-  color: #fff;
+  color: #353535;
   font-size: 32px;
   font-weight: 400;
 }
 #fh5co-project .fh5co-project > a .fh5co-copy p {
-  color: #dededc;
+  color: #353535;
   font-size: 24px;
 }
 #fh5co-project .fh5co-project > a .fh5co-copy p:last-child {
@@ -1003,16 +996,6 @@ h1, h2, h3, h4, h5, h6, figure {
     bottom: 0;
   }
 }
-#fh5co-project .fh5co-project > a:hover:after {
-  opacity: 1;
-  visibility: visible;
-}
-@media screen and (max-width: 768px) {
-  #fh5co-project .fh5co-project > a:hover:after {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
 #fh5co-project .fh5co-project > a:hover .fh5co-copy {
   opacity: 1;
   visibility: visible;
@@ -1030,15 +1013,27 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 #fh5co-project .fh5co-project > a:hover img {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  transform: scale(1.1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+#fh5co-project .fh5co-project > a:hover img:after {
+  opacity: 1;
+  visibility: visible;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-project .fh5co-project > a:hover img:after {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 @media screen and (max-width: 768px) {
   #fh5co-project .fh5co-project > a:hover img {
-    -webkit-transform: scale(1);
     -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
   }

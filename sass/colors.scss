@@ -1,14 +1,3 @@
-@function val($map, $keys...) {
-	@each $key in $keys {
-		$map: map-get($map, $key);
-	}
-	@return $map;
-}
-
-@function _palette($keys...) {
-	@return val($palette, $keys...);
-}
-
 $palette: (
 	theme1: (
 		brand-primary: #F73859,
