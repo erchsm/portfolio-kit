@@ -81,6 +81,19 @@ h1, h2, h3, h4, h5, h6, figure {
 	background: _palette($theme, brand-primary);
 }
 
+.hideCodepenUi {
+	.cp_embed_wrapper {
+		overflow: hidden;
+		pointer-events: none
+	}
+	iframe {
+		width: 100%;
+		overflow: hidden;
+		@include translateY(-54px);
+		border: 1px solid rgb(238, 238, 238);
+	}
+}
+
 .fh5co-nav {
 	position: fixed;
 	top: 0;

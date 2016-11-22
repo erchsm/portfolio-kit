@@ -140,6 +140,21 @@ h1, h2, h3, h4, h5, h6, figure {
   background: #F73859;
 }
 
+.hideCodepenUi .cp_embed_wrapper {
+  overflow: hidden;
+  pointer-events: none;
+}
+.hideCodepenUi iframe {
+  width: 100%;
+  overflow: hidden;
+  -moz-transform: translateY(-54px);
+  -webkit-transform: translateY(-54px);
+  -ms-transform: translateY(-54px);
+  -o-transform: translateY(-54px);
+  transform: translateY(-54px);
+  border: 1px solid #eeeeee;
+}
+
 .fh5co-nav {
   position: fixed;
   top: 0;
