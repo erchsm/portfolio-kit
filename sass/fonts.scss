@@ -3,6 +3,11 @@ $font-secondary: times, serif;
 
 $proximaNovaPath: '../fonts/ProximaNova/ProximaNova-';
 
+@mixin font-smoothing() {
+	-webkit-font-smoothing: -subpixel-antialias;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 @font-face {
 	font-family: 'icomoon';
 	src:url('../fonts/icomoon/icomoon.eot?srf3rx');

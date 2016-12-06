@@ -7,6 +7,7 @@ var gulp             = require('gulp'),
 	rename           = require('gulp-rename'),
 	concat           = require('gulp-concat'),
 	notify           = require('gulp-notify'),
+    handlebars 		 = require('gulp-compile-handlebars'),
 	livereload       = require('gulp-livereload'),
 	plumber          = require('gulp-plumber'),
 	wait 			 = require('gulp-wait'),
@@ -45,9 +46,13 @@ gulp.task('styles', function() {
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest('css'))
 		.pipe(rename({ suffix: '.min' }))
-		// .pipe(cssnano())
-		// .pipe(gulp.dest('css'))
-		.pipe(browserSync.reload());
+		.pipe(cssnano())
+		.pipe(gulp.dest('css'))
+		.pipe(browserSync.stream());
+});
+
+gulp.task('handlebars', function() {
+
 });
 
 //scripts
@@ -116,9 +121,9 @@ gulp.task('default', function() {
 	gulp.watch('sass/**/*.scss', ['styles']);
 
 	//watch .js files
-	gulp.watch('*.html').on('change', browserSync.reload);
+	// gulp.watch('*.html').on('change', browserSync.reload);
 
 	gulp.watch('*.js').on('change', browserSync.reload);
-	// gulp.watch(['**/*.html', 'css/style.css', 'js/main.js']).on('change', browserSync.reload);
+	gulp.watch(['**/*.html']).on('change', browserSync.reload);
 	// gulp.watch('./*.sketch', ['export-slices', 'export-artboards']).on('change', browserSync.reload);
 });
