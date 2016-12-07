@@ -17,7 +17,7 @@
  *
  */
 
-'use strict';
+ 'use strict';
 
 // This gulpfile makes use of new JavaScript features.
 // Babel handles this without us having to do anything. It just works.
@@ -40,21 +40,21 @@ const reload = browserSync.reload;
 // Lint JavaScript
 gulp.task('lint', () =>
   gulp.src('app/scripts/main.js')
-    .pipe($.eslint())
-    .pipe($.eslint.format())
-    .pipe($.if(!browserSync.active, $.eslint.failOnError()))
-);
+  .pipe($.eslint())
+  .pipe($.eslint.format())
+  .pipe($.if(!browserSync.active, $.eslint.failOnError()))
+  );
 
 // Optimize images
 gulp.task('images', () =>
   gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe($.size({title: 'images'}))
-);
+  .pipe($.cache($.imagemin({
+    progressive: true,
+    interlaced: true
+  })))
+  .pipe(gulp.dest('dist/images'))
+  .pipe($.size({title: 'images'}))
+  );
 
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
@@ -62,50 +62,50 @@ gulp.task('copy', () =>
     'app/*',
     '!app/*.html',
     'node_modules/apache-server-configs/dist/.htaccess'
-  ], {
-    dot: true
-  }).pipe(gulp.dest('dist'))
-    .pipe($.size({title: 'copy'}))
-);
+    ], {
+      dot: true
+    }).pipe(gulp.dest('dist'))
+  .pipe($.size({title: 'copy'}))
+  );
 
 // Compile and automatically prefix stylesheets
 gulp.task('styles', () => {
   const AUTOPREFIXER_BROWSERS = [
-    'ie >= 10',
-    'ie_mob >= 10',
-    'ff >= 30',
-    'chrome >= 34',
-    'safari >= 7',
-    'opera >= 23',
-    'ios >= 7',
-    'android >= 4.4',
-    'bb >= 10'
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
   ];
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
     'app/styles/**/*.scss',
     'app/styles/**/*.css'
-  ])
-    .pipe($.newer('.tmp/styles'))
-    .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      precision: 10
-    }).on('error', $.sass.logError))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles'))
+    ])
+  .pipe($.newer('.tmp/styles'))
+  .pipe($.sourcemaps.init())
+  .pipe($.sass({
+    precision: 10
+  }).on('error', $.sass.logError))
+  .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+  .pipe(gulp.dest('.tmp/styles'))
     // Concatenate and minify styles
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.size({title: 'styles'}))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('dist/styles'));
-});
+  });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
 gulp.task('scripts', () =>
-    gulp.src([
+  gulp.src([
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
@@ -120,27 +120,27 @@ gulp.task('scripts', () =>
       './app/scripts/jquery.stellar.min.js',
       './app/scripts/main.js'
       // Other scripts
-    ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      .pipe($.uglify({preserveComments: 'some'}))
+      ])
+  .pipe($.newer('.tmp/scripts'))
+  .pipe($.sourcemaps.init())
+  .pipe($.babel())
+  .pipe($.sourcemaps.write())
+  .pipe(gulp.dest('.tmp/scripts'))
+  .pipe($.concat('main.min.js'))
+  .pipe($.uglify({preserveComments: 'some'}))
       // Output files
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest('dist/scripts'))
-);
+      );
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {
   return gulp.src('app/**/*.html')
-    .pipe($.useref({
-      searchPath: '{.tmp,app}',
-      noAssets: true
-    }))
+  .pipe($.useref({
+    searchPath: '{.tmp,app}',
+    noAssets: true
+  }))
 
     // Minify any HTML
     .pipe($.if('*.html', $.htmlmin({
@@ -157,7 +157,7 @@ gulp.task('html', () => {
     // Output files
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
     .pipe(gulp.dest('dist'));
-});
+  });
 
 // Clean output directory
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/{.git,.git/**,README.md,CNAME}'], {dot: true}));
@@ -199,7 +199,7 @@ gulp.task('serve:dist', ['default'], () =>
     server: 'dist',
     port: 3001
   })
-);
+  );
 
 // Build production files, the default task
 gulp.task('default', ['clean'], cb =>
@@ -208,8 +208,8 @@ gulp.task('default', ['clean'], cb =>
     ['html', 'scripts', 'images', 'copy'],
     'generate-service-worker',
     cb
-  )
-);
+    )
+  );
 
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
@@ -220,12 +220,12 @@ gulp.task('pagespeed', cb =>
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
   }, cb)
-);
+  );
 
 // Copy over the scripts that are used in importScripts as part of the generate-service-worker task.
 gulp.task('copy-sw-scripts', () => {
   return gulp.src(['node_modules/sw-toolbox/sw-toolbox.js', 'app/scripts/sw/runtime-caching.js'])
-    .pipe(gulp.dest('dist/scripts/sw'));
+  .pipe(gulp.dest('dist/scripts/sw'));
 });
 
 // See http://www.html5rocks.com/en/tutorials/service-worker/introduction/ for
@@ -242,8 +242,8 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
     cacheId: pkg.name || 'web-starter-kit',
     // sw-toolbox.js needs to be listed first. It sets up methods used in runtime-caching.js.
     importScripts: [
-      'scripts/sw/sw-toolbox.js',
-      'scripts/sw/runtime-caching.js'
+    'scripts/sw/sw-toolbox.js',
+    'scripts/sw/runtime-caching.js'
     ],
     staticFileGlobs: [
       // Add/remove glob patterns to match your directory setup.
@@ -251,7 +251,7 @@ gulp.task('generate-service-worker', ['copy-sw-scripts'], () => {
       `${rootDir}/scripts/**/*.js`,
       `${rootDir}/styles/**/*.css`,
       `${rootDir}/*.{html,json}`
-    ],
+      ],
     // Translates a static file path to the relative URL that it's served from.
     // This is '/' rather than path.sep because the paths returned from
     // glob always use '/'.
