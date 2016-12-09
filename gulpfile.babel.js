@@ -61,6 +61,7 @@ gulp.task('copy', () =>
   gulp.src([
     'app/*',
     '!app/*.html',
+    '!app/*.sketch',
     'node_modules/apache-server-configs/dist/.htaccess'
     ], {
       dot: true
@@ -118,7 +119,7 @@ gulp.task('scripts', () =>
       './app/scripts/jquery.magnific-popup.min.js',
       './app/scripts/magnific-popup-options.js',
       './app/scripts/jquery.stellar.min.js',
-      './app/scripts/main.js'
+      './app/scripts/main.js',
       // Other scripts
       ])
   .pipe($.newer('.tmp/scripts'))

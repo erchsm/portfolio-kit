@@ -1,3 +1,8 @@
+$font-primary: 'Proxima Nova', Arial, sans-serif;
+$font-secondary: times, serif;
+
+$proximaNovaPath: '../fonts/ProximaNova/ProximaNova-';
+
 @font-face {
 	font-family: 'icomoon';
 	src:url('../fonts/icomoon/icomoon.eot?srf3rx');
@@ -8,8 +13,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
-$proximaNovaPath: '../fonts/ProximaNova/ProximaNova-';
 
 @font-face {
 	font-family: 'Proxima Nova';

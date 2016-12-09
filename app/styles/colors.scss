@@ -1,30 +1,21 @@
-@function val($map, $keys...) {
-	@each $key in $keys {
-		$map: map-get($map, $key);
-	}
-	@return $map;
-}
-
-@function _palette($keys...) {
-	@return val($palette, $keys...);
-}
-
 $palette: (
-	theme1: (
-		brand-primary: #F73859,
-		brand-secondary: #f35f55, 
-		brand-white: #fff,
-		brand-black: #353535,
-		brand-gray: rgba(#2a3356, 0.9)
-	),
-	theme2: (
-		brand-primary: #F73859,
-		brand-secondary: #f35f55, 
-		brand-white: #fff,
-		brand-black: #353535,
-		brand-gray: #dededc,
-		brand-light-gray: tint(#dededc,60%)
-	)
+  theme1: (
+    brand-primary: #F73859,
+    brand-secondary: #f35f55,
+    brand-white: #FFFFFF,
+    brand-black: #353535,
+    brand-gray: rgba(#2a3356, 0.9)
+  ),
+  theme2: (
+    brand-primary: #E04E47,
+    brand-secondary: #E3690A,
+    brand-success : #78CA2A,
+    brand-warning: #E3690A,
+    brand-white: #FFFFFF,
+    brand-black: #353535,
+    brand-gray: #DEDEDC,
+    brand-light-gray: tint(#dededc,60%)
+  )
 );
 
 $theme: 'theme2';
