@@ -877,7 +877,7 @@ h1, h2, h3, h4, h5, h6, figure {
       .fh5co-copy {
         z-index: 12;
         position: relative;
-        padding: 20px;
+        padding: 20px 0px;
         text-align: left;
         background: _palette($theme,brand-white);
         @include border-radius(0 0 5px 5px);
@@ -890,8 +890,8 @@ h1, h2, h3, h4, h5, h6, figure {
           margin: 0 0 5px 0;
           padding: 0;
           color: _palette($theme,brand-black);
-          font-size: 32px;
-          font-weight: 400;
+          font-size: 24px;
+          font-weight: 600;
         }
         p {
           color: _palette($theme,brand-black);
@@ -908,13 +908,12 @@ h1, h2, h3, h4, h5, h6, figure {
           bottom: 0;
           color: _palette($theme,brand-black);
 
-          padding: 20px;
           background: _palette($theme,brand-white);
         }
 
       }
       &:hover {
-        @include shadows();
+        // @include shadows();
 
         @media screen and (max-width: $screen-sm ) {
           bottom: 0;
@@ -926,7 +925,6 @@ h1, h2, h3, h4, h5, h6, figure {
 
           @media screen and (max-width: $screen-sm ) {
             bottom: 0;
-            padding: 20px;
             background: _palette($theme,brand-white);
           }
         }
@@ -1041,7 +1039,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 
-.project-grid{
+.project-grid {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -1072,8 +1070,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
     @include transition(all .1s ease);
 
-    h3{
-      a{
+    h3 {
+      a {
         color: rgba(_palette($theme,brand-white),1);
       }
     }
@@ -1134,11 +1132,11 @@ h1, h2, h3, h4, h5, h6, figure {
         @include transition(all .1s ease);
       }
 
-      &:hover, &:focus{
-        &:before{
+      &:hover, &:focus {
+        &:before {
           opacity: 1;
         }
-        .desc{
+        .desc {
           bottom: 0;
         }
       }
@@ -1253,22 +1251,25 @@ h1, h2, h3, h4, h5, h6, figure {
     h2 {
       font-size: 48px;
       line-height: 1;
-      font-weight: 300;
+      font-weight: 600;
       color: _palette($theme,brand-black);
 
       @media screen and (max-width: $screen-sm) {
-        font-size: 32px;
+        font-size: 28px;
+        font-weight: 700;
       }
 
     }
     p {
       font-size: 20px;
       line-height: 1.5;
+      font-weight: 300;
       color: _palette($theme,brand-black);
 
       @media screen and (max-width: $screen-sm) {
         font-size: 18px;
         line-height: 1.2;
+        font-weight: 300;
       }
     }
     > span {
@@ -1279,6 +1280,10 @@ h1, h2, h3, h4, h5, h6, figure {
       font-size: 13px;
       letter-spacing: 2px;
       color: tint(_palette($theme,brand-black), 0%);
+
+      @media screen and (max-width: $screen-sm) {
+        display: none;
+      }
     }
     &.glyph {
       &:last-child {
@@ -1290,7 +1295,12 @@ h1, h2, h3, h4, h5, h6, figure {
           width: 1px;
           height: 70px;
           background: darken(_palette($theme, brand-gray), 10%);
-          margin-top: 20px;
+          margin-top: calc(20px + 3.5em);
+        }
+        @media screen and (max-width: $screen-sm) {
+          &:after {
+            margin-top: 20px;
+          }
         }
       }
     }
@@ -1414,6 +1424,7 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 0;
     margin: 0;
     text-align: center;
+    margin-top: 15px;
     li {
       padding: 0;
       margin: 0;
@@ -1548,7 +1559,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle i::after {
   bottom: -7px;
-  width: 13px;
+  // width: 13px;
 }
 .fh5co-nav-toggle:hover i::before {
 }
