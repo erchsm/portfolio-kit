@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="533px" height="689px" viewBox="0 0 533 689" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="485px" height="673px" viewBox="0 0 485 673" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
     <title>images/banner_hero</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="-3.77394473e-13" y="367.34398" width="211.247075" height="211.247075"></rect>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="211.247075" height="211.247075" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-        <polygon id="path-3" points="373.394097 -5.43869101e-15 541.788194 296.985953 205 296.985953"></polygon>
-        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="336.788194" height="296.985953" fill="white">
-            <use xlink:href="#path-3"></use>
-        </mask>
-    </defs>
+    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD-Copy">
-            <g id="images/banner_hero" transform="translate(-9.000000, -127.000000)">
-                <rect id="Rectangle-8" fill-opacity="0" fill="#FFFFFF" x="9" y="127" width="1440" height="706"></rect>
-                <g id="Group">
-                    <circle id="Oval-2" stroke="#E04E47" stroke-width="10" cx="408.612199" cy="686.528611" r="123.73043"></circle>
-                    <use id="Rectangle" stroke="#234CDB" mask="url(#mask-2)" stroke-width="16" xlink:href="#path-1"></use>
-                    <use id="Rectangle-4" stroke="#78CA2A" mask="url(#mask-4)" stroke-width="20" xlink:href="#path-3"></use>
+        <g id="Desktop-HD-Copy" transform="translate(0.000000, -73.000000)">
+            <g id="images/banner_hero" transform="translate(-30.000000, -127.000000)">
+                <g transform="translate(0.000000, 200.000000)">
+                    <rect id="Rectangle-2" fill="#234CDB" x="134" y="0" width="166" height="229"></rect>
+                    <rect id="Rectangle-2-Copy-2" fill="#E04E47" x="0" y="488" width="134" height="185"></rect>
+                    <rect id="Rectangle-2-Copy" fill="#353535" transform="translate(368.539157, 438.500000) rotate(90.000000) translate(-368.539157, -438.500000) " x="263.039157" y="292.960843" width="211" height="291.078313"></rect>
                 </g>
             </g>
         </g>
