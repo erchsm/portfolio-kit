@@ -69,7 +69,8 @@ h1, h2, h3, h4, h5, h6, figure {
   color: _palette($theme,brand-black);
   font-family: $font-primary;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  line-height: 1;
+  letter-spacing: -0.02em;
   margin: 0 0 20px 0;
 }
 ::-webkit-selection {
@@ -295,6 +296,7 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
 }
+
 #fh5co-header,
 #fh5co-counter,
 .fh5co-bg {
@@ -306,7 +308,12 @@ h1, h2, h3, h4, h5, h6, figure {
   &.full-bleed {
     background-size: initial;
   }
+  &.right {
+    background-position: right center;
+    background-size: contain;
+  }
 }
+
 .fh5co-bg {
   background-size: cover;
   background-position: center center;
@@ -314,8 +321,6 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 100%;
   float: left;
   position: relative;
-}
-#fh5co-header {
 }
 
 .fh5co-cover {
@@ -552,16 +557,16 @@ h1, h2, h3, h4, h5, h6, figure {
       }
 
       &:not(:first-of-type) {
-        margin-top: calc(45px + 22.5px);
+        margin-top: calc(58px + 22.5px);
 
         &:before, &:after {
           content: '';
           position: absolute;
           background: _palette($theme,brand-white);
-          width: 45px;
+          width: 58px;
           height: 2px;
-          left: calc(50% - (45px / 2));
-          margin-top: calc((-45px / 2) - 10px);
+          left: calc(50% - (58px / 2));
+          margin-top: calc((-58px / 2) - 10px);
         }
         &:before {
           @include rotate(-45deg);
@@ -855,7 +860,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
       img {
         position: relative;
-        @include scale(1.1);
+        @include scale(1);
         transform-origin: bottom;
         @include transition(all .5s _animation(easing));
 
@@ -880,27 +885,27 @@ h1, h2, h3, h4, h5, h6, figure {
         position: relative;
         padding: 20px 0px;
         text-align: left;
-        background: _palette($theme,brand-white);
+        background: darken(_palette($theme,brand-black),10%);
         @include border-radius(0 0 5px 5px);
         @include transition(all .5s _animation(easing));
         // @include translateY(100%);
 
-        > span {
+        span {
           display: block;
           margin-bottom: 15px;
           font-weight: 300;
           font-size: 20px;
-          color: lighten(_palette($theme,brand-black), 0%);
+          color: lighten(_palette($theme,brand-white), 0%);
         }
         h3 {
           margin: 0 0 5px 0;
           padding: 0;
-          color: _palette($theme,brand-black);
-          font-size: 24px;
+          color: _palette($theme,brand-white);
+          font-size: 48px;
           font-weight: 600;
         }
         p {
-          color: _palette($theme,brand-black);
+          color: _palette($theme,brand-white);
           font-size: 24px;
           &:last-child {
             margin-bottom: 0;
@@ -1196,8 +1201,8 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 5em 0;
   }
 
-  &.section-white {
-    background: rgba(_palette($theme,brand-white),1);
+  &--white {
+    background-color: rgba(_palette($theme,brand-white),1);
 
     .fh5co-heading {
       h2 {
@@ -1217,26 +1222,26 @@ h1, h2, h3, h4, h5, h6, figure {
       padding-left: 30px;
       padding-right: 30px;
       &:hover {
-        background: _palette($theme, brand-white) !important;
+        background-color: _palette($theme, brand-white) !important;
         // @include shadows();
       }
     }
   }
 
-  &.section-black {
-    background: darken(_palette($theme,brand-black),10%);
+  &--black {
+    background-color: darken(_palette($theme,brand-black),10%);
 
     .fh5co-heading {
       h2 {
-        color: _palette($theme,brand-gray);
+        color: _palette($theme,brand-white);
       }
       p {
         color: lighten(_palette($theme,brand-black),10%);
       }
     }
   }
-  &.section-gray {
-    background: _palette($theme,brand-gray);
+  &--gray {
+    background-color: _palette($theme,brand-gray);
 
     .fh5co-heading {
       h2 {
@@ -1258,8 +1263,7 @@ h1, h2, h3, h4, h5, h6, figure {
     h2 {
       font-size: 58px;
       line-height: 1;
-      font-weight: 600;
-      color: _palette($theme,brand-black);
+      font-weight: 700;
 
       @media screen and (max-width: $screen-sm) {
         font-size: 28px;
@@ -1270,7 +1274,6 @@ h1, h2, h3, h4, h5, h6, figure {
       font-size: 24px;
       line-height: 1.275em;
       font-weight: 300;
-      color: #353535;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -1278,7 +1281,6 @@ h1, h2, h3, h4, h5, h6, figure {
       font-size: 20px;
       line-height: 1.5;
       font-weight: 300;
-      color: _palette($theme,brand-black);
 
       @media screen and (max-width: $screen-sm) {
         font-size: 18px;
@@ -1304,11 +1306,13 @@ h1, h2, h3, h4, h5, h6, figure {
           content: '';
           position: absolute;
           display: block;
-          left: 50%;
-          width: 1px;
-          height: 70px;
-          background: darken(_palette($theme, brand-gray), 10%);
-          margin-top: calc(20px + 3.5em);
+          left: 0%;
+          height: 3px;
+          width: 100px;
+          margin-left: 15px;
+          margin-top: 30px;
+          background: darken(_palette($theme, brand-black), 0%);
+          // margin-top: calc(20px + 3.5em);
         }
         @media screen and (max-width: $screen-sm) {
           &:after {
@@ -1524,8 +1528,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
 // Burger Menu
 .fh5co-nav-toggle {
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   text-decoration: none;
 
@@ -1553,8 +1557,8 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
   i, i::before, i::after {
-    width: 25px;
-    height: 1px;
+    width: 32px;
+    height: 2px;
     background: _palette($theme,brand-black);
     color: _palette($theme,brand-black);
   }
@@ -1570,12 +1574,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-nav-toggle i::before {
-  top: -8px;
+  top: -7px;
   width: inherit;
 }
 .fh5co-nav-toggle i::after {
-  bottom: -8px;
-  width: 16px;
+  bottom: -7px;
+  width: inherit;
 }
 .fh5co-nav-toggle:hover i::before {
 }
@@ -1586,7 +1590,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle.active i::before {
   top: 0;
-  width: 25px;
+  width: 32px;
   background: _palette($theme,brand-black);
   -webkit-transform: rotateZ(45deg);
   -moz-transform: rotateZ(45deg);
@@ -1596,7 +1600,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle.active i::after {
   bottom: 0;
-  width: 25px;
+  width: 32px;
   background: _palette($theme,brand-black);
   -webkit-transform: rotateZ(-45deg);
   -moz-transform: rotateZ(-45deg);
