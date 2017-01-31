@@ -883,29 +883,45 @@ h1, h2, h3, h4, h5, h6, figure {
       .fh5co-copy {
         z-index: 12;
         position: relative;
-        padding: 20px 0px;
+        padding: 3em 0px;
         text-align: left;
-        background: darken(_palette($theme,brand-black),10%);
         @include border-radius(0 0 5px 5px);
         @include transition(all .5s _animation(easing));
         // @include translateY(100%);
 
+        &--black {
+          background: darken(_palette($theme,brand-black),10%);
+
+          h3, span, p, i {
+            color: lighten(_palette($theme,brand-white), 0%);
+          }
+        }
+        &--white {
+          background: _palette($theme,brand-white);
+          border: solid 1px;
+          border-top: none;
+
+          h3, span, p, i {
+            color: lighten(_palette($theme,brand-black), 0%);
+          }
+        }
         span {
           display: block;
           margin-bottom: 15px;
           font-weight: 300;
           font-size: 20px;
-          color: lighten(_palette($theme,brand-white), 0%);
         }
         h3 {
           margin: 0 0 5px 0;
           padding: 0;
-          color: _palette($theme,brand-white);
           font-size: 48px;
           font-weight: 600;
+
+          @media screen and (max-width: $screen-sm) {
+            font-size: 32px;
+          }
         }
         p {
-          color: _palette($theme,brand-white);
           font-size: 24px;
           &:last-child {
             margin-bottom: 0;
@@ -917,9 +933,6 @@ h1, h2, h3, h4, h5, h6, figure {
           visibility: visible;
           opacity: 1;
           bottom: 0;
-          color: _palette($theme,brand-black);
-
-          background: _palette($theme,brand-white);
         }
 
       }
@@ -933,10 +946,13 @@ h1, h2, h3, h4, h5, h6, figure {
         .fh5co-copy {
           opacity: 1;
           visibility: visible;
+          h3 {
+            text-decoration: underline;
+          }
 
           @media screen and (max-width: $screen-sm ) {
             bottom: 0;
-            background: _palette($theme,brand-white);
+            // background: _palette($theme,brand-white);
           }
         }
         img {
@@ -1228,20 +1244,29 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
 
-  &--black {
-    background-color: darken(_palette($theme,brand-black),10%);
-
+  &--blue {
+    background-color: _palette($theme, brand-blue);
     .fh5co-heading {
       h2 {
         color: _palette($theme,brand-white);
       }
+    }
+  }
+
+  &--black {
+    background-color: darken(_palette($theme, brand-black),10%);
+
+    .fh5co-heading {
+      h2 {
+        color: _palette($theme, brand-white);
+      }
       p {
-        color: lighten(_palette($theme,brand-black),10%);
+        color: lighten(_palette($theme, brand-black),10%);
       }
     }
   }
   &--gray {
-    background-color: _palette($theme,brand-gray);
+    background-color: _palette($theme, brand-gray);
 
     .fh5co-heading {
       h2 {
@@ -1261,9 +1286,9 @@ h1, h2, h3, h4, h5, h6, figure {
       margin-bottom: 2em;
     }
     h2 {
-      font-size: 58px;
+      font-size: 40px;
       line-height: 1;
-      font-weight: 700;
+      font-weight: 400;
 
       @media screen and (max-width: $screen-sm) {
         font-size: 28px;
@@ -1549,6 +1574,7 @@ h1, h2, h3, h4, h5, h6, figure {
     text-transform: uppercase;
     text-indent: -55px;
     transition: all .2s ease-out;
+
     &::before, &::after {
       content:'';
       position: absolute;
@@ -1587,11 +1613,24 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle.active i {
   background: transparent;
+
+  &:hover, &:focus, &:active {
+    &::before {
+      background: rgba(_palette($theme,brand-black), .95);
+    }
+    &::after {
+      background: rgba(_palette($theme,brand-black), .95);
+    }
+  }
 }
+.fh5co-nav-toggle.active i::before,
+.fh5co-nav-toggle.active i::after {
+  background: rgba(_palette($theme,brand-black), .8);
+}
+
 .fh5co-nav-toggle.active i::before {
   top: 0;
   width: 32px;
-  background: _palette($theme,brand-black);
   -webkit-transform: rotateZ(45deg);
   -moz-transform: rotateZ(45deg);
   -ms-transform: rotateZ(45deg);
@@ -1601,7 +1640,6 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-nav-toggle.active i::after {
   bottom: 0;
   width: 32px;
-  background: _palette($theme,brand-black);
   -webkit-transform: rotateZ(-45deg);
   -moz-transform: rotateZ(-45deg);
   -ms-transform: rotateZ(-45deg);
