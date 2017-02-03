@@ -61,6 +61,7 @@ a {
     text-decoration: none;
   }
 }
+
 p {
   margin-bottom: 20px;
 }
@@ -189,6 +190,7 @@ h1, h2, h3, h4, h5, h6, figure {
           padding: 20px;
           @include border-radius(4px);
           @include transition(all 0s ease);
+
           &:before {
             bottom: 100%;
             left: 40px;
@@ -300,9 +302,9 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-header,
 #fh5co-counter,
 .fh5co-bg {
-  background-size: contain;
+  background-size: 60%;
   background-position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   position: relative;
 
   &.full-bleed {
@@ -311,6 +313,10 @@ h1, h2, h3, h4, h5, h6, figure {
   &.right {
     background-position: right center;
     background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @media screen and (max-width: $screen-sm) {
+    background-size: contain
   }
 }
 
@@ -383,34 +389,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 
-.fh5co-staff {
-  text-align: center;
-  margin-bottom: 30px;
-  background: _palette($theme,brand-white);
-  padding: 30px;
-  float: left;
-  width: 100%;
-  img {
-    width: 100px;
-    margin-bottom: 20px;
-    @include border-radius(50%);
-  }
-  h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  p {
-    margin-bottom: 30px;
-  }
-  .role {
-    color: lighten(_palette($theme,brand-black), 75%);
-    margin-bottom: 30px;
-    font-weight: normal;
-    display: block;
-  }
-}
-
-
 .pagination {
   a {
     background: none;
@@ -421,7 +399,7 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
   > li {
-    > a{
+    > a {
       margin: 0 2px;
       font-size: 18px;
       padding: 0!important;
@@ -547,6 +525,7 @@ h1, h2, h3, h4, h5, h6, figure {
       margin-bottom: 0px;
       margin-top: 0;
       font-size: 87px;
+      font-style: italic;
       line-height: 1;
       font-family: $font-primary;
       font-weight: 700;
@@ -885,7 +864,7 @@ h1, h2, h3, h4, h5, h6, figure {
         position: relative;
         padding: 3em 0px;
         text-align: left;
-        @include border-radius(0 0 5px 5px);
+        // @include border-radius(0 0 5px 5px);
         @include transition(all .5s _animation(easing));
         // @include translateY(100%);
 
@@ -905,26 +884,31 @@ h1, h2, h3, h4, h5, h6, figure {
             color: lighten(_palette($theme,brand-black), 0%);
           }
         }
-        span {
-          display: block;
-          margin-bottom: 15px;
-          font-weight: 300;
-          font-size: 20px;
-        }
         h3 {
           margin: 0 0 5px 0;
           padding: 0;
-          font-size: 48px;
+          font-size: 40px;
           font-weight: 600;
 
           @media screen and (max-width: $screen-sm) {
             font-size: 32px;
           }
         }
+        span {
+          display: block;
+          margin-bottom: 15px;
+          font-weight: 300;
+          font-size: 20px;
+        }
         p {
           font-size: 24px;
           &:last-child {
             margin-bottom: 0;
+          }
+          @media screen and (max-width: $screen-sm) {
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 300;
           }
         }
 
@@ -952,7 +936,6 @@ h1, h2, h3, h4, h5, h6, figure {
 
           @media screen and (max-width: $screen-sm ) {
             bottom: 0;
-            // background: _palette($theme,brand-white);
           }
         }
         img {
@@ -1438,12 +1421,12 @@ h1, h2, h3, h4, h5, h6, figure {
   position: fixed;
   z-index: 1901;
   width: 100%;
-  background: rgba(_palette($theme,brand-white), .90);
+  background: rgba(_palette($theme,brand-white), .85);
   top: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  padding: 45px 40px 40px 40px;
+  padding: 50px 40px 40px 40px;
   overflow-y: auto;
   display: block;
   opacity: 0;
@@ -1458,8 +1441,14 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   a {
     color: rgba(_palette($theme,brand-black), .8);
-    font-size: 32px;
-    line-height: 3;
+    font-size: 30px;
+    line-height: 1;
+    margin-bottom: 32px;
+
+    @media screen and(max-width: $screen-sm){
+      font-size: 26px;
+      font-weight: 600;
+    }
     &:hover {
       color: rgba(_palette($theme,brand-black), .95);
     }
@@ -1468,33 +1457,47 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 0;
     margin: 0;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 3em;
+
     li {
       padding: 0;
       margin: 0;
       list-style: none;
+      margin-bottom: 3em;
+
       > ul {
-        padding-left: 20px;
         display: none;
         a {
           line-height: 1.5;
         }
       }
       &.offcanvas-has-dropdown {
+        ul {
+          margin-top: 1em;
+          li {
+            margin-bottom: 1em;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
         > a {
           display: block;
           position: relative;
+
           &:after {
             position: absolute;
             @include icomoon;
             content: "\e921";
-            line-height: 3;
             color: rgba(_palette($theme,brand-black),.2);
             @include transition(all .5s ease);
           }
         }
         &.active {
           a {
+            margin-bottom: 0;
             &:after {
               -webkit-transform: rotate(-180deg);
               -moz-transform: rotate(-180deg);
@@ -1585,8 +1588,7 @@ h1, h2, h3, h4, h5, h6, figure {
   i, i::before, i::after {
     width: 32px;
     height: 2px;
-    background: _palette($theme,brand-black);
-    color: _palette($theme,brand-black);
+    background: transparent;
   }
   &.fh5co-nav-white {
     > i {
@@ -1660,8 +1662,12 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 44px;
   z-index: 2001;
   border-bottom: none !important;
+  opacity: 1;
+  @include transition(opacity .5s ease);
+
   .scrolled & {
-    top: 15px;
+    display: none;
+    opacity: 0;
   }
   @media screen and (max-width: $screen-sm) {
     padding: 6px 0 0 0;
@@ -1685,6 +1691,10 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .mb30 {
   margin-bottom: 30px!important;
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 .row-pb-md {
   padding-bottom: 4em!important;
