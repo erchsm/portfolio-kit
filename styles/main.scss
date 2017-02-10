@@ -315,8 +315,23 @@ h1, h2, h3, h4, h5, h6, figure {
     background-size: contain;
     background-repeat: no-repeat;
   }
+  &.left {
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
   @media screen and (max-width: $screen-sm) {
     background-size: contain
+  }
+
+  .overlay {
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(_palette($theme,brand-black), .9);
   }
 }
 
@@ -330,22 +345,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 95vh;
+  height: 70vh;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   float: left;
   width: 100%;
-
-  .overlay {
-    z-index: 0;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(_palette($theme,brand-black), .9);
-  }
 
   > .fh5co-container {
     position: relative;
@@ -359,7 +364,7 @@ h1, h2, h3, h4, h5, h6, figure {
   .display-t,
   .display-tc {
     z-index: 9;
-    height: 95vh;
+    height: 70vh;
     display: table;
     width: 100%;
 
@@ -524,7 +529,7 @@ h1, h2, h3, h4, h5, h6, figure {
     h1 {
       margin-bottom: 0px;
       margin-top: 0;
-      font-size: 87px;
+      font-size: 60px;
       font-style: italic;
       line-height: 1;
       font-family: $font-primary;
@@ -877,8 +882,8 @@ h1, h2, h3, h4, h5, h6, figure {
         }
         &--white {
           background: _palette($theme,brand-white);
-          border: solid 1px;
-          border-top: none;
+          // border: solid 1px;
+          // border-top: none;
 
           h3, span, p, i {
             color: lighten(_palette($theme,brand-black), 0%);
@@ -894,11 +899,27 @@ h1, h2, h3, h4, h5, h6, figure {
             font-size: 32px;
           }
         }
+        h4 {
+          margin: 0 0 5px 0;
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+
+          @media screen and (max-width: $screen-sm) {
+            font-size: 20px;
+          }
+        }
         span {
           display: block;
           margin-bottom: 15px;
           font-weight: 300;
           font-size: 20px;
+
+          @media screen and (max-width: $screen-sm) {
+            font-size: 18px;
+          }
         }
         p {
           font-size: 24px;
@@ -930,7 +951,7 @@ h1, h2, h3, h4, h5, h6, figure {
         .fh5co-copy {
           opacity: 1;
           visibility: visible;
-          h3 {
+          h1, h2, h3, h4, figure {
             text-decoration: underline;
           }
 
@@ -1240,7 +1261,7 @@ h1, h2, h3, h4, h5, h6, figure {
     background-color: darken(_palette($theme, brand-black),10%);
 
     .fh5co-heading {
-      h2 {
+      h1, h2, h3, h4, h5, h6, figure {
         color: _palette($theme, brand-white);
       }
       p {
@@ -1252,7 +1273,7 @@ h1, h2, h3, h4, h5, h6, figure {
     background-color: _palette($theme, brand-gray);
 
     .fh5co-heading {
-      h2 {
+      h1, h2, h3, h4, h5, h6, figure {
         color: _palette($theme,brand-white);
       }
       p {
@@ -1281,9 +1302,13 @@ h1, h2, h3, h4, h5, h6, figure {
     h3 {
       font-size: 24px;
       line-height: 1.275em;
-      font-weight: 300;
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 2px;
+
+      @media screen and (max-width: $screen-sm) {
+        font-size: 20px;
+      }
     }
     p {
       font-size: 20px;
@@ -1314,17 +1339,15 @@ h1, h2, h3, h4, h5, h6, figure {
           content: '';
           position: absolute;
           display: block;
-          left: 0%;
-          height: 3px;
-          width: 100px;
-          margin-left: 15px;
-          margin-top: 30px;
-          background: darken(_palette($theme, brand-black), 0%);
-          // margin-top: calc(20px + 3.5em);
+          left: 50%;
+          height: 60px;
+          width: 2px;
+          margin-top: 10px;
+          background: darken(_palette($theme, brand-white), 0%);
         }
         @media screen and (max-width: $screen-sm) {
           &:after {
-            margin-top: 20px;
+            margin-top: 0px;
           }
         }
       }
@@ -1663,11 +1686,17 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index: 2001;
   border-bottom: none !important;
   opacity: 1;
-  @include transition(opacity .5s ease);
+  @include translateY(0%);
+  @include transition(all .2s _animation(easing));
 
   .scrolled & {
-    display: none;
+    @include translateY(-100%);
     opacity: 0;
+
+    &.active {
+      @include translateY(0%);
+      opacity: 1;
+    }
   }
   @media screen and (max-width: $screen-sm) {
     padding: 6px 0 0 0;
@@ -1689,18 +1718,18 @@ h1, h2, h3, h4, h5, h6, figure {
     border-color: _palette($theme, brand-primary);
   }
 }
-.mb30 {
-  margin-bottom: 30px!important;
+.mb4 {
+  margin-bottom: 4em !important;
 }
 .row {
   margin-left: 0;
   margin-right: 0;
 }
 .row-pb-md {
-  padding-bottom: 4em!important;
+  padding-bottom: 4em !important;
 }
 .row-pb-sm {
-  padding-bottom: 2em!important;
+  padding-bottom: 2em !important;
 }
 
 .fh5co-loader {
