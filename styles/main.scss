@@ -29,6 +29,9 @@ body {
   color: _palette($theme,brand-black);
   background: #fff;
 }
+b, strong {
+  font-weight: 600;
+}
 #page {
   position: relative;
   overflow-x: hidden;
@@ -345,7 +348,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 70vh;
+  height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -364,7 +367,7 @@ h1, h2, h3, h4, h5, h6, figure {
   .display-t,
   .display-tc {
     z-index: 9;
-    height: 70vh;
+    height: 80vh;
     display: table;
     width: 100%;
 
@@ -530,7 +533,8 @@ h1, h2, h3, h4, h5, h6, figure {
       margin-bottom: 0px;
       margin-top: 0;
       font-size: 60px;
-      font-style: italic;
+      letter-spacing: 0.01rem;
+      font-style: normal;
       line-height: 1;
       font-family: $font-primary;
       font-weight: 700;
@@ -1300,14 +1304,11 @@ h1, h2, h3, h4, h5, h6, figure {
       }
     }
     h3 {
-      font-size: 24px;
-      line-height: 1.275em;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      font-size: 32px;
+      font-weight: 600;
 
       @media screen and (max-width: $screen-sm) {
-        font-size: 20px;
+        font-size: 24px;
       }
     }
     p {
@@ -1464,13 +1465,13 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   a {
     color: rgba(_palette($theme,brand-black), .8);
-    font-size: 30px;
+    font-size: 28px;
     line-height: 1;
     margin-bottom: 32px;
 
     @media screen and(max-width: $screen-sm){
       font-size: 26px;
-      font-weight: 600;
+      // font-weight: 600;
     }
     &:hover {
       color: rgba(_palette($theme,brand-black), .95);
