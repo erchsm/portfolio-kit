@@ -9,3 +9,15 @@ app.yaml
 */.sketch
 */**/.sketch
 *-*-*.sketch
+
+#illustrator
+*.ai
+*/.ai
+*/**/.ai
+*-*-*.ai
+
+#Principle
+*.prd
+*/.prd
+*/**/.prd
+*-*-*.prd

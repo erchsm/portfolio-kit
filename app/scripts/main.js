@@ -6,22 +6,28 @@
     Android: function() {
       return navigator.userAgent.match(/Android/i);
     },
-      BlackBerry: function() {
+    BlackBerry: function() {
       return navigator.userAgent.match(/BlackBerry/i);
     },
-      iOS: function() {
+    iOS: function() {
       return navigator.userAgent.match(/iPhone|iPad|iPod/i);
     },
-      Opera: function() {
+    Opera: function() {
       return navigator.userAgent.match(/Opera Mini/i);
     },
-      Windows: function() {
+    Windows: function() {
       return navigator.userAgent.match(/IEMobile/i);
     },
-      any: function() {
+    any: function() {
       return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
   };
+
+  var isBrowser =  {
+    safari: function() {
+      return /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+    }
+  }
 
 
   var mobileMenuOutsideClick = function() {
@@ -242,7 +248,8 @@
   };
 
   var parallax = function() {
-    if ( !isMobile.any()) {
+    console.log(isBrowser.safari());
+    if (!isMobile.any() && !isBrowser.safari()) {
       $(window).stellar();
     }
   };

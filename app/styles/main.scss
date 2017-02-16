@@ -29,6 +29,9 @@ body {
   color: _palette($theme,brand-black);
   background: #fff;
 }
+b, strong {
+  font-weight: 600;
+}
 #page {
   position: relative;
   overflow-x: hidden;
@@ -61,6 +64,7 @@ a {
     text-decoration: none;
   }
 }
+
 p {
   margin-bottom: 20px;
 }
@@ -69,6 +73,8 @@ h1, h2, h3, h4, h5, h6, figure {
   color: _palette($theme,brand-black);
   font-family: $font-primary;
   font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
   margin: 0 0 20px 0;
 }
 ::-webkit-selection {
@@ -187,6 +193,7 @@ h1, h2, h3, h4, h5, h6, figure {
           padding: 20px;
           @include border-radius(4px);
           @include transition(all 0s ease);
+
           &:before {
             bottom: 100%;
             left: 40px;
@@ -294,36 +301,31 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
 }
+
 #fh5co-header,
 #fh5co-counter,
 .fh5co-bg {
-  background-size: contain;
+  background-size: 60%;
   background-position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   position: relative;
 
   &.full-bleed {
     background-size: initial;
   }
-}
-.fh5co-bg {
-  background-size: cover;
-  background-position: center center;
-  position: relative;
-  width: 100%;
-  float: left;
-  position: relative;
-}
-#fh5co-header {
-}
-
-.fh5co-cover {
-  height: 95vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  float: left;
-  width: 100%;
+  &.right {
+    background-position: right center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &.left {
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  @media screen and (max-width: $screen-sm) {
+    background-size: contain
+  }
 
   .overlay {
     z-index: 0;
@@ -334,6 +336,24 @@ h1, h2, h3, h4, h5, h6, figure {
     right: 0;
     background: rgba(_palette($theme,brand-black), .9);
   }
+}
+
+.fh5co-bg {
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  width: 100%;
+  float: left;
+  position: relative;
+}
+
+.fh5co-cover {
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  float: left;
+  width: 100%;
 
   > .fh5co-container {
     position: relative;
@@ -347,7 +367,7 @@ h1, h2, h3, h4, h5, h6, figure {
   .display-t,
   .display-tc {
     z-index: 9;
-    height: 95vh;
+    height: 80vh;
     display: table;
     width: 100%;
 
@@ -377,34 +397,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 
-.fh5co-staff {
-  text-align: center;
-  margin-bottom: 30px;
-  background: _palette($theme,brand-white);
-  padding: 30px;
-  float: left;
-  width: 100%;
-  img {
-    width: 100px;
-    margin-bottom: 20px;
-    @include border-radius(50%);
-  }
-  h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  p {
-    margin-bottom: 30px;
-  }
-  .role {
-    color: lighten(_palette($theme,brand-black), 75%);
-    margin-bottom: 30px;
-    font-weight: normal;
-    display: block;
-  }
-}
-
-
 .pagination {
   a {
     background: none;
@@ -415,7 +407,7 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
   > li {
-    > a{
+    > a {
       margin: 0 2px;
       font-size: 18px;
       padding: 0!important;
@@ -540,7 +532,9 @@ h1, h2, h3, h4, h5, h6, figure {
     h1 {
       margin-bottom: 0px;
       margin-top: 0;
-      font-size: 55px;
+      font-size: 60px;
+      letter-spacing: 0.01rem;
+      font-style: normal;
       line-height: 1;
       font-family: $font-primary;
       font-weight: 700;
@@ -551,16 +545,16 @@ h1, h2, h3, h4, h5, h6, figure {
       }
 
       &:not(:first-of-type) {
-        margin-top: calc(45px + 22.5px);
+        margin-top: calc(58px + 22.5px);
 
         &:before, &:after {
           content: '';
           position: absolute;
           background: _palette($theme,brand-white);
-          width: 45px;
+          width: 58px;
           height: 2px;
-          left: calc(50% - (45px / 2));
-          margin-top: calc((-45px / 2) - 10px);
+          left: calc(50% - (58px / 2));
+          margin-top: calc((-58px / 2) - 10px);
         }
         &:before {
           @include rotate(-45deg);
@@ -854,7 +848,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
       img {
         position: relative;
-        @include scale(1.1);
+        @include scale(1);
         transform-origin: bottom;
         @include transition(all .5s _animation(easing));
 
@@ -877,27 +871,69 @@ h1, h2, h3, h4, h5, h6, figure {
       .fh5co-copy {
         z-index: 12;
         position: relative;
-        padding: 20px;
+        padding: 3em 0px;
         text-align: left;
-        background: _palette($theme,brand-white);
-        @include border-radius(0 0 5px 5px);
+        // @include border-radius(0 0 5px 5px);
         @include transition(all .5s _animation(easing));
         // @include translateY(100%);
 
-        // opacity: 0;
+        &--black {
+          background: darken(_palette($theme,brand-black),10%);
 
+          h3, span, p, i {
+            color: lighten(_palette($theme,brand-white), 0%);
+          }
+        }
+        &--white {
+          background: _palette($theme,brand-white);
+          // border: solid 1px;
+          // border-top: none;
+
+          h3, span, p, i {
+            color: lighten(_palette($theme,brand-black), 0%);
+          }
+        }
         h3 {
           margin: 0 0 5px 0;
           padding: 0;
-          color: _palette($theme,brand-black);
-          font-size: 32px;
+          font-size: 40px;
+          font-weight: 600;
+
+          @media screen and (max-width: $screen-sm) {
+            font-size: 32px;
+          }
+        }
+        h4 {
+          margin: 0 0 5px 0;
+          font-size: 24px;
           font-weight: 400;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+
+          @media screen and (max-width: $screen-sm) {
+            font-size: 20px;
+          }
+        }
+        span {
+          display: block;
+          margin-bottom: 15px;
+          font-weight: 300;
+          font-size: 20px;
+
+          @media screen and (max-width: $screen-sm) {
+            font-size: 18px;
+          }
         }
         p {
-          color: _palette($theme,brand-black);
           font-size: 24px;
           &:last-child {
             margin-bottom: 0;
+          }
+          @media screen and (max-width: $screen-sm) {
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 300;
           }
         }
 
@@ -906,15 +942,11 @@ h1, h2, h3, h4, h5, h6, figure {
           visibility: visible;
           opacity: 1;
           bottom: 0;
-          color: _palette($theme,brand-black);
-
-          padding: 20px;
-          background: _palette($theme,brand-white);
         }
 
       }
       &:hover {
-        @include shadows();
+        // @include shadows();
 
         @media screen and (max-width: $screen-sm ) {
           bottom: 0;
@@ -923,11 +955,12 @@ h1, h2, h3, h4, h5, h6, figure {
         .fh5co-copy {
           opacity: 1;
           visibility: visible;
+          h1, h2, h3, h4, figure {
+            text-decoration: underline;
+          }
 
           @media screen and (max-width: $screen-sm ) {
             bottom: 0;
-            padding: 20px;
-            background: _palette($theme,brand-white);
           }
         }
         img {
@@ -1041,7 +1074,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 
-.project-grid{
+.project-grid {
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -1072,8 +1105,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
     @include transition(all .1s ease);
 
-    h3{
-      a{
+    h3 {
+      a {
         color: rgba(_palette($theme,brand-white),1);
       }
     }
@@ -1134,11 +1167,11 @@ h1, h2, h3, h4, h5, h6, figure {
         @include transition(all .1s ease);
       }
 
-      &:hover, &:focus{
-        &:before{
+      &:hover, &:focus {
+        &:before {
           opacity: 1;
         }
-        .desc{
+        .desc {
           bottom: 0;
         }
       }
@@ -1192,8 +1225,8 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 5em 0;
   }
 
-  &.section-white {
-    background: rgba(_palette($theme,brand-white),1);
+  &--white {
+    background-color: rgba(_palette($theme,brand-white),1);
 
     .fh5co-heading {
       h2 {
@@ -1213,29 +1246,38 @@ h1, h2, h3, h4, h5, h6, figure {
       padding-left: 30px;
       padding-right: 30px;
       &:hover {
-        background: _palette($theme, brand-white) !important;
+        background-color: _palette($theme, brand-white) !important;
         // @include shadows();
       }
     }
   }
 
-  &.section-black {
-    background: darken(_palette($theme,brand-black),10%);
-
+  &--blue {
+    background-color: _palette($theme, brand-blue);
     .fh5co-heading {
       h2 {
-        color: _palette($theme,brand-gray);
-      }
-      p {
-        color: lighten(_palette($theme,brand-black),10%);
+        color: _palette($theme,brand-white);
       }
     }
   }
-  &.section-gray {
-    background: _palette($theme,brand-gray);
+
+  &--black {
+    background-color: darken(_palette($theme, brand-black),10%);
 
     .fh5co-heading {
-      h2 {
+      h1, h2, h3, h4, h5, h6, figure {
+        color: _palette($theme, brand-white);
+      }
+      p {
+        color: lighten(_palette($theme, brand-black),10%);
+      }
+    }
+  }
+  &--gray {
+    background-color: _palette($theme, brand-gray);
+
+    .fh5co-heading {
+      h1, h2, h3, h4, h5, h6, figure {
         color: _palette($theme,brand-white);
       }
       p {
@@ -1247,38 +1289,50 @@ h1, h2, h3, h4, h5, h6, figure {
 
   .fh5co-heading {
     margin-bottom: 2em;
+
     &.fh5co-heading-sm {
       margin-bottom: 2em;
     }
     h2 {
-      font-size: 48px;
+      font-size: 40px;
       line-height: 1;
-      font-weight: 300;
-      color: _palette($theme,brand-black);
+      font-weight: 400;
 
       @media screen and (max-width: $screen-sm) {
-        font-size: 32px;
+        font-size: 28px;
+        font-weight: 700;
       }
+    }
+    h3 {
+      font-size: 32px;
+      font-weight: 600;
 
+      @media screen and (max-width: $screen-sm) {
+        font-size: 24px;
+      }
     }
     p {
       font-size: 20px;
       line-height: 1.5;
-      color: _palette($theme,brand-black);
+      font-weight: 300;
 
       @media screen and (max-width: $screen-sm) {
         font-size: 18px;
         line-height: 1.2;
+        font-weight: 300;
       }
     }
     > span {
       display: block;
       margin-bottom: 15px;
-      text-transform: uppercase;
-      font-weight: 400;
-      font-size: 13px;
-      letter-spacing: 2px;
-      color: tint(_palette($theme,brand-black), 0%);
+      font-weight: 300;
+      text-align: center;
+      font-size: 20px;
+      color: lighten(_palette($theme,brand-black), 0%);
+
+      @media screen and (max-width: $screen-sm) {
+        display: none;
+      }
     }
     &.glyph {
       &:last-child {
@@ -1287,10 +1341,15 @@ h1, h2, h3, h4, h5, h6, figure {
           position: absolute;
           display: block;
           left: 50%;
-          width: 1px;
-          height: 70px;
-          background: darken(_palette($theme, brand-gray), 10%);
-          margin-top: 20px;
+          height: 60px;
+          width: 2px;
+          margin-top: 10px;
+          background: darken(_palette($theme, brand-white), 0%);
+        }
+        @media screen and (max-width: $screen-sm) {
+          &:after {
+            margin-top: 0px;
+          }
         }
       }
     }
@@ -1386,26 +1445,34 @@ h1, h2, h3, h4, h5, h6, figure {
   position: fixed;
   z-index: 1901;
   width: 100%;
-  background: rgba(_palette($theme,brand-white), .90);
+  background: rgba(_palette($theme,brand-white), .85);
   top: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  padding: 45px 40px 40px 40px;
+  padding: 50px 40px 40px 40px;
   overflow-y: auto;
   display: block;
+  opacity: 0;
   @include translateY(100%);
-  @include transition(all .5s ease);
+  @include transition(opacity .5s ease);
   // @media screen and(max-width: $screen-sm){
   //  display: block;
   // }
   .offcanvas & {
-    @include translateY(0px);
+    opacity: 1.0;
+    @include translateY(0%);
   }
   a {
     color: rgba(_palette($theme,brand-black), .8);
-    font-size: 32px;
-    line-height: 3;
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 32px;
+
+    @media screen and(max-width: $screen-sm){
+      font-size: 26px;
+      // font-weight: 600;
+    }
     &:hover {
       color: rgba(_palette($theme,brand-black), .95);
     }
@@ -1414,32 +1481,47 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 0;
     margin: 0;
     text-align: center;
+    margin-top: 3em;
+
     li {
       padding: 0;
       margin: 0;
       list-style: none;
+      margin-bottom: 3em;
+
       > ul {
-        padding-left: 20px;
         display: none;
         a {
           line-height: 1.5;
         }
       }
       &.offcanvas-has-dropdown {
+        ul {
+          margin-top: 1em;
+          li {
+            margin-bottom: 1em;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+
         > a {
           display: block;
           position: relative;
+
           &:after {
             position: absolute;
             @include icomoon;
             content: "\e921";
-            line-height: 3;
             color: rgba(_palette($theme,brand-black),.2);
             @include transition(all .5s ease);
           }
         }
         &.active {
           a {
+            margin-bottom: 0;
             &:after {
               -webkit-transform: rotate(-180deg);
               -moz-transform: rotate(-180deg);
@@ -1498,8 +1580,8 @@ h1, h2, h3, h4, h5, h6, figure {
 
 // Burger Menu
 .fh5co-nav-toggle {
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   text-decoration: none;
 
@@ -1519,6 +1601,7 @@ h1, h2, h3, h4, h5, h6, figure {
     text-transform: uppercase;
     text-indent: -55px;
     transition: all .2s ease-out;
+
     &::before, &::after {
       content:'';
       position: absolute;
@@ -1527,10 +1610,9 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
   i, i::before, i::after {
-    width: 22px;
-    height: 1px;
-    background: _palette($theme,brand-black);
-    color: _palette($theme,brand-black);
+    width: 32px;
+    height: 2px;
+    background: transparent;
   }
   &.fh5co-nav-white {
     > i {
@@ -1545,10 +1627,11 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .fh5co-nav-toggle i::before {
   top: -7px;
+  width: inherit;
 }
 .fh5co-nav-toggle i::after {
   bottom: -7px;
-  width: 13px;
+  width: inherit;
 }
 .fh5co-nav-toggle:hover i::before {
 }
@@ -1556,10 +1639,24 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle.active i {
   background: transparent;
+
+  &:hover, &:focus, &:active {
+    &::before {
+      background: rgba(_palette($theme,brand-black), .95);
+    }
+    &::after {
+      background: rgba(_palette($theme,brand-black), .95);
+    }
+  }
 }
+.fh5co-nav-toggle.active i::before,
+.fh5co-nav-toggle.active i::after {
+  background: rgba(_palette($theme,brand-black), .8);
+}
+
 .fh5co-nav-toggle.active i::before {
   top: 0;
-  width: 25px;
+  width: 32px;
   -webkit-transform: rotateZ(45deg);
   -moz-transform: rotateZ(45deg);
   -ms-transform: rotateZ(45deg);
@@ -1568,7 +1665,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle.active i::after {
   bottom: 0;
-  width: 25px;
+  width: 32px;
   -webkit-transform: rotateZ(-45deg);
   -moz-transform: rotateZ(-45deg);
   -ms-transform: rotateZ(-45deg);
@@ -1589,8 +1686,18 @@ h1, h2, h3, h4, h5, h6, figure {
   width: 44px;
   z-index: 2001;
   border-bottom: none !important;
+  opacity: 1;
+  @include translateY(0%);
+  @include transition(all .2s _animation(easing));
+
   .scrolled & {
-    top: 15px;
+    @include translateY(-100%);
+    opacity: 0;
+
+    &.active {
+      @include translateY(0%);
+      opacity: 1;
+    }
   }
   @media screen and (max-width: $screen-sm) {
     padding: 6px 0 0 0;
@@ -1612,14 +1719,18 @@ h1, h2, h3, h4, h5, h6, figure {
     border-color: _palette($theme, brand-primary);
   }
 }
-.mb30 {
-  margin-bottom: 30px!important;
+.mb4 {
+  margin-bottom: 4em !important;
+}
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 .row-pb-md {
-  padding-bottom: 4em!important;
+  padding-bottom: 4em !important;
 }
 .row-pb-sm {
-  padding-bottom: 2em!important;
+  padding-bottom: 2em !important;
 }
 
 .fh5co-loader {

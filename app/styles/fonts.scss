@@ -65,14 +65,14 @@ $proximaNovaPath: '../fonts/ProximaNova/ProximaNova-';
 
 @font-face {
 	font-family: 'Proxima Nova';
-	src: url(#{$proximaNovaPath + 'BoldItalic.otf'}) format('opentype');
+	src: url(#{$proximaNovaPath + 'BoldIt.otf'}) format('opentype');
 	font-weight: 700;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Proxima Nova';
-	src: url(#{$proximaNovaPath + 'Black.otf'}) format('opentype');
+	src: url(#{$proximaNovaPath + 'Extrabold.otf'}) format('opentype');
 	font-weight: 800;
 	font-style: normal;
 }

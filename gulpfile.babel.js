@@ -119,6 +119,7 @@ gulp.task('scripts', () =>
       './app/scripts/jquery.magnific-popup.min.js',
       './app/scripts/magnific-popup-options.js',
       './app/scripts/jquery.stellar.min.js',
+      './app/scripts/ei.js',
       './app/scripts/main.js',
       // Other scripts
       ])
@@ -161,7 +162,7 @@ gulp.task('html', () => {
   });
 
 // Clean output directory
-gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/{.git,.git/**,README.md,CNAME}'], {dot: true}));
+gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/{.git,.git/**,.gitignore,README.md,CNAME}'], {dot: true}));
 
 // Watch files for changes & reload
 gulp.task('serve', ['scripts', 'styles'], () => {

@@ -16,20 +16,27 @@
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Eric C. Smith &mdash; Portfolio">
-  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+  <link rel="icon" sizes="192x192" href="/images/touch/chrome-touch-icon-192x192.png">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Eric C. Smith &mdash; Portfolio">
-  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="/images/touch/apple-touch-icon.png">
 
   <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-  <meta name="msapplication-TileColor" content="#2F3BA2">
+  <meta name="msapplication-TileImage" content="/images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#E04E47">
 
   <!-- Color the status bar on mobile devices -->
-  <meta name="theme-color" content="#2F3BA2">
+  <meta name="theme-color" content="#E04E47">
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="Eric C. Smith &mdash; Portfolio"/>
+  <meta property="og:image" content="http://erchsm.co/open-graph/image.jpg"/>
+  <meta property="og:url" content="ericsmithux.com"/>
+  <meta property="og:site_name" content="Eric C. Smith's Portfolio"/>
+  <meta property="og:description" content="Eric C. Smith is a UI/UX Designer located in New York City."/>
 
   <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -49,7 +56,7 @@
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
 
   <!-- Your styles -->
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
 
@@ -65,109 +72,148 @@
           <ul>
             <li class="active"><a href="/">Home</a></li>
             <li class="has-dropdown">
-              <a href="/">Projects</a>
+              <a href="#">Projects</a>
               <ul class="dropdown">
-                <li><a href="/card-components/">Card Components</a></li>
-                <li><a href="/wrap-templates/">Wrap Templates</a></li>
+                <li><a href="/card-components/">Micro App Interactions</a></li>
+                <li><a href="/wrap-templates/">Micro App Templates</a></li>
                 <li><a href="/perforce/">Perforce</a></li>
                 <li><a href="/cisco/">Cisco</a></li>
               </ul>
             </li>
+            <li><a href="mailto:hi@ericsmithux.com?Subject=Hello%21&Body=Was%20looking%20at%20your%20website%20and%20wanted%20to%20say%20hello%21">Say Hello</a></li>
+            <li><a target="_blank" href="/resume/ericsmith-resume.pdf">Resume</a></li>
+           </ul>
+         </div>
+       </div>
 
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
+     </div>
+   </nav>
 
-    </div>
-  </nav>
-
-  <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-color: #dededc;background-image: url('images/banner_hero.svg');" data-stellar-background-ratio="0.5">
-    <!-- <div class="overlay"></div> -->
+   <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-color: rgb(228, 109, 93); background-image: url('images/banner_hero.svg'); background-blend-mode: overlay;" data-stellar-background-ratio="0.7">
+    <div class="overlay" style="background-color: rgba(0, 50, 255, 0.6);"></div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-offset-5 col-sm-7 col-md-offset-2 col-md-8 text-center">
+        <div class="col-md-offset-2 col-md-8 text-center">
           <div class="display-t">
             <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-              <h1 class="mb30">Eric C. Smith is a UI/UX Designer located in San Francisco, CA.</h1>
-              <p>
-                <a href="/say-hello/" target="_blank" class="btn btn-primary">My Work</a>  <em class="or">or</em>
-                <a href="/say-hello/" class="link-watch popup-vimeo">Say Hello</a>
-              </p>
+              <h1 class="">Eric C. Smith is a UI/UX Designer and Developer located in Brooklyn, NY.
+                <!-- I’m currently crushing on <a href="">Google’s Web Starter kit</a></h1> -->
+                <!-- <p> -->
+                <!-- <a href="/say-hello/" target="_blank" class="btn btn-primary">My Work</a> -->
+                <!-- <em class="or">or</em> -->
+                <!-- <a href="/say-hello/" class="link-watch popup-vimeo">Say Hello</a> -->
+                <!-- </p> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <div id="fh5co-started" class="fh5co-section section-white">
-    <div class="container">
-      <div class="row animate-box">
-        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading glyph animate-box">
-          <span>01 <span>—</span> Let's work together</span>
-          <h2>Hi there, I'm Eric. I’m a Designer with a nack for writing code. I live in the <span>high-fidelity</span></h2>
-          <p>I've coded this site with my own two hands as a way to showcase my work. Below you'll find some case studies I've worked on. When im not designing or coding I'm either taking photos and/or out enjoying some nature.</p>
-          <p>
-            <!-- <button href="/say-hello/" class="btn btn-primary">Get In Touch</button> -->
-            <!-- <button href="/about-me/" class="btn btn-primary">More About Me</button> -->
-          </p>
+    <div id="fh5co-started" class="fh5co-section fh5co-section--white">
+      <div class="container">
+        <div class="row row-pb-md hidden-xs animate-box">
+          <div class="col-md-6 col-md-offset-1">
+            <img class="img-responsive mb30" src="images/brooklyn.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+          </div>
+          <div class="col-md-4 col-md-offset-0">
+            <img class="img-responsive mb30" src="images/me.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+          </div>
+        </div>
+        <div class="row animate-box">
+          <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+            <h3>Hi there, I’m Eric. I’m a Designer with a nack for writing code. Here are some things I’ve worked on.</h3>
+            <p>I’ve made this site with my own two hands with help from Google’s Web Starter Kit and HTML5 Up templates. If you can’t tell from this site’s design, I like bright colors and bold patterns. When im not designing or writing code I’m either taking photos or out enjoying some nature... <a href="aboutme/">(more)</a></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div id="fh5co-project" class="fh5co-section section-gray">
-    <div class="container">
-      <div class="row row-pb-md">
-        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-          <h2>I specialize in working on prototypes, visual design & front-end coding.</h2>
-          <p>Here's some of the recent projects I've worked on. For more work in a particular area please reach out to me.</p>
+    <div class="fh5co-bg fh5co-section fh5co-section--black" style="background-image: url('http://ericsmithux.com/images/38320027.jpg'); background-color: rgb(228, 109, 93); background-blend-mode: overlay;">
+      <div class="overlay" style="background-color: rgba(255, 114, 94, 0.6);"></div>
+      <div class="container">
+        <div class="row animate-box">
+          <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box glyph">
+            <h2> I specialize in working on prototypes, visual design & front-end coding.</h2>
+          </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-          <a href="/wrap-media/"><img src="images/work-1.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-            <div class="fh5co-copy">
-              <span>Interaction Design</span>
-              <h3>Wrap Card Components</h3>
-              <p>Interaction Design</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-          <a href="/cisco/"><img src="images/work-2.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-            <div class="fh5co-copy">
-              <span>Interaction Design</span>
-              <h3>Cisco</h3>
-              <p>UI Engineering</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-6 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-          <a href="#"><img src="images/work-3.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-            <div class="fh5co-copy">
-              <span>Interaction Design</span>
-              <h3>Perforce</h3>
-              <p>Helix Sync</p>
-            </div>
-          </a>
-        </div>
-        <!-- <div class="col-md-6 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-          <a href="#"><img src="images/work-2.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-            <div class="fh5co-copy">
-              <h3>Notepad Mockup</h3>
-              <p>Illustration</p>
-            </div>
-          </a>
-        </div> -->
-
       </div>
     </div>
 
-  </div>
+    <div id="fh5co-project" class="fh5co-section fh5co-section--white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-0 text-left fh5co-heading animate-box ">
+            <h2>Recent Projects</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeIn">
+            <a href="/card-components/">
+              <img src="images/work-1.gif" class="img-responsive" alt="Free HTML5 Website Template by gettemplates.co" >
+              <div class="row fh5co-copy fh5co-copy--white">
+                <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
+                  <h4>Micro App Card Interactions</h4>
+                  <span>Interaction Design</span>
+                </div>
+                <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
+                  <span class="icon">
+                    <i class="icon-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeIn">
+            <a href="/card-components/">
+              <img src="images/card-components/banner.jpg" class="img-responsive" alt="Free HTML5 Website Template by gettemplates.co" >
+              <div class="row fh5co-copy fh5co-copy--white">
+                <div class="col-md-8 col-xs-offset-1 col-sm-12">
+                  <h4>Micro App Templates</h4>
+                  <span>Visual Design</span>
+                </div>
+                <div class="col-md-1 col-xs-offset-1 col-md-offset-0">
+                  <span class="icon">
+                    <i class="icon-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeIn">
+            <a href="/cisco/"><img src="images/work-2.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+              <div class="row fh5co-copy fh5co-copy--white">
+                <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
+                  <h4>Cisco MATE</h4>
+                  <span>UI Design/Development</span>
+                </div>
+                <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
+                  <span class="icon">
+                    <i class="icon-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeIn">
+            <a href="/perforce/"><img src="images/work-3.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+              <div class="row fh5co-copy fh5co-copy--white">
+                <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
+                  <h4>Dropbox meets Github</h4>
+                  <span>UI/UX Design/Research</span>
+                </div>
+                <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
+                  <span class="icon">
+                    <i class="icon-arrow-right"></i>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
 
 
@@ -402,7 +448,7 @@
 
 
 
-  <footer id="fh5co-footer" class="fh5co-section" role="contentinfo">
+  <footer id="fh5co-footer" class="fh5co-section" role="contentinfo" style="background-color: rgb(255, 255, 255); background-image: url('images/banner_hero.svg');" data-stellar-background-ratio="0.8">
     <div class="container">
       <div class="row copyright">
         <div class="col-md-12 text-center">
@@ -420,20 +466,20 @@
   </footer>
 </div>
 
-<div class="gototop js-top">
+<!-- <div class="gototop js-top">
   <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-</div>
+</div> -->
 
-<!-- build:js scripts/main.min.js -->
-<script src="scripts/jquery.min.js"></script>
-<script src="scripts/jquery.easing.1.3.js"></script>
-<script src="scripts/bootstrap.min.js"></script>
-<script src="scripts/jquery.waypoints.min.js"></script>
-<script src="scripts/jquery.countTo.js"></script>
-<script src="scripts/jquery.magnific-popup.min.js"></script>
-<script src="scripts/magnific-popup-options.js"></script>
-<script src="scripts/jquery.stellar.min.js"></script>
-<script src="scripts/main.js"></script>
+<!-- build:js /scripts/main.min.js -->
+<script src="/scripts/jquery.min.js"></script>
+<script src="/scripts/jquery.easing.1.3.js"></script>
+<script src="/scripts/bootstrap.min.js"></script>
+<script src="/scripts/jquery.waypoints.min.js"></script>
+<script src="/scripts/jquery.countTo.js"></script>
+<script src="/scripts/jquery.magnific-popup.min.js"></script>
+<script src="/scripts/magnific-popup-options.js"></script>
+<script src="/scripts/jquery.stellar.min.js"></script>
+<script src="/scripts/main.js"></script>
 <!-- endbuild -->
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
