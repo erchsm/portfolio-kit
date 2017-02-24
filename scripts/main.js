@@ -84,24 +84,24 @@
 
     $('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
     $('#fh5co-offcanvas')
-      .find('li')
-      .removeClass('has-dropdown');
+    .find('li')
+    .removeClass('has-dropdown');
 
     // Hover dropdown menu on mobile
     $('.offcanvas-has-dropdown').mouseenter(function(){
       var $this = $(this);
 
       $this
-        .addClass('active')
-        .find('ul')
-        .slideDown(500, 'easeOutExpo');
+      .addClass('active')
+      .find('ul')
+      .slideDown(500, 'easeOutExpo');
     }).mouseleave(function(){
 
       var $this = $(this);
       $this
-        .removeClass('active')
-        .find('ul')
-        .slideUp(500, 'easeOutExpo');
+      .removeClass('active')
+      .find('ul')
+      .slideUp(500, 'easeOutExpo');
     });
 
 
@@ -109,10 +109,10 @@
 
       if ( $('body').hasClass('offcanvas') ) {
 
-          $('body').removeClass('offcanvas');
-          $('.js-fh5co-nav-toggle').removeClass('active');
+        $('body').removeClass('offcanvas');
+        $('.js-fh5co-nav-toggle').removeClass('active');
 
-        }
+      }
     });
   };
 
@@ -171,7 +171,13 @@
 
     } , { offset: '85%' } );
   };
-
+  var videoWayPoint = function() {
+    $('.play-on-scroll').waypoint( function( direction ) {
+      if ( direction === 'down') {
+        $(this.element)[0].play();
+      }
+    } , { offset: '50%' } );
+  };
 
   var dropdown = function() {
 
@@ -179,17 +185,17 @@
 
       var $this = $(this);
       $this
-        .find('.dropdown')
-        .css('display', 'block')
-        .addClass('animated-fast fadeInUpMenu');
+      .find('.dropdown')
+      .css('display', 'block')
+      .addClass('animated-fast fadeInUpMenu');
 
     }).mouseleave(function(){
       var $this = $(this);
 
       $this
-        .find('.dropdown')
-        .css('display', 'none')
-        .removeClass('animated-fast fadeInUpMenu');
+      .find('.dropdown')
+      .css('display', 'none')
+      .removeClass('animated-fast fadeInUpMenu');
     });
 
   };
@@ -229,10 +235,10 @@
 
   var counter = function() {
     $('.js-counter').countTo({
-       formatter: function (value, options) {
-        return value.toFixed(options.decimals);
-      },
-    });
+     formatter: function (value, options) {
+      return value.toFixed(options.decimals);
+    },
+  });
   };
 
   var counterWayPoint = function() {
@@ -256,12 +262,13 @@
 
 
 
-  $(function(){
+  $(function() {
     mobileMenuOutsideClick();
     scrollNavBar();
     offcanvasMenu();
     burgerMenu();
     contentWayPoint();
+    videoWayPoint();
     dropdown();
     goToTop();
     loaderPage();

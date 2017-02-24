@@ -1,9 +1,9 @@
 // Import
+@import 'animate';
+
 @import 'bootstrap';
 @import 'bootstrap/mixins';
 @import 'bootstrap/variables';
-
-@import 'animate';
 
 @import 'functions';
 @import 'fonts';
@@ -17,6 +17,8 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
+
+
 *::-webkit-scrollbar {
   display: none;
 }
@@ -29,9 +31,11 @@ body {
   color: _palette($theme,brand-black);
   background: #fff;
 }
+
 b, strong {
   font-weight: 600;
 }
+
 #page {
   position: relative;
   overflow-x: hidden;
@@ -54,6 +58,7 @@ b, strong {
     }
   }
 }
+
 a {
   color: _palette($theme, brand-primary);
   @include transition(all .5s ease);
@@ -62,6 +67,12 @@ a {
     color: _palette($theme, brand-primary);
     outline: none;
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: $screen-sm) {
+  .text-xs-center {
+    text-align: center;
   }
 }
 
@@ -86,6 +97,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color: _palette($theme,brand-white);
   background: _palette($theme, brand-primary);
 }
+
 ::selection {
   color: _palette($theme,brand-white);
   background: _palette($theme, brand-primary);
@@ -377,15 +389,15 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 
   &.fh5co-cover-sm {
-    height: 600px;
+    height: 60vh;
 
     @media screen and (max-width: $screen-sm) {
-      height: 400px;
+      height: 60vh;
     }
 
     .display-t,
     .display-tc {
-      height: 600px;
+      height: 60vh;
       display: table;
       width: 100%;
 
@@ -529,6 +541,12 @@ h1, h2, h3, h4, h5, h6, figure {
       padding: 0;
       color: _palette($theme,brand-white);
     }
+    .white {
+      color: _palette($theme,brand-white);
+    }
+    .gray {
+      color: _palette($theme, brand-gray);
+    }
     h1 {
       margin-bottom: 0px;
       margin-top: 0;
@@ -539,10 +557,6 @@ h1, h2, h3, h4, h5, h6, figure {
       font-family: $font-primary;
       font-weight: 700;
       color: _palette($theme,brand-white);
-
-      &.white {
-        color: _palette($theme,brand-white);
-      }
 
       &:not(:first-of-type) {
         margin-top: calc(58px + 22.5px);
@@ -581,10 +595,8 @@ h1, h2, h3, h4, h5, h6, figure {
       margin-bottom: 30px;
       text-transform: uppercase;
     }
-    p {
-      @media screen and (max-width: $screen-sm) {
-        display: none;
-      }
+    p, span {
+      @include bodyText();
       .btn {
         margin: 0;
         padding: 15px 30px;
@@ -961,6 +973,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
           @media screen and (max-width: $screen-sm ) {
             bottom: 0;
+            padding: 2em 0;
           }
         }
         img {
@@ -1295,7 +1308,7 @@ h1, h2, h3, h4, h5, h6, figure {
     }
     h2 {
       font-size: 40px;
-      line-height: 1;
+      line-height: 1.1em;
       font-weight: 400;
 
       @media screen and (max-width: $screen-sm) {
@@ -1304,23 +1317,17 @@ h1, h2, h3, h4, h5, h6, figure {
       }
     }
     h3 {
+      line-height: 1.1em;
       font-size: 32px;
       font-weight: 600;
 
       @media screen and (max-width: $screen-sm) {
         font-size: 24px;
+        font-weight: 700;
       }
     }
     p {
-      font-size: 20px;
-      line-height: 1.5;
-      font-weight: 300;
-
-      @media screen and (max-width: $screen-sm) {
-        font-size: 18px;
-        line-height: 1.2;
-        font-weight: 300;
-      }
+      @include bodyText();
     }
     > span {
       display: block;
@@ -1719,8 +1726,8 @@ h1, h2, h3, h4, h5, h6, figure {
     border-color: _palette($theme, brand-primary);
   }
 }
-.mb4 {
-  margin-bottom: 4em !important;
+.mb30 {
+  margin-bottom: 30px !important;
 }
 .row {
   margin-left: 0;
