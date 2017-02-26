@@ -10,6 +10,12 @@ app.yaml
 */**/.sketch
 *-*-*.sketch
 
+#psd
+*.psd
+*/.psd
+*/**/.psd
+*-*-*.psd
+
 #illustrator
 *.ai
 */.ai
