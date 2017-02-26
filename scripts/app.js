@@ -20,8 +20,7 @@ angular.module('myApp', ['ngRoute'])
     controller  : 'mainController'
   });
 }])
-.controller('mainController', function($scope) {
-
+.controller('mainController', ["$scope", function($scope) {
   $scope.isMobile = {
     Android: function() {
       return navigator.userAgent.match(/Android/i);
@@ -143,14 +142,14 @@ angular.module('myApp', ['ngRoute'])
     //   var $this = $(this);
     //   console.log($this);
 
-      if (angular.element('#page').hasClass('overflow offcanvas')) {
-        angular.element('#page').removeClass('overflow offcanvas');
-        angular.element('.js-fh5co-nav-toggle').removeClass('active');
-      } else {
-        angular.element('#page').addClass('overflow offcanvas');
-        angular.element('.js-fh5co-nav-toggle').addClass('active');
-      }
-      event.preventDefault();
+    if (angular.element('#page').hasClass('overflow offcanvas')) {
+      angular.element('#page').removeClass('overflow offcanvas');
+      angular.element('.js-fh5co-nav-toggle').removeClass('active');
+    } else {
+      angular.element('#page').addClass('overflow offcanvas');
+      angular.element('.js-fh5co-nav-toggle').addClass('active');
+    }
+    event.preventDefault();
 
     // });
   };
@@ -296,6 +295,6 @@ angular.module('myApp', ['ngRoute'])
     $scope.parallax();
   });
 
-});
+}]);
 
 })();
