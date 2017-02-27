@@ -50,11 +50,16 @@ gulp.task('images', () =>
   gulp.src('app/images/**/*')
   .pipe($.cache($.imagemin({
     progressive: true,
-    interlaced: true
+    interlaced: true,
+    verbose: true
   })))
   .pipe(gulp.dest('dist/images'))
   .pipe($.size({title: 'images'}))
   );
+
+gulp.task('clear', () =>
+  $.cache.clearAll()
+);
 
 // Copy all files at the root level (app)
 gulp.task('copy', () =>
@@ -119,8 +124,10 @@ gulp.task('scripts', () =>
       './app/scripts/jquery.magnific-popup.min.js',
       './app/scripts/magnific-popup-options.js',
       './app/scripts/jquery.stellar.min.js',
-      './app/scripts/ei.js',
-      './app/scripts/main.js',
+      './app/scripts/angular.min.js',
+      './app/scripts/angular-route.min.js',
+      './app/scripts/app.js',
+      './app/scripts/directives.js',
       // Other scripts
       ])
   .pipe($.newer('.tmp/scripts'))
