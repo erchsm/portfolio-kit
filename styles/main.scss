@@ -305,26 +305,31 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-header,
 #fh5co-counter,
 .fh5co-bg {
-  background-size: 60%;
   background-position: top center;
-  background-repeat: repeat;
   position: relative;
+  background-size: intial;
+
+  &.65 {
+    background-size: 65%;
+
+    @media screen and (max-width: $screen-sm) {
+      background-size: 125%;
+    }
+  }
 
   &.full-bleed {
-    background-size: initial;
+    background-size: contain;
+  }
+  &.repeat {
+    background-repeat: repeat;
   }
   &.right {
     background-position: right center;
     background-size: contain;
-    background-repeat: no-repeat;
   }
   &.left {
     background-position: left center;
     background-size: contain;
-    background-repeat: no-repeat;
-  }
-  @media screen and (max-width: $screen-sm) {
-    background-size: contain
   }
 
   .overlay {
@@ -530,51 +535,13 @@ h1, h2, h3, h4, h5, h6, figure {
       color: _palette($theme,brand-white);
     }
     h1 {
-      margin-bottom: 0px;
-      margin-top: 0;
-      font-size: 60px;
-      letter-spacing: 0.01rem;
-      font-style: normal;
-      line-height: 1;
-      font-family: $font-primary;
-      font-weight: 700;
-      color: _palette($theme,brand-white);
+      @include heading1();
 
       &.white {
         color: _palette($theme,brand-white);
       }
-
-      &:not(:first-of-type) {
-        margin-top: calc(58px + 22.5px);
-
-        &:before, &:after {
-          content: '';
-          position: absolute;
-          background: _palette($theme,brand-white);
-          width: 58px;
-          height: 2px;
-          left: calc(50% - (58px / 2));
-          margin-top: calc((-58px / 2) - 10px);
-        }
-        &:before {
-          @include rotate(-45deg);
-        }
-        &:after {
-          @include rotate(45deg);
-        }
-      }
-
-      @media screen and (max-width: $screen-sm) {
-        font-size: 32px;
-        &:not(:first-of-type) {
-          margin-top: calc(38px + 10px);
-          &:before, &:after {
-            width: 38px;
-            margin-top: calc((-38px / 2) - 10px);
-          }
-        }
-      }
     }
+
     h2 {
       font-size: 20px;
       line-height: 1.5;
@@ -896,24 +863,11 @@ h1, h2, h3, h4, h5, h6, figure {
         h3 {
           margin: 0 0 5px 0;
           padding: 0;
-          font-size: 40px;
-          font-weight: 600;
-
-          @media screen and (max-width: $screen-sm) {
-            font-size: 32px;
-          }
+          @include heading3();
         }
         h4 {
           margin: 0 0 5px 0;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: 1.2;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-
-          @media screen and (max-width: $screen-sm) {
-            font-size: 20px;
-          }
+          @include heading4();
         }
         span {
           display: block;
@@ -926,15 +880,7 @@ h1, h2, h3, h4, h5, h6, figure {
           }
         }
         p {
-          font-size: 24px;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          @media screen and (max-width: $screen-sm) {
-            font-size: 18px;
-            line-height: 1.2;
-            font-weight: 300;
-          }
+          @include body1();
         }
 
         @media screen and (max-width: $screen-sm ) {
@@ -1293,6 +1239,12 @@ h1, h2, h3, h4, h5, h6, figure {
     &.fh5co-heading-sm {
       margin-bottom: 2em;
     }
+    h1 {
+      @include heading1();
+    }
+    .x-glyph {
+      @include x-glyph();
+    }
     h2 {
       font-size: 40px;
       line-height: 1;
@@ -1304,23 +1256,10 @@ h1, h2, h3, h4, h5, h6, figure {
       }
     }
     h3 {
-      font-size: 32px;
-      font-weight: 600;
-
-      @media screen and (max-width: $screen-sm) {
-        font-size: 24px;
-      }
+      @include heading3();
     }
     p {
-      font-size: 20px;
-      line-height: 1.5;
-      font-weight: 300;
-
-      @media screen and (max-width: $screen-sm) {
-        font-size: 18px;
-        line-height: 1.2;
-        font-weight: 300;
-      }
+      @include body1();
     }
     > span {
       display: block;
@@ -1465,14 +1404,8 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   a {
     color: rgba(_palette($theme,brand-black), .8);
-    font-size: 28px;
-    line-height: 1;
-    margin-bottom: 32px;
+    @include heading4();
 
-    @media screen and(max-width: $screen-sm){
-      font-size: 26px;
-      // font-weight: 600;
-    }
     &:hover {
       color: rgba(_palette($theme,brand-black), .95);
     }
@@ -1516,6 +1449,7 @@ h1, h2, h3, h4, h5, h6, figure {
             @include icomoon;
             content: "\e921";
             color: rgba(_palette($theme,brand-black),.2);
+            color: lighten(_palette($theme,brand-black), 55%);
             @include transition(all .5s ease);
           }
         }
@@ -1592,7 +1526,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   &:hover, &:focus, &:active {
     outline: none;
-    border-bottom: none!important;
+    border-bottom: none !important;
   }
   i {
     position: relative;
@@ -1637,21 +1571,18 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle:hover i::after {
 }
-.fh5co-nav-toggle.active i {
-  background: transparent;
-
-  &:hover, &:focus, &:active {
-    &::before {
-      background: rgba(_palette($theme,brand-black), .95);
-    }
-    &::after {
-      background: rgba(_palette($theme,brand-black), .95);
+.fh5co-nav-toggle.active {
+  i {
+    background: transparent;
+    &::before, &::after {
+      background: lighten(_palette($theme,brand-black), 55%);
     }
   }
-}
-.fh5co-nav-toggle.active i::before,
-.fh5co-nav-toggle.active i::after {
-  background: rgba(_palette($theme,brand-black), .8);
+  &:hover, &:focus, &:active {
+    i::before, i::after {
+      background: lighten(_palette($theme,brand-black), 35%);
+    }
+  }
 }
 
 .fh5co-nav-toggle.active i::before {

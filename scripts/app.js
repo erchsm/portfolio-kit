@@ -8,7 +8,11 @@ angular.module('myApp', [
   'myApp.directives'
 ])
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: true,
+    rewriteLinks: true
+  });
   $routeProvider
   .when('/', {
     templateUrl: 'partials/home.html',
@@ -176,11 +180,13 @@ angular.module('myApp', [
     } , { offset: '85%' } );
   };
   $scope.videoWayPoint = function() {
-    $('.play-on-scroll').waypoint( function( direction ) {
-      if ( direction === 'down') {
-        $(this.element)[0].play();
-      }
-    } , { offset: '50%' } );
+    if (!($scope.isMobile.any())) {
+      $('.play-on-scroll').waypoint(function( direction ) {
+        if ( direction === 'down') {
+          $(this.element)[0].play();
+        }
+      }, { offset: '50%' });
+    }
   };
 
   $scope.dropdown = function() {
@@ -268,7 +274,6 @@ angular.module('myApp', [
     $scope.mobileMenuOutsideClick();
     $scope.scrollNavBar();
     $scope.offcanvasMenu();
-    $scope.burgerMenu();
     $scope.contentWayPoint();
     $scope.videoWayPoint();
     $scope.dropdown();
