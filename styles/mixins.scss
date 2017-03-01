@@ -115,17 +115,18 @@
   }
 }
 
-@mixin heading4 () {
-  font-size: 24px;
-  line-height: 1.275em;
+@mixin heading2() {
+  font-size: 40px;
+  line-height: 1;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 
   @media screen and (max-width: $screen-sm) {
-    font-size: 20px;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+    font-weight: 700;
   }
 }
+
 
 @mixin heading3 () {
   font-size: 30px;
@@ -135,6 +136,19 @@
   @media screen and (max-width: $screen-sm) {
     font-size: 24px;
     font-weight: 700;
+  }
+}
+
+@mixin heading4 () {
+  font-size: 24px;
+  line-height: 1.275em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  @media screen and (max-width: $screen-sm) {
+    font-size: 20px;
+    letter-spacing: 1px;
   }
 }
 

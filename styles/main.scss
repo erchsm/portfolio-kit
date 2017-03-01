@@ -309,11 +309,11 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
   background-size: intial;
 
-  &.65 {
+  &.percent {
     background-size: 65%;
 
     @media screen and (max-width: $screen-sm) {
-      background-size: 125%;
+      background-size: 135%;
     }
   }
 
@@ -344,7 +344,6 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-bg {
-  background-size: cover;
   background-position: center center;
   position: relative;
   width: 100%;
@@ -1246,17 +1245,13 @@ h1, h2, h3, h4, h5, h6, figure {
       @include x-glyph();
     }
     h2 {
-      font-size: 40px;
-      line-height: 1;
-      font-weight: 400;
-
-      @media screen and (max-width: $screen-sm) {
-        font-size: 28px;
-        font-weight: 700;
-      }
+      @include heading2();
     }
     h3 {
       @include heading3();
+    }
+    h4 {
+      @include heading4();
     }
     p {
       @include body1();
@@ -1395,9 +1390,11 @@ h1, h2, h3, h4, h5, h6, figure {
   opacity: 0;
   @include translateY(100%);
   @include transition(opacity .5s ease);
-  // @media screen and(max-width: $screen-sm){
-  //  display: block;
-  // }
+
+  @media screen and(max-width: $screen-sm){
+   padding: 50px 0 0 0;
+  }
+
   .offcanvas & {
     opacity: 1.0;
     @include translateY(0%);
