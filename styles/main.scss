@@ -177,6 +177,7 @@ h1, h2, h3, h4, h5, h6, figure {
       }
       &.has-dropdown {
         position: relative;
+
         .dropdown {
           width: 130px;
           -webkit-box-shadow: 0px 8px 13px -9px rgba(0,0,0,0.75);
@@ -193,6 +194,10 @@ h1, h2, h3, h4, h5, h6, figure {
           padding: 20px;
           @include border-radius(4px);
           @include transition(all 0s ease);
+
+          &:hover, &:focus {
+            display: block;
+          }
 
           &:before {
             bottom: 100%;
@@ -237,27 +242,7 @@ h1, h2, h3, h4, h5, h6, figure {
           }
         }
       }
-      &.btn-cta {
-        a {
-          color: _palette($theme, brand-primary);
-          span {
-            background: _palette($theme,brand-secondary);
-            color: _palette($theme,brand-white);
-            padding: 4px 20px;
-            @include inline-block;
-            @include transition(all .3s ease);
-            @include border-radius(4px);
-          }
-          &:hover {
-            span {
-              background: darken(_palette($theme,brand-secondary), 7%)!important;
-              -webkit-box-shadow: 0px 14px 20px -9px rgba(0,0,0,0.75);
-              -moz-box-shadow: 0px 14px 20px -9px rgba(0,0,0,0.75);
-              box-shadow: 0px 14px 20px -9px rgba(0,0,0,0.75);
-            }
-          }
-        }
-      }
+
       &.active {
         > a {
           color: _palette($theme,brand-white);
@@ -318,6 +303,9 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 
   &.full-bleed {
+    background-size: 102%;
+  }
+  &.contain {
     background-size: contain;
   }
   &.repeat {
@@ -352,7 +340,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 80vh;
+  height: 90vh;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -365,36 +353,36 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 
   @media screen and (max-width: $screen-sm) {
-    height: 80vh;
+    height: 90vh;
   }
 
   .display-t,
   .display-tc {
     z-index: 9;
-    height: 80vh;
+    height: 90vh;
     display: table;
     width: 100%;
 
     @media screen and (max-width: $screen-sm) {
-      height: 80vh;
+      height: 90vh;
     }
   }
 
   &.fh5co-cover-sm {
-    height: 600px;
+    height: 80vh;
 
     @media screen and (max-width: $screen-sm) {
-      height: 400px;
+      height: 80vh;
     }
 
     .display-t,
     .display-tc {
-      height: 600px;
+      height: 80vh;
       display: table;
       width: 100%;
 
       @media screen and (max-width: $screen-sm) {
-        height: 400px;
+        height: 80vh;
       }
     }
   }
@@ -533,8 +521,11 @@ h1, h2, h3, h4, h5, h6, figure {
       padding: 0;
       color: _palette($theme,brand-white);
     }
+    .x-glyph {
+      @include x-glyph();
+    }
     h1 {
-      @include heading1();
+      @include headingJumbo();
 
       &.white {
         color: _palette($theme,brand-white);
@@ -814,7 +805,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
       img {
         position: relative;
-        @include scale(1);
+        @include scale(1, 1);
         transform-origin: bottom;
         @include transition(all .5s _animation(easing));
 
@@ -909,7 +900,7 @@ h1, h2, h3, h4, h5, h6, figure {
           }
         }
         img {
-          @include scale(1.0);
+          @include scale(1,1);
 
           &:after {
             opacity: 1;
@@ -921,7 +912,7 @@ h1, h2, h3, h4, h5, h6, figure {
           }
 
           @media screen and (max-width: $screen-sm ) {
-            @include scale(1.0);
+            @include scale(1, 1);
           }
         }
       }
@@ -1268,23 +1259,20 @@ h1, h2, h3, h4, h5, h6, figure {
         display: none;
       }
     }
-    &.glyph {
-      &:last-child {
-        &:after {
-          content: '';
-          position: absolute;
-          display: block;
-          left: 50%;
-          height: 60px;
-          width: 2px;
-          margin-top: 10px;
-          background: darken(_palette($theme, brand-white), 0%);
-        }
-        @media screen and (max-width: $screen-sm) {
-          &:after {
-            margin-top: 0px;
-          }
-        }
+  }
+  &.glyph {
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 50%;
+      height: 7em;
+      width: 2px;
+      background: darken(_palette($theme, brand-gray), 0%);
+    }
+    @media screen and (max-width: $screen-sm) {
+      &:after {
+        margin-top: 0px;
       }
     }
   }
@@ -1393,41 +1381,49 @@ h1, h2, h3, h4, h5, h6, figure {
 
   @media screen and(max-width: $screen-sm){
    padding: 50px 0 0 0;
-  }
+ }
 
-  .offcanvas & {
-    opacity: 1.0;
-    @include translateY(0%);
-  }
-  a {
-    color: rgba(_palette($theme,brand-black), .8);
-    @include heading4();
+ .offcanvas & {
+  opacity: 1.0;
+  @include translateY(0%);
+}
+a {
+  color: rgba(_palette($theme,brand-black), .8);
+  @include heading4();
 
-    &:hover {
-      color: rgba(_palette($theme,brand-black), .95);
-    }
+  &:hover {
+    color: rgba(_palette($theme,brand-black), .95);
   }
-  ul {
+}
+ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  margin-top: 3em;
+
+  li {
     padding: 0;
     margin: 0;
-    text-align: center;
-    margin-top: 3em;
+    list-style: none;
+    margin-bottom: 3em;
 
-    li {
-      padding: 0;
+    > ul {
       margin: 0;
-      list-style: none;
-      margin-bottom: 3em;
+      height: 0;
+      opacity: 0;
+      @include transition(opacity _animation(duration) _animation(easing));
 
-      > ul {
-        display: none;
-        a {
-          line-height: 1.5;
-        }
+      a {
+        line-height: 1.5;
       }
-      &.offcanvas-has-dropdown {
-        ul {
+    }
+    &.offcanvas-has-dropdown {
+      &:hover, &:focus {
+        > ul {
           margin-top: 1em;
+          height: 100%;
+          opacity: 1;
+
           li {
             margin-bottom: 1em;
 
@@ -1436,35 +1432,37 @@ h1, h2, h3, h4, h5, h6, figure {
             }
           }
         }
+      }
 
-        > a {
-          display: block;
-          position: relative;
 
-          &:after {
-            position: absolute;
-            @include icomoon;
-            content: "\e921";
-            color: rgba(_palette($theme,brand-black),.2);
-            color: lighten(_palette($theme,brand-black), 55%);
-            @include transition(all .5s ease);
-          }
+      > a {
+        display: block;
+        position: relative;
+
+        &:after {
+          position: absolute;
+          @include icomoon;
+          content: "\e921";
+          color: rgba(_palette($theme,brand-black),.2);
+          color: lighten(_palette($theme,brand-black), 55%);
+          @include transition(all .5s ease);
         }
-        &.active {
-          a {
-            margin-bottom: 0;
-            &:after {
-              -webkit-transform: rotate(-180deg);
-              -moz-transform: rotate(-180deg);
-              -ms-transform: rotate(-180deg);
-              -o-transform: rotate(-180deg);
-              transform: rotate(-180deg);
-            }
+      }
+      &.active {
+        a {
+          margin-bottom: 0;
+          &:after {
+            -webkit-transform: rotate(-180deg);
+            -moz-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+            -o-transform: rotate(-180deg);
+            transform: rotate(-180deg);
           }
         }
       }
     }
   }
+}
 }
 
 .uppercase {
@@ -1601,7 +1599,7 @@ h1, h2, h3, h4, h5, h6, figure {
   transform: rotateZ(-45deg);
 }
 .fh5co-nav-toggle {
-  position: fixed;
+  position: absolute;
   text-align: center;
   right: calc(50% - 22px);
   top: 15px;
@@ -1647,12 +1645,25 @@ h1, h2, h3, h4, h5, h6, figure {
     border-color: _palette($theme, brand-primary);
   }
 }
-.mb4 {
-  margin-bottom: 4em !important;
+.mb30 {
+  margin-bottom: 30px !important;
+}
+.mb10 {
+  margin-bottom: 10px !important;
+}
+.img-card {
+  min-width: 320px;
 }
 .row {
   margin-left: 0;
   margin-right: 0;
+
+  &.scrolling {
+    margin-left: -100px;
+    margin-right: -100px;
+    @include flex();
+    @include flexScroller();
+  }
 }
 .row-pb-md {
   padding-bottom: 4em !important;

@@ -4,28 +4,28 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [
-  'ngRoute',
+  'ui.router',
   'myApp.directives'
-])
-.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: true,
-    rewriteLinks: true
-  });
-  $routeProvider
-  .when('/', {
+  ])
+.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+  $urlRouterProvider.otherwise('/');
+  // $locationProvider.html5Mode(true);
+  $stateProvider
+  .state('home', {
+    url: '/',
     templateUrl: 'partials/home.html',
     controller  : 'mainController'
   })
-  .when('/card-components', {
+  .state('card-components', {
+    url: '/card-components',
     templateUrl: 'partials/card-components.html',
     controller  : 'mainController'
   })
-  .otherwise({
-    templateUrl: 'partials/home.html',
+  .state('micro-app-templates', {
+    url: '/micro-app-templates',
+    templateUrl: 'partials/micro-app-templates.html',
     controller  : 'mainController'
-  });
+  })
 }])
 .controller('mainController', ['$scope', function($scope) {
 
@@ -189,26 +189,6 @@ angular.module('myApp', [
     }
   };
 
-  $scope.dropdown = function() {
-
-    $('.has-dropdown').mouseenter(function(){
-
-      var $this = $(this);
-      $this
-      .find('.dropdown')
-      .css('display', 'block')
-      .addClass('animated-fast fadeInUpMenu');
-
-    }).mouseleave(function(){
-      var $this = $(this);
-
-      $this
-      .find('.dropdown')
-      .css('display', 'none')
-      .removeClass('animated-fast fadeInUpMenu');
-    });
-
-  };
 
 
   $scope.goToTop = function() {
@@ -276,11 +256,14 @@ angular.module('myApp', [
     $scope.offcanvasMenu();
     $scope.contentWayPoint();
     $scope.videoWayPoint();
-    $scope.dropdown();
     $scope.goToTop();
     $scope.loaderPage();
     $scope.counterWayPoint();
     $scope.parallax();
+  });
+
+  $scope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+    window.scrollTo(0, 0);
   });
 
 }]);

@@ -1,21 +1,7 @@
 <div id="page">
-  <a href="#" ng-click="burgerMenu()" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
-  <nav id="fh5co-offcanvas">
-    <ul>
-      <li class="active"><a href="/">Home</a></li>
-      <li class="offcanvas-has-dropdown"><a href="#">Projects</a>
-        <ul class="dropdown">
-          <li><a href="/card-components/">Micro App Interactions</a></li><li><a href="/wrap-templates/">Micro App Templates</a></li>
-          <li><a href="/perforce/">Perforce</a></li>
-          <li><a href="/cisco/">Cisco</a></li>
-        </ul>
-      </li>
-      <li><a href="mailto:hi@ericsmithux.com?Subject=Hello%21&amp;Body=Was%20looking%20at%20your%20website%20and%20wanted%20to%20say%20hello%21">Say Hello</a></li>
-      <li><a target="_blank" href="/resume/ericsmith-resume.pdf">Resume</a></li>
-    </ul>
-  </nav>
+  <nav ng-include="'partials/nav.html'"></nav>
 
-  <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm full-bleed repeat" role="banner" style="background-image:url(/images/work-1.gif);" data-stellar-background-ratio="0.7">
+  <header id="fh5co-header" class="fh5co-cover contain repeat" role="banner" style="background-image:url(/images/work-1.gif);" data-stellar-background-ratio="0.7">
     <div class="overlay">
     </div>
     <div class="container">
@@ -26,27 +12,9 @@
             <h1 class="white">Micro App Interactions</h1>
           </div>
         </div>
-        <!-- <div class="col-md-offset-1 col-md-2 text-left hidden-xs">
-         <div class="animate-box" data-animate-effect="fadeInUp">
-          <span class="gray">Client</span>
-          <p class="white">Wrap Media</p>
-        </div>
-      </div>
-      <div class="col-md-2 text-left hidden-xs">
-       <div class="animate-box" data-animate-effect="fadeInUp">
-        <span class="gray">Duration</span>
-        <p class="white">6 Months</p>
       </div>
     </div>
-    <div class="col-md-2 text-left hidden-xs">
-     <div class="animate-box" data-animate-effect="fadeInUp">
-      <span class="gray">Tags</span>
-      <p class="white">Interaction, Mobile, Card-based</p>
-    </div>
-  </div> -->
-</div>
-</div>
-</div>
+  </div>
 </header>
 
 
@@ -84,7 +52,7 @@
   <div class="overlay"></div>
   <div class="container">
     <div class="row animate-box">
-      <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+      <div class="col-md-10 col-md-offset-1 text-center fh5co-heading">
         <h1>I designed and developed mobile-first web interactions for our product and external clients.</h1>
       </div>
     </div>
@@ -93,7 +61,7 @@
 <div class="fh5co-section">
  <div class="container">
   <div class="row row-pb-md">
-   <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+   <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
      <h3>Wrap's Studio Design Team partnered with Warner Bros. Records to create a mobile-first merchandise catalog for indie pop duo, Tegan & Sara.</h3>
      <p>Myself with Wrap's Studio Design Team and Warner Bros. Records partnered to create a mobile-first merchandise catalog for the Tegan & Sara's “Love You 2 Death” tour.</p>
      <p>Working closely with the coolest visual designer around, <a href="http://www.linkedin.com/pub/theo-arguna/62/796/635/">Theo Arguna</a>, I designed and developed the "Commerce" and "Share" interactions shown below.</p>
@@ -145,7 +113,7 @@
   <div class="container">
    <div class="row row-pb-md animate-box">
     <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
-     <h3>Nearby Services Component and Small Business Customers</h3>
+     <h3>Nearby Services Component for our self service small business customers</h3>
      <p>As one of our self-service product offerings we built an integration with the Google Places API's for helping users find the nearest location of that service near them. For the case below the customer was a small gym business and a user could find a branch local to their location.</p>
      <p>This component was a "self serve" part of our product. Anyone with an account could add this to a card. I worked on the motion and interaction here and I worked directly with the Google API's while developing this.</p>
    </div>
@@ -164,26 +132,24 @@
         <h2>A few more cards</h2>
       </div>
     </div>
-    <div class="row ">
-     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
-       <img src="images/card-components/cover.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+    <div class="row scrolling">
+      <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/cover.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
      </div>
      <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
-       <img src="images/card-components/card2.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+       <img src="images/card-components/card2.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
      </div>
      <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
-       <img src="images/card-components/card3.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-     </div>
-   </div>
-   <div class="row ">
-     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
-       <img src="images/card-components/card4.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+       <img src="images/card-components/card3.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
      </div>
      <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
-       <img src="images/card-components/card5.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+       <img src="images/card-components/card4.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
      </div>
      <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
-       <img src="images/card-components/card6.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+       <img src="images/card-components/card5.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/card6.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
      </div>
    </div>
  </div>
@@ -203,13 +169,11 @@
 <div id="fh5co-started" class="fh5co-section">
   <div class="container">
    <div class="row animate-box">
-    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+    <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
      <span>Custom Component — Product Design</span>
      <h2>So how did the product allow for use of these components?</h2>
      <div class="col-md-10 col-md-offset-1">
-      <p>As one of our "in-product" components we built an integration with the Google Places API's for helping users find the nearest location of that service near them. For the case below the customer was a small gym business and a user could find a branch local to their location.
-      </p>
-
+      <p>As one of our "in-product" components we built an integration with the Google Places API's for helping users find the nearest location of that service near them. For the case below the customer was a small gym business and a user could find a branch local to their location.</p>
     </div>
   </div>
 </div>

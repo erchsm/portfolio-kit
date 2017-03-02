@@ -29,13 +29,14 @@
   -o-transform: translateY($amount);
   transform: translateY($amount);
 }
-@mixin scale($amount) {
-  -moz-transform: scale($amount);
-  -webkit-transform: scale($amount);
-  -ms-transform: scale($amount);
-  -o-transform: scale($amount);
-  transform: scale($amount);
+@mixin scale($x, $y) {
+  -moz-transform: scale($x, $y);
+  -webkit-transform: scale($x, $y);
+  -ms-transform: scale($x, $y);
+  -o-transform: scale($x, $y);
+  transform: scale($x, $y);
 }
+
 @mixin transition($transition) {
   -moz-transition: $transition;
   -o-transition: $transition;
@@ -71,6 +72,51 @@
   -moz-flex-wrap: wrap;
 }
 
+@mixin flex-align-items($value) {
+  align-items: $value;
+  -webkit-align-items: $value;
+  -ms-align-items: $value;
+}
+
+@mixin flex-justify-content($value) {
+  justify-content: $value;
+  -webkit-justify-content: $value;
+  -ms-justify-content: $value;
+}
+
+@mixin flex-direction($value) {
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin flexScroller() {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+
+  margin-bottom: -30px;
+  padding-left: calc((100vw - (100% - 30px*2))/2);
+  padding-bottom: 60px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: -webkit-grab;
+  cursor: grab;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  @include flex-justify-content(flex-start);
+  @include flex-align-items(flex-start);
+}
+
 @mixin icomoon() {
   font-family: 'icomoon';
   speak: none;
@@ -97,6 +143,20 @@
     font-size: 22px;
     font-weight: 300;
     letter-spacing: 1px;
+  }
+}
+@mixin headingJumbo () {
+  margin-bottom: 0px;
+  margin-top: 0;
+  font-size: 80px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  line-height: 1.1em;
+  font-weight: 700;
+
+  @media screen and (max-width: $screen-sm) {
+    font-size: 32px;
+    letter-spacing: -0.01rem;
   }
 }
 
@@ -153,9 +213,9 @@
 }
 
 @mixin body1 () {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
 
   @media screen and (max-width: $screen-sm) {
     font-size: 18px;
