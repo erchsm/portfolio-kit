@@ -115,6 +115,12 @@
 
   @include flex-justify-content(flex-start);
   @include flex-align-items(flex-start);
+
+  -webkit-overflow-scrolling: touch;
+  .img-card {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+  }
 }
 
 @mixin icomoon() {
@@ -149,8 +155,7 @@
   margin-bottom: 0px;
   margin-top: 0;
   font-size: 80px;
-  letter-spacing: 10px;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   line-height: 1.1em;
   font-weight: 700;
 
@@ -213,14 +218,13 @@
 }
 
 @mixin body1 () {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.5em;
   font-weight: 400;
 
   @media screen and (max-width: $screen-sm) {
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.275em;
   }
 }
 

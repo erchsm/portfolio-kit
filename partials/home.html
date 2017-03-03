@@ -1,16 +1,14 @@
 <div id="page">
   <nav ng-include="'partials/nav.html'"></nav>
 
-  <header id="fh5co-header" class="fh5co-cover full-bleed repeat" role="banner" style=" background-image: url('http://ericsmithux.com/images/38320027.jpg'); background-blend-mode: multiply;" data-stellar-background-ratio="0.6">
+  <header id="fh5co-header" class="fh5co-cover percent repeat" role="banner" style=" background-image: url('images/banner_hero.svg'); background-blend-mode: multiply; background-color: aquamarine" data-stellar-background-ratio="0.6">
     <div class="overlay"></div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-offset-2 col-md-8 text-center">
+        <div class="col-md-offset-2 col-md-8 text-left">
           <div class="display-t">
             <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-              <h1 class="mb10">Eric C. Smith</h1>
-              <h1 class="x-glyph mb10"></h1>
-              <h1 class="">UX Engineer & Designer</h1>
+              <h1 class="">Eric C. Smith is a UI/UX Designer and Developer in New York City.
             </div>
           </div>
         </div>
@@ -19,7 +17,7 @@
   </header>
 
   <div id="fh5co-started" class="fh5co-section fh5co-section--white glyph">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row row-pb-md hidden-xs">
         <div class="col-md-7">
           <img class="img-responsive mb30" src="images/brooklyn.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
@@ -30,7 +28,7 @@
       </div>
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-          <h4>Hi there, I’m Eric — I’m a Designer with a nack for writing code. Here are some things I’ve worked on</h4>
+          <h4>Hi there, I’m Eric — I’m a designer with a nack for writing code. Here are some things I’ve worked on.</h4>
           <p>I’ve made this site with my own two hands with help from Google’s Web Starter Kit and HTML5 Up templates. If you can’t tell from this site’s design, I like bright colors and bold patterns. When im not designing or writing code I’m either taking photos or out enjoying some nature.</p>
         </div>
       </div>
@@ -38,7 +36,7 @@
   </div>
   <!-- <div class="fh5co-section fh5co-section--black fh5co-bg repeat" style="background-image: url('images/shape_glyph.png'); background-color: rgba(0, 50, 255, 1); background-blend-mode: multiply;">
     <div class="overlay" style="background-color: rgba(194, 191, 157, 0.8)"></div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row animate-box">
         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
           <h1>I specialize in working on prototypes, visual design and front-end code.</h1>
@@ -48,21 +46,22 @@
   </div> -->
 
   <div id="fh5co-project" class="fh5co-section fh5co-section--white">
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid">
+      <div class="row row-pb-md">
         <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-          <h4>Here are some of the recent projects I've worked on</h4>
+          <h4>I specialize in working on prototypes, visual design and front-end code.</h4>
+          <p>Here are some of the recent projects I've worked on. </p>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeIn">
+        <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeInUp">
           <a href="#!/card-components">
-            <img src="images/card-animation.gif" class="img-responsive" alt="Free HTML5 Website Template by gettemplates.co" >
+            <img src="images/card-components/share-animation.gif" class="img-responsive" alt="Free HTML5 Website Template by gettemplates.co" >
             <div class="row fh5co-copy fh5co-copy--white">
               <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
                 <h4>Micro App Card Interactions</h4>
-                <span>Interaction Design</span>
+                <span>Interaction, Mobile</span>
               </div>
               <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
                 <span class="icon">
@@ -75,7 +74,7 @@
             <div class="row fh5co-copy fh5co-copy--white">
               <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
                 <h4>Dropbox meets Github</h4>
-                <span>UI/UX Design/Research</span>
+                <span>UX, Prototyping</span>
               </div>
               <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
                 <span class="icon">
@@ -88,7 +87,7 @@
             <div class="row fh5co-copy fh5co-copy--white">
               <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
                 <h4>Givjoy & Protohack</h4>
-                <span>MobileUI/UX Design</span>
+                <span>Mobile, UX</span>
               </div>
               <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
                 <span class="icon">
@@ -98,13 +97,13 @@
             </div>
           </a>
         </div>
-        <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeIn">
+        <div class="col-md-6 col-sm-12 fh5co-project animate-box" data-animate-effect="fadeInUp">
           <a href="#!/micro-app-templates">
             <img src="images/card-components/banner.jpg" class="img-responsive" alt="Free HTML5 Website Template by gettemplates.co" >
             <div class="row fh5co-copy fh5co-copy--white">
               <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
                 <h4>Micro App Templates</h4>
-                <span>Visual Design</span>
+                <span>Visual, Mobile</span>
               </div>
               <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
                 <span class="icon">
@@ -117,7 +116,7 @@
             <div class="row fh5co-copy fh5co-copy--white">
               <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-0">
                 <h4>Cisco MATE</h4>
-                <span>UI Design & Engineering</span>
+                <span>UI Design, Engineering</span>
               </div>
               <div class="col-md-1 col-md-offset-0 col-xs-1 col-xs-offset-1 col-xs-offset-2">
                 <span class="icon">
@@ -136,7 +135,7 @@
 
   <footer class="fh5co-bg fh5co-section fh5co-section--black" style="background-image: url('http://ericsmithux.com/images/38320027.jpg'); background-color: rgb(228, 109, 93); background-blend-mode: overlay;">
     <div class="overlay" style="background-color: rgba(255, 114, 94, 0.6);"></div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row copyright">
         <div class="col-md-12 text-center">
           <p>

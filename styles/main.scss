@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 0;
   width: 100%;
   padding: 25px 0;
-  z-index: 1001;
+  z-index: 2001;
 
   background: transparent;
   @include transition(all .5s ease);
@@ -149,10 +149,7 @@ h1, h2, h3, h4, h5, h6, figure {
       }
     }
   }
-  a {
-    padding: 5px 10px;
-    color: _palette($theme,brand-white);
-  }
+
   .menu-1 {
     display: none;
     @media screen and (max-width: $screen-sm ) {
@@ -296,7 +293,6 @@ h1, h2, h3, h4, h5, h6, figure {
 
   &.percent {
     background-size: 65%;
-
     @media screen and (max-width: $screen-sm) {
       background-size: 135%;
     }
@@ -304,7 +300,12 @@ h1, h2, h3, h4, h5, h6, figure {
 
   &.full-bleed {
     background-size: 102%;
+
+    @media screen and (max-width: $screen-sm) {
+      background-size: cover;
+    }
   }
+
   &.contain {
     background-size: contain;
   }
@@ -353,7 +354,7 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 
   @media screen and (max-width: $screen-sm) {
-    height: 90vh;
+    height: 80vh;
   }
 
   .display-t,
@@ -364,7 +365,7 @@ h1, h2, h3, h4, h5, h6, figure {
     width: 100%;
 
     @media screen and (max-width: $screen-sm) {
-      height: 90vh;
+      height: 80vh;
     }
   }
 
@@ -372,7 +373,7 @@ h1, h2, h3, h4, h5, h6, figure {
     height: 80vh;
 
     @media screen and (max-width: $screen-sm) {
-      height: 80vh;
+      height: 70vh;
     }
 
     .display-t,
@@ -382,7 +383,7 @@ h1, h2, h3, h4, h5, h6, figure {
       width: 100%;
 
       @media screen and (max-width: $screen-sm) {
-        height: 80vh;
+        height: 70vh;
       }
     }
   }
@@ -533,10 +534,7 @@ h1, h2, h3, h4, h5, h6, figure {
     }
 
     h2 {
-      font-size: 20px;
-      line-height: 1.5;
-      margin-bottom: 30px;
-      text-transform: uppercase;
+      @include heading2();
     }
     p {
       @media screen and (max-width: $screen-sm) {
@@ -846,8 +844,11 @@ h1, h2, h3, h4, h5, h6, figure {
           // border: solid 1px;
           // border-top: none;
 
-          h3, span, p, i {
+          h3, i {
             color: lighten(_palette($theme,brand-black), 0%);
+          }
+          span, p {
+            color: lighten(_palette($theme,brand-black), 25%);
           }
         }
         h3 {
@@ -860,14 +861,7 @@ h1, h2, h3, h4, h5, h6, figure {
           @include heading4();
         }
         span {
-          display: block;
-          margin-bottom: 15px;
-          font-weight: 300;
-          font-size: 20px;
-
-          @media screen and (max-width: $screen-sm) {
-            font-size: 18px;
-          }
+          @include body1();
         }
         p {
           @include body1();
@@ -1169,7 +1163,7 @@ h1, h2, h3, h4, h5, h6, figure {
         color: _palette($theme,brand-black);
       }
       p {
-        color: _palette($theme,brand-black);
+        color: lighten(_palette($theme,brand-black), 25%);
       }
     }
     .btn {
@@ -1266,13 +1260,15 @@ h1, h2, h3, h4, h5, h6, figure {
       position: absolute;
       display: block;
       left: 50%;
+      margin-top: 1.75em;
       height: 7em;
-      width: 2px;
+      width: 1px;
       background: darken(_palette($theme, brand-gray), 0%);
     }
     @media screen and (max-width: $screen-sm) {
       &:after {
-        margin-top: 0px;
+        margin-top: 1.25em;
+        height: 5em;
       }
     }
   }
@@ -1372,7 +1368,7 @@ h1, h2, h3, h4, h5, h6, figure {
   right: 0;
   top: 0;
   bottom: 0;
-  padding: 50px 40px 40px 40px;
+  padding-top: 82px;
   overflow-y: auto;
   display: block;
   opacity: 0;
@@ -1380,7 +1376,7 @@ h1, h2, h3, h4, h5, h6, figure {
   @include transition(opacity .5s ease);
 
   @media screen and(max-width: $screen-sm){
-   padding: 50px 0 0 0;
+   padding-top: 82px;
  }
 
  .offcanvas & {
@@ -1398,7 +1394,6 @@ a {
 ul {
   padding: 0;
   margin: 0;
-  text-align: center;
   margin-top: 3em;
 
   li {
@@ -1511,6 +1506,9 @@ ul {
 .fh5co-nav-toggle {
   width: 32px;
   height: 32px;
+  line-height: 32px;
+  font-size: 32px;
+  vertical-align: top;
   cursor: pointer;
   text-decoration: none;
 
@@ -1540,8 +1538,12 @@ ul {
   }
   i, i::before, i::after {
     width: 32px;
-    height: 2px;
-    background: transparent;
+    height: 1px;
+    background: _palette($theme,brand-black);
+
+    @media screen and (max-width: $screen-sm) {
+      width: 26px;
+    }
   }
   &.fh5co-nav-white {
     > i {
@@ -1560,7 +1562,7 @@ ul {
 }
 .fh5co-nav-toggle i::after {
   bottom: -7px;
-  width: inherit;
+  width: 50%;
 }
 .fh5co-nav-toggle:hover i::before {
 }
@@ -1599,35 +1601,29 @@ ul {
   transform: rotateZ(-45deg);
 }
 .fh5co-nav-toggle {
-  position: absolute;
+  position: relative;
   text-align: center;
-  right: calc(50% - 22px);
-  top: 15px;
-  z-index: 21;
-  padding: 6px 0 0 0;
   display: block;
   margin: 0 auto;
-  display: block;
-  height: 44px;
-  width: 44px;
+  display: inline;
   z-index: 2001;
   border-bottom: none !important;
   opacity: 1;
   @include translateY(0%);
   @include transition(all .2s _animation(easing));
 
-  .scrolled & {
-    @include translateY(-100%);
-    opacity: 0;
+  // .scrolled & {
+  //   @include translateY(-100%);
+  //   opacity: 0;
 
-    &.active {
-      @include translateY(0%);
-      opacity: 1;
-    }
-  }
-  @media screen and (max-width: $screen-sm) {
-    padding: 6px 0 0 0;
-  }
+  //   &.active {
+  //     @include translateY(0%);
+  //     opacity: 1;
+  //   }
+  // }
+  // @media screen and (max-width: $screen-sm) {
+  //   padding: 6px 0 0 0;
+  // }
 }
 
 
