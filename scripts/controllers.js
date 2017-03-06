@@ -113,30 +113,36 @@
   };
 
   $scope.burgerWayPoint = function() {
-    $('.fh5co-section--black').waypoint( function( direction ) {
-      if (direction === 'down') {
-        console.log('black down');
-        $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
-      }
+    // $('#fh5co-header').waypoint( function( direction ) {
+    //   if (direction === 'up') {
+    //     console.log('header');
+    //     $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
+    //   }
+    // } , { offset: '5%' } );
+    // $('.fh5co-section--black').waypoint( function( direction ) {
+    //   if (direction === 'down') {
+    //     console.log('black down');
+    //     $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
+    //   }
+    // } , { offset: '5%' } );
+    // $('.fh5co-section--white').waypoint( function( direction ) {
+    //   if (direction === 'down') {
+    //     console.log('white down');
+    //     $('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
+    //   }
+    // },{ offset: '5%' });
+    // $('.fh5co-section--white').waypoint( function( direction ) {
+    //   if (direction === 'up') {
+    //     console.log('white up');
+    //     $('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
+    //   }
+    // } , { offset: '5%' } );
+    $('.fh5co-section').waypoint( function( direction ) {
+      // if (direction === 'up') {
+        console.log(this.element);
+        $('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
+      // }
     } , { offset: '5%' } );
-    $('.fh5co-section--white').waypoint( function( direction ) {
-      if (direction === 'down') {
-        console.log('white down');
-        $('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
-      }
-    },{ offset: '5%' });
-    $('.fh5co-section--white').waypoint( function( direction ) {
-      if (direction === 'up') {
-        console.log('white up');
-        $('.js-fh5co-nav-toggle').removeClass('fh5co-nav-white');
-      }
-    } , { offset: '95%' } );
-    $('.fh5co-section--black').waypoint( function( direction ) {
-      if (direction === 'up') {
-        console.log('black up');
-        $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
-      }
-    } , { offset: '95%' } );
   };
 
 
@@ -144,7 +150,7 @@
     var i = 0;
     $('.animate-box').waypoint( function( direction ) {
 
-      if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
+      if (direction === 'down' && !$(this.element).hasClass('animated-fast')) {
 
         i++;
 
@@ -166,7 +172,7 @@
               }
 
               el.removeClass('item-animate');
-            },  k * 50, 'easeInOutExpo' );
+            },  k * 50, 'easeInOut' );
           });
 
         }, 100);

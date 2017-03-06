@@ -518,7 +518,7 @@ h1, h2, h3, h4, h5, h6, figure {
   .display-tc {
     display: table-cell !important;
     vertical-align: middle;
-    h1, h2 {
+    h1, h2, h3 {
       margin: 0;
       padding: 0;
       color: _palette($theme,brand-white);
@@ -526,9 +526,9 @@ h1, h2, h3, h4, h5, h6, figure {
     .x-glyph {
       @include x-glyph();
     }
-    &.white {
-      color: _palette($theme,brand-white);
-    }
+    // &.white {
+    //   color: _palette($theme,brand-white);
+    // }
     h1 {
       @include headingJumbo();
     }

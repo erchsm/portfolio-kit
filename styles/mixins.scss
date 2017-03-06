@@ -101,15 +101,14 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
 
-  margin-bottom: -30px;
   padding-left: calc((100vw - (100% - 30px*2))/2);
   padding-bottom: 60px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: -webkit-grab;
-  cursor: grab;
+  cursor: -webkit-ew-resize;
+  cursor: ew-resize;
   overflow-x: scroll;
   overflow-y: hidden;
 

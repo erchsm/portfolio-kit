@@ -27,6 +27,16 @@
       templateUrl: 'partials/micro-app-templates.html',
       controller  : 'mainController'
     })
+    .state('perforce', {
+      url: '/perforce',
+      templateUrl: 'partials/perforce.html',
+      controller  : 'mainController'
+    })
+    .state('cisco', {
+      url: '/cisco',
+      templateUrl: 'partials/cisco.html',
+      controller  : 'mainController'
+    })
   }])
 
 
