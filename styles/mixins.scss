@@ -29,6 +29,13 @@
   -o-transform: translateY($amount);
   transform: translateY($amount);
 }
+@mixin translate3d($x,$y,$z) {
+  -moz-transform: translate3d($x,$y,$z);
+  -webkit-transform: translate3d($x,$y,$z);
+  -ms-transform: translate3d($x,$y,$z);
+  -o-transform: translate3d($x,$y,$z);
+  transform: translate3d($x,$y,$z);
+}
 @mixin scale($x, $y) {
   -moz-transform: scale($x, $y);
   -webkit-transform: scale($x, $y);
@@ -44,6 +51,15 @@
   -ms-transition: $transition;
   transition: $transition;
 }
+
+@mixin transition-delay($transition-delay) {
+  -moz-transition-delay: $transition-delay;
+  -o-transition-delay: $transition-delay;
+  -webkit-transition-delay: $transition-delay;
+  -ms-transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
+}
+
 @mixin inline-block() {
   display:-moz-inline-stack;
   display:inline-block;
@@ -137,30 +153,17 @@
 
 }
 
-@mixin heading2 () {
-  font-size: 24px;
-  line-height: 1.275em;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-
-  @media screen and (max-width: $screen-sm) {
-    font-size: 22px;
-    font-weight: 300;
-    letter-spacing: 1px;
-  }
-}
 
 @mixin headingJumbo () {
   margin-bottom: 0px;
   margin-top: 0;
   font-size: 80px;
   letter-spacing: 0.01em;
-  line-height: 1.1em;
+  line-height: 1em;
   font-weight: 700;
 
   @media screen and (max-width: $screen-sm) {
-    font-size: 32px;
+    font-size: 10vw;
     letter-spacing: -0.01rem;
   }
 }
@@ -221,12 +224,12 @@
 
   @media screen and (max-width: $screen-sm) {
     font-size: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 0.05em;
   }
 }
 
 @mixin body1 () {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.5em;
   font-weight: 400;
 

@@ -22,6 +22,7 @@ $padding-base-vertical: 14px !default;
 }
 
 body {
+  -webkit-overflow-scrolling: touch;
   font-family: $font-primary;
   font-weight: 400;
   font-size: 16px;
@@ -42,7 +43,7 @@ b, strong {
     overflow: hidden;
 
     &:after {
-      @include transition(all 2s ease);
+      @include transition(all 2s _animation(easing2));
       content: '';
       position: absolute;
       top: 0;
@@ -50,7 +51,7 @@ b, strong {
       bottom: 0;
       left: 0;
       z-index: 101;
-      background: rgba(_palette(theme1,brand-black),.7);
+      background: rgba(_palette($theme,brand-black),.2);
       content: "";
     }
   }
@@ -342,7 +343,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .fh5co-cover {
-  height: 90vh;
+  height: calc(100vh - 82px);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -361,7 +362,7 @@ h1, h2, h3, h4, h5, h6, figure {
   .display-t,
   .display-tc {
     z-index: 9;
-    height: 90vh;
+    height: calc(100vh - 82px);
     display: table;
     width: 100%;
 
@@ -802,26 +803,18 @@ h1, h2, h3, h4, h5, h6, figure {
       position: relative;
       bottom: 0;
       overflow: hidden;
-      @include transition(all .5s ease);
 
-      img {
-        position: relative;
-        @include scale(1, 1);
-        transform-origin: bottom;
-        @include transition(all .5s _animation(easing));
+      .img-wrapper {
+        overflow: hidden;
+        @include scale(1,1);
+        @include transition(transform .6s _animation(easing1));
 
-        &:after {
-          opacity: 0;
-          visibility: hidden;
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          top: 0;
-          background: rgba(_palette($theme,brand-black), .7);
-          z-index: 8;
-          @include transition(all .5s ease)
+        img {
+          position: relative;
+          // transform-origin: bottom;
+          @include transition(transform .6s _animation(easing1));
+          @include transition-delay(0.09s);
+
         }
       }
 
@@ -844,8 +837,6 @@ h1, h2, h3, h4, h5, h6, figure {
         }
         &--white {
           background: _palette($theme,brand-white);
-          // border: solid 1px;
-          // border-top: none;
 
           h3, i {
             color: lighten(_palette($theme,brand-black), 0%);
@@ -876,10 +867,28 @@ h1, h2, h3, h4, h5, h6, figure {
           opacity: 1;
           bottom: 0;
         }
-
       }
       &:hover {
-        // @include shadows();
+        .img-wrapper {
+          @include scale(0.97,0.97);
+
+          img {
+            @include scale(1.03,1.03);
+
+            &:after {
+              opacity: 1;
+              visibility: visible;
+              @media screen and (max-width: $screen-sm ) {
+                opacity: 0;
+                visibility: hidden;
+              }
+            }
+
+            @media screen and (max-width: $screen-sm ) {
+              @include scale(1, 1);
+            }
+          }
+        }
 
         @media screen and (max-width: $screen-sm ) {
           bottom: 0;
@@ -896,22 +905,7 @@ h1, h2, h3, h4, h5, h6, figure {
             bottom: 0;
           }
         }
-        img {
-          @include scale(1,1);
 
-          &:after {
-            opacity: 1;
-            visibility: visible;
-            @media screen and (max-width: $screen-sm ) {
-              opacity: 0;
-              visibility: hidden;
-            }
-          }
-
-          @media screen and (max-width: $screen-sm ) {
-            @include scale(1, 1);
-          }
-        }
       }
     }
   }
@@ -1365,102 +1359,113 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-offcanvas {
   position: fixed;
   z-index: 1901;
+  max-width: 60vw;
   width: 100%;
-  background: rgba(_palette($theme,brand-white), .85);
+  background: rgba(_palette($theme,brand-white), 1);
   top: 0;
-  right: 0;
+  left: 0;
   top: 0;
   bottom: 0;
   padding-top: 82px;
   overflow-y: auto;
   display: block;
   opacity: 0;
-  @include translateY(100%);
-  @include transition(opacity .5s ease);
+  @include translate3d(-100%,0,0);
+  $transition: transform .6s _animation(easing2);
+  @include transition($transition);
 
-  @media screen and(max-width: $screen-sm){
-   padding-top: 82px;
- }
-
- .offcanvas & {
-  opacity: 1.0;
-  @include translateY(0%);
-}
-a {
-  color: rgba(_palette($theme,brand-black), .8);
-  @include heading4();
-
-  &:hover {
-    color: rgba(_palette($theme,brand-black), .95);
+  @media screen and(max-width: $screen-sm) {
+    padding-top: 82px;
+    max-width: 95vw;
   }
-}
-ul {
-  padding: 0;
-  margin: 0;
-  margin-top: 3em;
 
-  li {
+  .offcanvas & {
+    opacity: 1.0;
+    @include translate3d(0,0,0);
+
+    ul > li {
+      opacity: 1.0;
+      @include translate3d(0,0,0);
+    }
+  }
+  a {
+    color: lighten(_palette($theme,brand-black), 0%);
+    @include heading3();
+
+    &:hover {
+      color: lighten(_palette($theme,brand-black), 35%);
+    }
+  }
+  ul {
     padding: 0;
     margin: 0;
-    list-style: none;
-    margin-bottom: 3em;
+    margin-top: 3em;
 
-    > ul {
+    li {
+      padding: 0;
       margin: 0;
-      height: 0;
+      list-style: none;
+      margin-bottom: 3em;
       opacity: 0;
-      @include transition(opacity _animation(duration) _animation(easing));
+      @include translate3d(-50%,0,0);
+      $transition: opacity .6s _animation(easing2), transform .6s _animation(easing2);
+      @include transition($transition);
 
-      a {
-        line-height: 1.5;
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          @include transition-delay(#{$i * 0.09}s);
+        }
       }
-    }
-    &.offcanvas-has-dropdown {
-      &:hover, &:focus {
-        > ul {
-          margin-top: 1em;
-          height: 100%;
-          opacity: 1;
 
-          li {
-            margin-bottom: 1em;
+      > ul {
+        margin: 0;
+        height: 0;
+        opacity: 0;
+        @include transition(opacity _animation(duration) _animation(easing));
 
-            &:last-child {
-              margin-bottom: 0;
+        a {
+          line-height: 1em;
+        }
+      }
+      &.offcanvas-has-dropdown {
+        &:hover, &:focus {
+          > ul {
+            margin-top: 1em;
+            height: 100%;
+            opacity: 1;
+
+            li {
+              margin-bottom: 1em;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
             }
           }
         }
-      }
 
 
-      > a {
-        display: block;
-        position: relative;
+        > a {
+          display: block;
+          position: relative;
 
-        &:after {
-          position: absolute;
-          @include icomoon;
-          content: "\e921";
-          color: rgba(_palette($theme,brand-black),.2);
-          color: lighten(_palette($theme,brand-black), 55%);
-          @include transition(all .5s ease);
-        }
-      }
-      &.active {
-        a {
-          margin-bottom: 0;
+          &:hover {
+            &:after {
+              color: lighten(_palette($theme,brand-black), 35%);
+            }
+          }
+
           &:after {
-            -webkit-transform: rotate(-180deg);
-            -moz-transform: rotate(-180deg);
-            -ms-transform: rotate(-180deg);
-            -o-transform: rotate(-180deg);
-            transform: rotate(-180deg);
+            position: absolute;
+            @include icomoon;
+            content: "\e921";
+            color: lighten(_palette($theme,brand-black), 0%);
+            @include transition(all .5s ease);
           }
         }
       }
     }
   }
-}
 }
 
 .uppercase {
@@ -1515,11 +1520,6 @@ ul {
   cursor: pointer;
   text-decoration: none;
 
-  &.active i {
-    &::before, &::after {
-      background: _palette($theme,brand-black);
-    }
-  }
   &:hover, &:focus, &:active {
     outline: none;
     border-bottom: none !important;
@@ -1530,13 +1530,13 @@ ul {
     font: bold 14px/.4 Helvetica;
     text-transform: uppercase;
     text-indent: -55px;
-    transition: all .2s ease-out;
+    transition: transform .6s _animation(easing2);
 
     &::before, &::after {
       content:'';
       position: absolute;
       left: 0;
-      transition: all .2s ease-out;
+      transition: transform .6s _animation(easing2);
     }
   }
   i, i::before, i::after {
@@ -1552,8 +1552,10 @@ ul {
     > i {
       color:_palette($theme,brand-white);
       background: _palette($theme,brand-white);
+      height: 2px;
       &::before, &::after {
         background: _palette($theme,brand-white);
+        height: 2px;
       }
     }
   }
@@ -1575,6 +1577,7 @@ ul {
   i {
     background: transparent;
     &::before, &::after {
+      height: 1px;
       background: lighten(_palette($theme,brand-black), 55%);
     }
   }
