@@ -37,9 +37,9 @@
       templateUrl: 'partials/cisco.html',
       controller  : 'mainController'
     })
-    .state('givjoy', {
-      url: '/givjoy',
-      templateUrl: 'partials/givjoy.html',
+    .state('protohack-givjoy', {
+      url: '/protohack-givjoy',
+      templateUrl: 'partials/protohack-givjoy.html',
       controller  : 'mainController'
     })
   }])

@@ -1599,7 +1599,7 @@ h1, h2, h3, h4, h5, h6, figure {
   transform: rotateZ(45deg);
 }
 .fh5co-nav-toggle.active i::after {
-  bottom: 0;
+  top: 0;
   width: 32px;
   -webkit-transform: rotateZ(-45deg);
   -moz-transform: rotateZ(-45deg);

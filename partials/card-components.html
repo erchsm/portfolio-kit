@@ -2,47 +2,43 @@
   <nav ng-include="'partials/nav.html'"></nav>
 
   <header id="fh5co-header" class="fh5co-cover contain repeat" role="banner" style="background-image:url(/images/card-components/share-animation-zoomed-out.gif);" data-stellar-background-ratio="0.7">
-    <div class="overlay">
-    </div>
+    <div class="overlay"></div>
     <div class="container-fluid">
       <div class="display-t">
         <div class="row display-tc">
          <div class="col-xs-12 col-md-offset-0 col-md-10 text-left text-xs-center">
            <div class="animate-box" data-animate-effect="fadeInUp">
-            <h1 class="white mb10">Micro App Interactions</h1>
-            <h3 class="white">Wrap Media</h3>
-          </div>
-        </div>
+             <h1 class="white mb10">Micro App Interactions</h1>
+             <h3 class="white">Wrap Media</h3>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </header>
+
+ <div id="fh5co-project" class="fh5co-section fh5co-section--white animate-box">
+   <div class="container-fluid">
+     <div class="row row-pb-md">
+       <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
+        <h3>A quick introduction to the Wrap platform — a Wrap is a highly-focused, app-like, mobile web experience.</h3>
+        <p>Wraps are mobile web apps and live at a URL. The flexibility of the URL allows a end user to enter the Wrap through many channels including social feeds, e-mail, web advertisement or, like shown below, through SMS.</p>
       </div>
     </div>
-  </div>
-</header>
-
-
-
-<div id="fh5co-project" class="fh5co-section fh5co-section--white animate-box">
- <div class="container-fluid">
-   <div class="row row-pb-md">
-     <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
-      <h3>A quick introduction to the Wrap platform — a Wrap is a highly-focused, app-like, mobile web experience.</h3>
-      <p>Wraps are mobile web apps and live at a URL. The flexibility of the URL allows a end user to enter the Wrap through many channels including social feeds, e-mail, web advertisement or, like shown below, through SMS.</p>
+    <div class="row row-pb-md">
+      <div class="col-md-7 text-left fh5co-heading">
+        <video src="images/card-components/minted.mp4" class="img-responsive play-on-scroll" controls></video>
+      </div>
+      <div class="col-md-5 text-left fh5co-heading">
+        <img src="images/card-components/minted-hand.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
+      </div>
     </div>
-  </div>
-  <div class="row row-pb-md">
-    <div class="col-md-7 text-left fh5co-heading">
-      <video src="images/card-components/minted.mp4" class="img-responsive play-on-scroll" controls></video>
-    </div>
-    <div class="col-md-5 text-left fh5co-heading">
-      <img src="images/card-components/minted-hand.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
-      <h3>The Minted Challange Wrap seen above I worked on with <a href="https://www.linkedin.com/in/jeffrklein/">Jeff Klein</a> — He worked the visual design while I focused on the interactions.</h3>
-      <p>Wrap experiences are essentially a colleciton of cards — a new "page" of the traditional "app" is analagous to a card. The creation and distribution of the experiences was handled through a SASS application that we developed in-house as well.</p>
-      <p>The way that myself and the design team designed wraps was by designing cards. From the example above you can see that these experiences follow and "x-cross" pattern — The end user is able to scroll either up/down or swipe left or right.</p>
-      <!-- <p>Wrap Components are the building blocks of those cards. They can be positioned at will on the card.</p> -->
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
+        <h3>The Minted Challange Wrap seen above I worked on with <a href="https://www.linkedin.com/in/jeffrklein/">Jeff Klein</a> — He worked the visual design while I focused on the interactions.</h3>
+        <p>Wrap experiences are essentially a colleciton of cards — a new "page" of the traditional "app" is analagous to a card. The creation and distribution of the experiences was handled through a SASS application that we developed in-house as well.</p>
+        <p>The way that myself and the design team designed wraps was by designing cards. From the example above you can see that these experiences follow and "x-cross" pattern — The end user is able to scroll either up/down or swipe left or right.</p>
       </div>
     </div>
   </div>
@@ -154,33 +150,55 @@
 </div>
 <div class="fh5co-section fh5co-section--white">
   <div class="container-fluid">
-   <div class="row">
-     <div class="col-md-5 col-md-offset-1 text-left fh5co-heading">
-       <h3>
-        We developed a custom Current Location pin as a means to make this feel more like a native application
-      </h3>
-      <p>
-        The Google Maps API does not make their pin animation available via API so I decided to quickly develop our own.
-      </p>
-      <p>
-        <a href="https://codepen.io/erchsm/pen/vyxxae/">Check out the Codepen <i class="icon-arrow-right"></i></a>
-      </p>
-    </div>
-    <div class="col-md-4 col-md-offset-1 fh5co-project animate-box " data-animate-effect="fadeIn">
-     <p style="min-height: 265px;" data-height="265" data-theme-id="light" data-slug-hash="vyxxae" data-default-tab="result" data-user="erchsm" data-embed-version="2" data-pen-title="The Pin" class="codepen">See the Pen <a href="https://codepen.io/erchsm/pen/vyxxae/">The Pin</a> by eric smith (<a href="http://codepen.io/erchsm">@erchsm</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    <div class="row">
+      <div class="col-md-5 col-md-offset-1 text-left fh5co-heading">
+        <h3>We developed a custom Current Location pin as a means to make this feel more like a native application</h3>
+        <p>The Google Maps API does not make their pin animation available via API so I decided to quickly develop our own.</p>
+        <p><a href="https://codepen.io/erchsm/pen/vyxxae/">Check out the Codepen <i class="icon-arrow-right"></i></a></p>
+      </div>
+      <div class="col-md-4 col-md-offset-1 fh5co-project animate-box" data-animate-effect="fadeIn">
+       <p style="min-height: 265px;" data-height="265" data-theme-id="light" data-slug-hash="vyxxae" data-default-tab="result" data-user="erchsm" data-embed-version="2" data-pen-title="The Pin" class="codepen"> See the Pen <a href="https://codepen.io/erchsm/pen/vyxxae/">The Pin</a> by eric smith (<a href="http://codepen.io/erchsm">@erchsm</a>) on <a href="http://codepen.io">CodePen</a></p>
+     </div>
    </div>
  </div>
 </div>
+<div class="fh5co-section fh5co-section--black">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-12 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+        <h3>I learned to love using codepen as presentation</h3>
+      </div>
+    </div>
+    <div class="row scrolling">
+      <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/cover.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/card2.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/card3.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/card4.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/card5.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+     <div class="col-md-4 fh5co-project animate-box fh5co-heading" data-animate-effect="fadeIn">
+       <img src="images/card-components/card6.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive img-card">
+     </div>
+   </div>
+ </div>
 </div>
+
 
 <div codepenembed></div>
-
-
-
-</div>
-</div>
-</div>
 
 <div class="gototop js-top">
   <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 </div>
+
+</div>
+
+
