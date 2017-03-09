@@ -37,6 +37,11 @@
       templateUrl: 'partials/cisco.html',
       controller  : 'mainController'
     })
+    .state('givjoy', {
+      url: '/givjoy',
+      templateUrl: 'partials/givjoy.html',
+      controller  : 'mainController'
+    })
   }])
 
 

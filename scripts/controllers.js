@@ -68,6 +68,8 @@
     };
 
     $scope.burgerWayPoint = function() {
+      $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
+
       $('#fh5co-header').waypoint( function( direction ) {
         if (direction == 'up') {
           $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
@@ -93,7 +95,7 @@
               $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
           }
         } , { offset: function() {
-          return -this.element.clientHeight;
+          return -this.element.clientHeight + 20;
         } } );
       });
     };

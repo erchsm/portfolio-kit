@@ -292,6 +292,7 @@ h1, h2, h3, h4, h5, h6, figure {
   background-position: top center;
   position: relative;
   background-size: intial;
+  // background-attachment: fixed;
 
   &.percent {
     background-size: 65%;
