@@ -95,7 +95,7 @@
               $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
           }
         } , { offset: function() {
-          return -this.element.clientHeight + 20;
+          return -this.element.clientHeight;
         } } );
       });
     };
@@ -174,54 +174,26 @@
 
     };
 
+    $scope.parallax = function() {
+      if (!($scope.isMobile.any()) && !($scope.isBrowser.safari())) {
+        $(window).stellar();
+      }
+    };
 
-  // Loading page
-  $scope.loaderPage = function() {
-    $(".fh5co-loader").fadeOut("slow");
-  };
+    $scope.$on('$viewContentLoaded', function() {
+      $scope.offcanvasMenu();
+      $scope.mobileMenuOutsideClick();
+      $scope.offcanvasMenu();
+      $scope.contentWayPoint();
+      $scope.videoWayPoint();
+      $scope.burgerWayPoint();
+      $scope.goToTop();
+      $scope.parallax();
+    });
 
-  $scope.counter = function() {
-    $('.js-counter').countTo({
-     formatter: function (value, options) {
-      return value.toFixed(options.decimals);
-    },
-  });
-  };
+    $scope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+      window.scrollTo(0, 0);
+    });
 
-  $scope.counterWayPoint = function() {
-    if ($('#fh5co-counter').length > 0 ) {
-      $('#fh5co-counter').waypoint( function( direction ) {
-
-        if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-          setTimeout( counter , 400);
-          $(this.element).addClass('animated');
-        }
-      } , { offset: '90%' } );
-    }
-  };
-
-  $scope.parallax = function() {
-    if (!($scope.isMobile.any()) && !($scope.isBrowser.safari())) {
-      $(window).stellar();
-    }
-  };
-
-  $scope.$on('$viewContentLoaded', function() {
-    $scope.offcanvasMenu();
-    $scope.mobileMenuOutsideClick();
-    $scope.offcanvasMenu();
-    $scope.contentWayPoint();
-    $scope.videoWayPoint();
-    $scope.burgerWayPoint();
-    $scope.goToTop();
-    $scope.loaderPage();
-    $scope.counterWayPoint();
-    $scope.parallax();
-  });
-
-  $scope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
-    window.scrollTo(0, 0);
-  });
-
-}]);
+  }]);
 })();

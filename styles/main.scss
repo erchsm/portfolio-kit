@@ -1380,6 +1380,34 @@ h1, h2, h3, h4, h5, h6, figure {
     max-width: 95vw;
   }
 
+  // Dropdown control
+  .control {
+    display: none;
+
+    @media screen and (max-width: $screen-sm) {
+      &:checked {
+        ~.toggle {
+          ~.dropdown {
+            display: inline;
+          }
+        }
+      }
+    }
+    ~.dropdown {
+      display: none;
+    }
+    ~.toggle {
+      &:hover, &:active {
+        ~.dropdown {
+          display: inline;
+          &:hover {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+
   .offcanvas & {
     opacity: 1.0;
     @include translate3d(0,0,0);
@@ -1389,20 +1417,26 @@ h1, h2, h3, h4, h5, h6, figure {
       @include translate3d(0,0,0);
     }
   }
-  a {
+
+  a, label {
     color: lighten(_palette($theme,brand-black), 0%);
     @include heading3();
 
-    &:hover {
+    &:hover, &:active {
       color: lighten(_palette($theme,brand-black), 35%);
     }
+    &.active {
+      color: lighten(_palette($theme,brand-black), 55%);
+      pointer-events: none;
+    }
   }
+
   ul {
     padding: 0;
     margin: 0;
     margin-top: 3em;
 
-    li {
+    > li {
       padding: 0;
       margin: 0;
       list-style: none;
@@ -1476,6 +1510,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-weight: 700;
   text-transform: uppercase;
 }
+
 .gototop {
   position: fixed;
   bottom: 15px;

@@ -3,7 +3,6 @@
 
   /* Declare app level module which depe&nds on filters, and services */
 
-
   angular.module('myApp', [
     'ui.router',
     'myApp.directives',
@@ -42,7 +41,9 @@
       templateUrl: 'partials/protohack-givjoy.html',
       controller  : 'mainController'
     })
-  }])
+  }]).run(function($rootScope, $state) {
+      $rootScope.$state = $state;
+    })
 
 
 })();
