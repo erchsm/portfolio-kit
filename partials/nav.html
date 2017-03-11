@@ -10,14 +10,13 @@
 <nav id="fh5co-offcanvas">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 text-left">
+      <div class="col-xs-12 col-xs-offset-0 col-sm-offset-1 text-left">
+        <div style="min-height: 7em;" class="spacer hidden-xs"></div>
         <ul>
           <li><a ng-class="{active: $state.includes('home')}" href="/">Home</a></li>
-          <li><a target="_blank" href="/resume/ericsmith-resume.pdf">Resume</a></li>
-          <li><a href="mailto:hi@ericsmithux.com?Subject=Hello%21&amp;Body=Was%20looking%20at%20your%20website%20and%20wanted%20to%20say%20hello%21">Say Hello</a></li>
-          <!-- <li> -->
-            <!-- <input class="control" id="navDropdown" type="checkbox"/></input>
-            <label class="toggle" for="navDropdown">Projects <i class="icon-chevron-down"></i></label>-->
+          <!-- <li>
+            <input class="control" id="navDropdown" type="checkbox"/>
+            <label class="toggle" for="navDropdown">Projects <i class="icon-chevron-down"></i></label> -->
             <li class="offcanvas-has-dropdown"><a>Projects</a>
               <ul class="dropdown">
                 <li ><a ng-class="{active: $state.includes('card-components')}" href="#!/card-components">Micro App Interactions</a></li>
@@ -27,6 +26,8 @@
                 <li><a ng-class="{active: $state.includes('cisco')}" href="#!/cisco">Cisco</a></li>
               </ul>
             </li>
+            <li><a href="mailto:hi@ericsmithux.com?Subject=Hello%21&amp;Body=Was%20looking%20at%20your%20website%20and%20wanted%20to%20say%20hello%21">Say Hello</a></li>
+            <li><a target="_blank" href="/resume/ericsmith-resume.pdf">Resume</a></li>
           </li>
         </ul>
       </div>
