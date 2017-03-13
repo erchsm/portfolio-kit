@@ -5,7 +5,10 @@
 
 
   angular.module('myApp.controllers', [])
-  .controller('mainController', ['$scope', function($scope) {
+  .controller('mainController', ['$scope', '$state', function($scope, $state) {
+    // $scope.nav =  {
+      // return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    // }
     $scope.isMobile = {
       Android: function() {
         return navigator.userAgent.match(/Android/i);
@@ -184,11 +187,16 @@
       $scope.offcanvasMenu();
       $scope.mobileMenuOutsideClick();
       $scope.offcanvasMenu();
-      $scope.contentWayPoint();
+      // $scope.contentWayPoint();
       $scope.videoWayPoint();
       $scope.burgerWayPoint();
       $scope.goToTop();
+      $scope.$state = $state;
+    });
+
+    $scope.$on('$stateChangeSuccess', function() {
       $scope.parallax();
+      $scope.contentWayPoint();
     });
 
     $scope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {

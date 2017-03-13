@@ -62,16 +62,16 @@ b, strong {
 
     a, label {
       color: lighten(_palette($theme,brand-black), 0%);
+      border-bottom: solid 1px transparent;
       @include heading3();
       padding: 0;
 
       &:hover, &:active, &:focus {
         background-color: none;
-        // color: lighten(_palette($theme,brand-black), 35%);
       }
 
       &.active {
-        color: lighten(_palette($theme,brand-black), 55%);
+        border-color: _palette($theme,brand-primary);
         pointer-events: none;
       }
     }
@@ -452,7 +452,7 @@ h1, h2, h3, h4, h5, h6, figure {
   // background-attachment: fixed;
 
   &.percent {
-    background-size: 65%;
+    background-size: 75%;
     @media screen and (max-width: $screen-sm) {
       background-size: 135%;
     }
