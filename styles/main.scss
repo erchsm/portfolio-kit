@@ -17,7 +17,7 @@ $grid-gutter-width: 40px !default;
 $border-radius-base:  4px !default;
 $padding-base-vertical: 14px !default;
 
-nav::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
@@ -28,7 +28,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: _palette($theme,brand-black);
-  background: #fff;
+  background: darken(_palette($theme,brand-black),10%);
 }
 
 b, strong {
@@ -38,6 +38,7 @@ b, strong {
 #page {
   position: relative;
   overflow-x: hidden;
+  background: _palette($theme,brand-white);
 
   #fh5co-offcanvas {
     position: fixed;
@@ -68,6 +69,7 @@ b, strong {
 
       &:hover, &:active, &:focus {
         background-color: none;
+        // border-color: _palette($theme,brand-warning);
       }
 
       &.active {
@@ -157,8 +159,7 @@ b, strong {
 
 
           > a {
-            display: block;
-            position: relative;
+
 
             &:hover {
               &:after {
@@ -446,7 +447,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-header,
 #fh5co-counter,
 .fh5co-bg {
-  background-position: top center;
+  background-position: center center;
   position: relative;
   background-size: intial;
   // background-attachment: fixed;
@@ -454,7 +455,7 @@ h1, h2, h3, h4, h5, h6, figure {
   &.percent {
     background-size: 75%;
     @media screen and (max-width: $screen-sm) {
-      background-size: 135%;
+      background-size: cover;
     }
   }
 
@@ -488,7 +489,7 @@ h1, h2, h3, h4, h5, h6, figure {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(_palette($theme,brand-black), .9);
+    background: rgba(darken(_palette($theme,brand-black),10%), .9);
   }
 }
 
@@ -1697,8 +1698,28 @@ h1, h2, h3, h4, h5, h6, figure {
 .mb10 {
   margin-bottom: 10px !important;
 }
-.img-card {
-  min-width: 320px;
+.card {
+  .img-card {
+    min-width: 320px;
+    z-index: 200;
+  }
+  &.gallery {
+    &:after, &:before {
+      content: '';
+      width: 320px;
+      height: 455px;
+      top: 20px;
+      position: absolute;
+      background: _palette($theme,brand-white);
+      z-index: 100;
+    }
+    &:after {
+      @include scale(0.95,0.95);
+    }
+    &:before {
+      @include scale(0.90,0.90);
+    }
+  }
 }
 .row {
   margin-left: 0;

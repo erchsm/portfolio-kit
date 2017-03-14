@@ -71,15 +71,14 @@
     };
 
     $scope.burgerWayPoint = function() {
-      $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
-
       $('#fh5co-header').waypoint( function( direction ) {
         if (direction == 'up') {
           $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
         }
       } , { offset: function() {
         return -this.element.clientHeight;
-      } } );    $('.fh5co-section').each(function() {
+      } } );
+      $('.fh5co-section').each(function() {
         $(this).waypoint( function( direction ) {
           if (direction == 'down') {
             if(this.element.classList.contains('fh5co-section--white'))
@@ -101,6 +100,7 @@
           return -this.element.clientHeight;
         } } );
       });
+      $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
     };
 
 
@@ -189,18 +189,18 @@
       $scope.offcanvasMenu();
       // $scope.contentWayPoint();
       $scope.videoWayPoint();
-      $scope.burgerWayPoint();
       $scope.goToTop();
       $scope.$state = $state;
     });
 
     $scope.$on('$stateChangeSuccess', function() {
+      window.scrollTo(0, 0);
       $scope.parallax();
+      $scope.burgerWayPoint();
       $scope.contentWayPoint();
     });
 
     $scope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
-      window.scrollTo(0, 0);
     });
 
   }]);
