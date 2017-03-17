@@ -100,7 +100,7 @@
           return -this.element.clientHeight;
         } } );
       });
-      $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
+      // $('.js-fh5co-nav-toggle').addClass('fh5co-nav-white');
     };
 
 
@@ -187,20 +187,24 @@
       $scope.offcanvasMenu();
       $scope.mobileMenuOutsideClick();
       $scope.offcanvasMenu();
-      // $scope.contentWayPoint();
-      $scope.videoWayPoint();
       $scope.goToTop();
+      $scope.parallax();
+
       $scope.$state = $state;
+      // console.log('view content loaded');
+    });
+
+    $scope.$on("$includeContentLoaded", function(event, templateName){
+       console.log('ng-include');
+       $scope.contentWayPoint();
+       $scope.burgerWayPoint();
+       $scope.videoWayPoint();
     });
 
     $scope.$on('$stateChangeSuccess', function() {
       window.scrollTo(0, 0);
-      $scope.parallax();
-      $scope.burgerWayPoint();
-      $scope.contentWayPoint();
-    });
 
-    $scope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+      // console.log('state change');
     });
 
   }]);

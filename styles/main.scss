@@ -54,8 +54,8 @@ b, strong {
     overflow-y: auto;
     display: block;
     @include translate3d(-100%,0,0);
-    $transition: transform .6s _animation(easing2);
-    @include transition($transition);
+    // $transition: transform .6s _animation(easing2);
+    @include transition(none);
 
     @media screen and(max-width: $screen-sm) {
       max-width: 95vw;
@@ -200,6 +200,8 @@ b, strong {
 
     #fh5co-offcanvas {
       @include translate3d(0,0,0);
+      $transition: transform .6s _animation(easing2);
+      @include transition($transition);
 
       ul > li {
         opacity: 1.0;

@@ -1,7 +1,7 @@
 <div id="page">
   <nav ng-include="'partials/nav.html'"></nav>
 
-  <header id="fh5co-header" class="fh5co-cover full-bleed repeat" role="banner" style=" background-image: url('images/banner.jpg'); background-color: rgba(255, 85, 78, 0.85); background-blend-mode: color-dodge;" data-stellar-background-ratio="0.6">
+  <header id="fh5co-header" class="fh5co-cover fh5co-cover-sm full-bleed repeat" role="banner" style=" background-image: url('images/banner.jpg'); background-color: rgba(255, 85, 78, 0.85); background-blend-mode: color-dodge;" data-stellar-background-ratio="1.05">
     <div class="overlay" style="background-color: rgba(255, 85, 78, 0.85)"></div>
     <div class="container-fluid">
       <div class="row">
@@ -16,26 +16,12 @@
       </div>
     </header>
 
-    <div id="fh5co-started" class="fh5co-section fh5co-section--white glyph">
-      <div class="container-fluid">
-        <div class="row row-pb-md " >
-          <div class="col-md-5 text-left fh5co-heading">
-            <div style="min-height: 7em;" class="spacer hidden-xs"></div>
-            <h3>Hi there, I’m Eric— I’m a designer with a nack for writing code. Here are some things I’ve worked on.</h3>
-            <p>I’ve hand coded this site as a way to flex my development skills (and for fun!) I am a firm believer in keeping it simple, the best design solution is usually the simplest and most direct. When im not designing or writing code, I’m taking photos with friends and enjoying the outdoors.</p>
-            <a class=" hidden-xs" target="_blank" href="https://www.flickr.com/photos/erchsm/">Some photos I've taken <i class="icon-arrow-right"></i></a>
-          </div>
-          <div class="col-md-6 col-md-offset-1 hidden-xs">
-            <img class="img-responsive mb30" src="images/me.jpg" alt="Free HTML5 Website Template by gettemplates.co" class="img-responsive">
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-include="'partials/blurb.html'"></div>
 
     <div id="fh5co-project" class="fh5co-section fh5co-section--white">
       <div class="container-fluid">
         <div class="row row-pb-md">
-          <div class="col-md-6 col-md-offset-6 text-left fh5co-heading animate-box">
+          <div class="col-md-6 col-md-offset-6 text-left fh5co-heading animate-box" data-animate-effect="fadeInUp">
             <h3>I specialize in working on prototypes, visual design and front-end code.</h3>
             <p>Here are some of the recent projects I've worked on. </p>
           </div>
