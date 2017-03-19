@@ -12,11 +12,12 @@
 
   <!-- Web Application Manifest -->
   <link rel="manifest" href="manifest.json">
+  <base href="/">
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Eric C. Smith &mdash; Portfolio">
-  <link rel="icon" sizes="192x192" href="/images/touch/chrome-touch-icon-192x192.png">
+  <link rel="icon" sizes="192x192" href="/images/touch/chrome-touch-icon-192x192.png?cachebuster=2">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -60,7 +61,7 @@
 </head>
 <body ng-controller="mainController">
   <main>
-    <div ng-view>
+    <div ui-view>
     </div>
   </main>
 
@@ -76,9 +77,10 @@
   <script src="/scripts/magnific-popup-options.js"></script>
   <script src="/scripts/jquery.stellar.min.js"></script>
   <script src="/scripts/angular.min.js"></script>
-  <script src="/scripts/angular-route.min.js"></script>
+  <script src="/scripts/angular-ui-router.min.js"></script>
   <script src="/scripts/app.js"></script>
   <script src="/scripts/directives.js"></script>
+  <script src="/scripts/controllers.js"></script>
   <!-- endbuild -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
