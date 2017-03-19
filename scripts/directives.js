@@ -5,7 +5,7 @@
 
 
   angular.module('myApp.directives', [])
-  .directive('codepenembed', function() {
+  .directive('codepenEmbed', function() {
     var injectScript = function(element) {
       var scriptTag = angular.element(document.createElement('script'));
       scriptTag.attr('charset', 'utf-8');
@@ -16,6 +16,15 @@
     return {
       link: function(scope, element) {
         injectScript(element);
+      }
+    };
+  })
+  .directive('includeReplace', function () {
+    return {
+      require: 'ngInclude',
+      restrict: 'A', /* optional */
+      link: function (scope, el, attrs) {
+        el.replaceWith(el.children());
       }
     };
   });

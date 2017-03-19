@@ -1744,11 +1744,12 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .card {
   padding: 0;
+  min-width: max-content;
   margin-right: 15px;
   margin-left: 15px;
   background-color: white;
   .img-card {
-    min-width: 320px;
+    min-width: max-content;
     z-index: 200;
   }
   &.gallery {

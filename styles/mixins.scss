@@ -132,6 +132,14 @@
   @include flex-align-items(flex-start);
 
   -webkit-overflow-scrolling: touch;
+
+  div {
+    &:last-child {
+      padding-right: 60px;
+      background-color: transparent;
+    }
+  }
+
   .img-card {
     -webkit-backface-visibility: hidden;
     -webkit-transform: translate3d(0,0,0);
