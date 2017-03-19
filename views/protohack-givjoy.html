@@ -1,5 +1,5 @@
 <div id="page">
-  <nav ng-include="'partials/nav.html'"></nav>
+  <nav include-replace ng-include="'partials/nav.html'"></nav>
 
   <header id="fh5co-header" class="fh5co-cover full-bleed" role="banner" style="background-image:url(/images/protohack-givjoy/banner.jpg);" data-stellar-background-ratio="0.7">
     <div class="overlay"></div>
@@ -21,7 +21,7 @@
  <div class="container-fluid">
    <div class="row row-pb-md">
      <div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
-      <h2>When was the last time you made someone's day?</h2>
+      <h3>When was the last time you made someone's day?</h3>
       <p>At the beginning of ProtoHack, a codefree hackathon, each team gave they're pitches for what they wanted to build. My friend Sarah posed the above prompt in her initial pitch for the idea of GivJoy during this pitch. This question really resonated with me and I decided to join their team and help them solve their problem.</p>
     </div>
   </div>
@@ -72,7 +72,7 @@
   <div class="container-fluid">
    <div class="row animate-box">
     <div class="col-md-5 col-md-offset-1 text-left fh5co-heading">
-     <h2>This prototype was made with Principle and Sketch.</h2>
+     <h3>This prototype was made with Principle and Sketch.</h3>
      <p>You can download a basic version of the prototype here. Feel free to use it in your own projects.</p>
      <p><a href="/givjoy.prd">Download the Principle file <i class="icon-arrow-right"></i></a></p>
    </div>
@@ -95,6 +95,7 @@
 </div>
 </div>
 
+<footer ng-include="'partials/next-case-study/perforce.html'" include-replace></footer>
 
 
 
