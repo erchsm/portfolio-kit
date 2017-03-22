@@ -195,7 +195,6 @@
     });
 
     $scope.$on("$includeContentLoaded", function(event, templateName){
-       console.log('ng-include');
        $scope.contentWayPoint();
        $scope.burgerWayPoint();
        $scope.videoWayPoint();
