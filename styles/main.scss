@@ -8,6 +8,7 @@
 @import 'functions';
 @import 'fonts';
 @import 'colors';
+@import 'zindex';
 @import 'motion';
 
 @import 'mixins';
@@ -285,16 +286,16 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0;
   padding: 0;
   width: 100%;
-  padding: 25px 0;
+  padding: 1.5em 0;
   z-index: 2001;
 
   background: transparent;
   @include transition(all .5s ease);
 
-
   @media screen and (max-width: $screen-sm) {
-    padding: 25px 0;
+    padding: 1em 0;
   }
+
   #fh5co-logo {
     font-size: 24px;
     // margin: 0 0 2em 0;
@@ -1330,10 +1331,10 @@ h1, h2, h3, h4, h5, h6, figure {
 
 // Burger Menu
 .fh5co-nav-toggle {
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  font-size: 32px;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 1.5em;
   vertical-align: top;
   cursor: pointer;
   text-decoration: none;

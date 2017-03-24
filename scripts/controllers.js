@@ -179,7 +179,13 @@
 
     $scope.parallax = function() {
       if (!($scope.isMobile.any()) && !($scope.isBrowser.safari())) {
-        $(window).stellar();
+        $(window).stellar({
+          parallaxBackgrounds: true,
+          parallaxElements: false,
+          hideDistantElements: true,
+          horizontalScrolling: false,
+          verticalScrolling: true
+        });
       }
     };
 
@@ -195,10 +201,10 @@
     });
 
     $scope.$on("$includeContentLoaded", function(event, templateName){
-       $scope.contentWayPoint();
-       $scope.burgerWayPoint();
-       $scope.videoWayPoint();
-    });
+     $scope.contentWayPoint();
+     $scope.burgerWayPoint();
+     $scope.videoWayPoint();
+   });
 
     $scope.$on('$stateChangeSuccess', function() {
       window.scrollTo(0, 0);
