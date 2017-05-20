@@ -10,20 +10,24 @@
 <nav id="fh5co-offcanvas">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 text-left">
+      <div class="col-xs-12 col-xs-offset-0 col-sm-offset-1 text-left">
+        <div style="min-height: 7em;" class="spacer hidden-xs"></div>
         <ul>
-          <li class="active"><a href="/">Home</a></li>
-          <li class="offcanvas-has-dropdown"><a href="#">Projects</a>
+          <li><a ng-class="{active: $state.includes('home')}" href="/">Home</a></li>
+          <li class="offcanvas-has-dropdown"><a>Projects</a>
             <ul class="dropdown">
-              <li><a href="#!/card-components">Micro App Interactions</a></li>
-              <li><a href="#!/micro-app-templates">Micro App Templates</a></li>
-              <li><a href="#!/perforce">Perforce</a></li>
-              <li><a href="#!/cisco">Cisco</a></li>
+              <li ><a ng-class="{active: $state.includes('micro-app-interactions')}" href="#!/micro-app-interactions">Micro App Interactions</a></li>
+              <li><a ng-class="{active: $state.includes('micro-app-templates')}"" href="#!/micro-app-templates">Micro App Templates</a></li>
+              <li><a ng-class="{active: $state.includes('protohack-givjoy')}" href="#!/protohack-givjoy">Protohack & Givjoy</a></li>
+              <li><a ng-class="{active: $state.includes('perforce')}" href="#!/perforce">Perforce</a></li>
+              <li><a ng-class="{active: $state.includes('cisco')}" href="#!/cisco">Cisco</a></li>
             </ul>
           </li>
-          <li><a href="mailto:hi@ericsmithux.com?Subject=Hello%21&amp;Body=Was%20looking%20at%20your%20website%20and%20wanted%20to%20say%20hello%21">Say Hello</a></li>
+          <li><a ng-class="{active: $state.includes('about')}" href="#!/about">About Me</a></li>
+          <!-- <li><a href="mailto:hi@ericsmithux.com?Subject=Hello%21&amp;Body=Was%20looking%20at%20your%20website%20and%20wanted%20to%20say%20hello%21">Say Hello</a></li> -->
           <li><a target="_blank" href="/resume/ericsmith-resume.pdf">Resume</a></li>
-        </ul>
-      </div>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

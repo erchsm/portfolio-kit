@@ -5,7 +5,7 @@
 
 
   angular.module('myApp.directives', [])
-  .directive('codepenembed', function() {
+  .directive('codepenEmbed', function() {
     var injectScript = function(element) {
       var scriptTag = angular.element(document.createElement('script'));
       scriptTag.attr('charset', 'utf-8');
@@ -16,6 +16,38 @@
     return {
       link: function(scope, element) {
         injectScript(element);
+      }
+    };
+  })
+  .directive('includeReplace', function () {
+    return {
+      require: 'ngInclude',
+      restrict: 'A', /* optional */
+      link: function (scope, el, attrs) {
+        el.replaceWith(el.children());
+      }
+    };
+  })
+  .directive('videoPlayer', function($templateRequest, $compile) {
+    return {
+      link: function(scope, element) {
+        function addVideoOverlay() {
+          $templateRequest("partials/video-overlay.html").then(function(html) {
+            var template = angular.element(html);
+            element.parent().append(template);
+            $compile(template)(scope);
+            player.addEventListener('play', hideVideoOverlay, false);
+          });
+        }
+
+
+        function hideVideoOverlay() {
+          console.log(element.parent().find('video-overlay'));
+          // element.parent().find('video-overlay').remove();
+        }
+
+        var player = angular.element(element)[0];
+        player.addEventListener('ended', addVideoOverlay, false);
       }
     };
   });

@@ -12,3 +12,7 @@
 @function _animation($keys...) {
   @return val($animation, $keys...);
 }
+
+@function _zindex($keys...) {
+  @return val($zindex, $keys...);
+}

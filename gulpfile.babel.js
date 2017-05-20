@@ -115,7 +115,8 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './app/modernizr-2.6.2.min.js',
+      './app/scripts/modernizr-2.6.2.min.js',
+      './app/scripts/respond.min.js',
       './app/scripts/jquery.min.js',
       './app/scripts/jquery.easing.1.3.js',
       './app/scripts/bootstrap.min.js',
@@ -125,9 +126,10 @@ gulp.task('scripts', () =>
       './app/scripts/magnific-popup-options.js',
       './app/scripts/jquery.stellar.min.js',
       './app/scripts/angular.min.js',
-      './app/scripts/angular-route.min.js',
+      './app/scripts/angular-ui-router.min.js',
       './app/scripts/app.js',
       './app/scripts/directives.js',
+      './app/scripts/controllers.js'
       // Other scripts
       ])
   .pipe($.newer('.tmp/scripts'))
@@ -177,7 +179,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
     open: false,
     notify: false,
     // Customize the Browsersync console logging prefix
-    logPrefix: 'PORTFOLIO',
+    logPrefix: 'gulp',
     // Allow scroll syncing across breakpoints
     scrollElementMapping: ['main', '.mdl-layout'],
     // Run as an https by uncommenting 'https: true'
@@ -198,7 +200,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
 gulp.task('serve:dist', ['default'], () =>
   browserSync({
     notify: false,
-    logPrefix: 'WSK',
+    logPrefix: 'gulp',
     // Allow scroll syncing across breakpoints
     scrollElementMapping: ['main', '.mdl-layout'],
     // Run as an https by uncommenting 'https: true'
@@ -223,7 +225,7 @@ gulp.task('default', ['clean'], cb =>
 // Run PageSpeed Insights
 gulp.task('pagespeed', cb =>
   // Update the below URL to the public URL of your site
-  pagespeed('example.com', {
+  pagespeed('https://ericsmithux.com', {
     strategy: 'mobile'
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE

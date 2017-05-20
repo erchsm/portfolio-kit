@@ -14,27 +14,37 @@
     $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'partials/home.html',
+      templateUrl: 'views/home.html',
       controller  : 'mainController'
     })
-    .state('card-components', {
-      url: '/card-components',
-      templateUrl: 'partials/card-components.html',
+    .state('about', {
+      url: '/about',
+      templateUrl: 'views/about.html',
+      controller  : 'mainController'
+    })
+    .state('micro-app-interactions', {
+      url: '/micro-app-interactions',
+      templateUrl: 'views/micro-app-interactions.html',
       controller  : 'mainController'
     })
     .state('micro-app-templates', {
       url: '/micro-app-templates',
-      templateUrl: 'partials/micro-app-templates.html',
+      templateUrl: 'views/micro-app-templates.html',
       controller  : 'mainController'
     })
     .state('perforce', {
       url: '/perforce',
-      templateUrl: 'partials/perforce.html',
+      templateUrl: 'views/perforce.html',
       controller  : 'mainController'
     })
     .state('cisco', {
       url: '/cisco',
-      templateUrl: 'partials/cisco.html',
+      templateUrl: 'views/cisco.html',
+      controller  : 'mainController'
+    })
+    .state('protohack-givjoy', {
+      url: '/protohack-givjoy',
+      templateUrl: 'views/protohack-givjoy.html',
       controller  : 'mainController'
     })
   }])

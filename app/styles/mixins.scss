@@ -29,6 +29,13 @@
   -o-transform: translateY($amount);
   transform: translateY($amount);
 }
+@mixin translate3d($x,$y,$z) {
+  -moz-transform: translate3d($x,$y,$z);
+  -webkit-transform: translate3d($x,$y,$z);
+  -ms-transform: translate3d($x,$y,$z);
+  -o-transform: translate3d($x,$y,$z);
+  transform: translate3d($x,$y,$z);
+}
 @mixin scale($x, $y) {
   -moz-transform: scale($x, $y);
   -webkit-transform: scale($x, $y);
@@ -44,6 +51,15 @@
   -ms-transition: $transition;
   transition: $transition;
 }
+
+@mixin transition-delay($transition-delay) {
+  -moz-transition-delay: $transition-delay;
+  -o-transition-delay: $transition-delay;
+  -webkit-transition-delay: $transition-delay;
+  -ms-transition-delay: $transition-delay;
+  transition-delay: $transition-delay;
+}
+
 @mixin inline-block() {
   display:-moz-inline-stack;
   display:inline-block;
@@ -102,7 +118,6 @@
   -ms-flex-pack: start;
 
   padding-left: calc((100vw - (100% - 30px*2))/2);
-  padding-bottom: 60px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -116,151 +131,186 @@
   @include flex-align-items(flex-start);
 
   -webkit-overflow-scrolling: touch;
+
+  div {
+    &:last-child {
+      padding-right: 60px;
+      background-color: transparent;
+    }
+  }
+
   .img-card {
     -webkit-backface-visibility: hidden;
     -webkit-transform: translate3d(0,0,0);
   }
 }
 
-@mixin icomoon() {
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
+@mixin image-mask() {
+  a {
+    .img-wrapper {
+      overflow: hidden;
+      @include scale(1,1);
+      @include transition(transform .6s _animation(easing1));
 
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+      img {
+        position: relative;
+          // transform-origin: bottom;
+          @include transition(transform .6s _animation(easing1));
+          @include transition-delay(0.09s);
 
-}
+        }
+      }
+      &:hover {
+        .img-wrapper {
+          @include scale(0.97,0.97);
 
-@mixin heading2 () {
-  font-size: 24px;
-  line-height: 1.275em;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+          img {
+            @include scale(1.05,1.05);
 
-  @media screen and (max-width: $screen-sm) {
-    font-size: 22px;
-    font-weight: 300;
-    letter-spacing: 1px;
+            &:after {
+              opacity: 1;
+              visibility: visible;
+              @media screen and (max-width: $screen-sm ) {
+                opacity: 0;
+                visibility: hidden;
+              }
+            }
+
+            @media screen and (max-width: $screen-sm ) {
+              @include scale(1, 1);
+            }
+          }
+        }
+      }
+    }
   }
-}
 
-@mixin headingJumbo () {
-  margin-bottom: 0px;
-  margin-top: 0;
-  font-size: 80px;
-  letter-spacing: 0.01em;
-  line-height: 1.1em;
-  font-weight: 700;
+  @mixin icomoon() {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-  @media screen and (max-width: $screen-sm) {
-    font-size: 32px;
-    letter-spacing: -0.01rem;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
   }
-}
 
-@mixin heading1 () {
-  margin-bottom: 0px;
-  margin-top: 0;
-  font-size: 60px;
-  letter-spacing: 0.01rem;
-  font-style: normal;
-  line-height: 1em;
-  font-weight: 700;
 
-  @media screen and (max-width: $screen-sm) {
-    font-size: 32px;
-    letter-spacing: -0.01rem;
-  }
-}
-
-@mixin heading2() {
-  font-size: 40px;
-  line-height: 1;
-  font-weight: 400;
-
-  font-size: 30px;
-  letter-spacing: 0.02em;
-  line-height: 1.275em;
-  font-weight: 300;
-  text-transform: uppercase;
-
-  @media screen and (max-width: $screen-sm) {
-    font-size: 24px;
+  @mixin headingJumbo () {
+    margin-bottom: 0px;
+    margin-top: 0;
+    font-size: 80px;
     letter-spacing: 0.01em;
+    line-height: 1em;
     font-weight: 700;
 
-    font-weight: 300;
+    @media screen and (max-width: $screen-sm) {
+      font-size: 10vw;
+      letter-spacing: -0.01rem;
+    }
   }
-}
 
-
-@mixin heading3 () {
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 1.1em;
-
-  @media screen and (max-width: $screen-sm) {
-    font-size: 24px;
+  @mixin heading1 () {
+    margin-bottom: 0px;
+    margin-top: 0;
+    font-size: 60px;
+    letter-spacing: 0.01rem;
+    font-style: normal;
+    line-height: 1em;
     font-weight: 700;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 32px;
+      letter-spacing: -0.01rem;
+    }
   }
-}
 
-@mixin heading4 () {
-  font-size: 24px;
-  line-height: 1.275em;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  @mixin heading2() {
+    font-size: 40px;
+    line-height: 1;
+    font-weight: 400;
 
-  @media screen and (max-width: $screen-sm) {
-    font-size: 20px;
-    letter-spacing: 1px;
-  }
-}
-
-@mixin body1 () {
-  font-size: 16px;
-  line-height: 1.5em;
-  font-weight: 400;
-
-  @media screen and (max-width: $screen-sm) {
-    font-size: 16px;
+    font-size: 30px;
+    letter-spacing: 0.02em;
     line-height: 1.275em;
-  }
-}
+    font-weight: 300;
+    text-transform: uppercase;
 
-@mixin x-glyph() {
-  position: relative;
-  display: block;
-  width: 58px;
-  height: 58px;
-  margin: auto;
+    @media screen and (max-width: $screen-sm) {
+      font-size: 24px;
+      letter-spacing: 0.01em;
+      font-weight: 700;
 
-  &:before, &:after {
-    content: '';
-    position: absolute;
-    background: _palette($theme,brand-white);
-    width: 100%;
-    height: 2px;
-    left: 0;
-    top: 50%;
-  }
-  &:before {
-    @include rotate(-45deg);
-  }
-  &:after {
-    @include rotate(45deg);
+      font-weight: 300;
+    }
   }
 
-  @media screen and (max-width: $screen-sm) {
-    width: 38px;
-    height: 38px;
+
+  @mixin heading3 () {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.1em;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 24px;
+      font-weight: 700;
+    }
   }
-}
+
+  @mixin heading4 () {
+    font-size: 24px;
+    line-height: 1.275em;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 20px;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  @mixin body1 () {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    font-weight: 300;
+
+    @media screen and (max-width: $screen-sm) {
+      font-size: 1.1em;
+      line-height: 1.275em;
+    }
+  }
+
+  @mixin x-glyph() {
+    position: relative;
+    display: block;
+    width: 58px;
+    height: 58px;
+    margin: auto;
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      background: _palette($theme,brand-white);
+      width: 100%;
+      height: 2px;
+      left: 0;
+      top: 50%;
+    }
+    &:before {
+      @include rotate(-45deg);
+    }
+    &:after {
+      @include rotate(45deg);
+    }
+
+    @media screen and (max-width: $screen-sm) {
+      width: 38px;
+      height: 38px;
+    }
+  }
