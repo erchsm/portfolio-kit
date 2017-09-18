@@ -27,5 +27,28 @@
         el.replaceWith(el.children());
       }
     };
+  })
+  .directive('videoPlayer', function($templateRequest, $compile) {
+    return {
+      link: function(scope, element) {
+        function addVideoOverlay() {
+          $templateRequest("partials/video-overlay.html").then(function(html) {
+            var template = angular.element(html);
+            element.parent().append(template);
+            $compile(template)(scope);
+            player.addEventListener('play', hideVideoOverlay, false);
+          });
+        }
+
+
+        function hideVideoOverlay() {
+          console.log(element.parent().find('video-overlay'));
+          // element.parent().find('video-overlay').remove();
+        }
+
+        var player = angular.element(element)[0];
+        player.addEventListener('ended', addVideoOverlay, false);
+      }
+    };
   });
 })();

@@ -70,6 +70,14 @@
       event.preventDefault();
     };
 
+    $scope.playVideo = function(event) {
+      var overlay = angular.element(event.target);
+      var video = overlay.parent().parent().parent().parent().parent().find('video')[0];
+      overlay = overlay.parent().parent().parent().parent();
+      overlay.addClass('hidden');
+      video.play();
+    };
+
     $scope.burgerWayPoint = function() {
       $('#fh5co-header').waypoint( function( direction ) {
         if (direction == 'up') {
@@ -119,15 +127,8 @@
               var el = $(this);
               setTimeout( function () {
                 var effect = el.data('animate-effect');
-                if ( effect === 'fadeIn') {
-                  el.addClass('fadeIn animated-fast');
-                } else if ( effect === 'fadeInLeft') {
-                  el.addClass('fadeInLeft animated-fast');
-                } else if ( effect === 'fadeInRight') {
-                  el.addClass('fadeInRight animated-fast');
-                } else {
-                  el.addClass('fadeInUp animated-fast');
-                }
+                el.addClass(effect + ' animated-fast');
+
 
                 el.removeClass('item-animate');
               },  k * 50, 'easeInOut' );
@@ -208,8 +209,6 @@
 
     $scope.$on('$stateChangeSuccess', function() {
       window.scrollTo(0, 0);
-
-      // console.log('state change');
     });
 
   }]);
