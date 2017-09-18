@@ -47,6 +47,11 @@
       templateUrl: 'views/protohack-givjoy.html',
       controller  : 'mainController'
     })
+    .state('resume', {
+      url: '/resume',
+      templateUrl: 'views/resume.html',
+      controller  : 'mainController'
+    })
   }])
 
 

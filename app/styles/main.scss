@@ -1183,6 +1183,7 @@ h1, h2, h3, h4, h5, h6, figure {
       }
     }
   }
+
   &--gray {
     background-color: _palette($theme, brand-gray);
 
@@ -1280,6 +1281,8 @@ h1, h2, h3, h4, h5, h6, figure {
     }
   }
   @include image-mask();
+
+  @import 'resume';
 }
 
 
