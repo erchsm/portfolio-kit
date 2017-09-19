@@ -1282,9 +1282,30 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   @include image-mask();
 
-  @import 'resume';
+  &--resume {
+    @import 'resume';
+  }
 }
 
+.download-pdf {
+  // display: flex;
+  // flex-direction: row;
+  // align-items: baseline;
+  // justify-content: center;
+  // position: fixed;
+  // right: 18px;
+  // top: 18px;
+
+  i {
+    color: _palette($theme,brand-black);
+    font-size: 36px;
+    -webkit-text-stroke: 2px white;
+  }
+
+  span {
+    margin-right: 12px;
+  }
+}
 
 
 

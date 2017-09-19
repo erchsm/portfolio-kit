@@ -1,8 +1,14 @@
 <nav class="fh5co-nav">
  <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 text-left">
+    <div class="col-xs-6 text-left">
       <a href="#" ng-click="burgerMenu()" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>
+    </div>
+    <div ng-if="$state.includes('resume')" class="col-xs-6 text-right">
+      <a target="_blank" href="/resume/ericsmith-resume.pdf" class="download-pdf">
+        <!-- <span>Download PDF</span> -->
+        <i class="icon-download"></i>
+      </a>
     </div>
   </div>
 </div>
