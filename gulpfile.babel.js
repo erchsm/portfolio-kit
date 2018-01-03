@@ -30,6 +30,7 @@ import del from 'del';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
+import historyApiFallback from 'connect-history-api-fallback';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
@@ -47,7 +48,7 @@ gulp.task('lint', () =>
 
 // Optimize images
 gulp.task('images', () =>
-  gulp.src('app/images/**/*')
+  gulp.src('app/images/**/*.{png,jpg}')
   .pipe($.cache($.imagemin({
     progressive: true,
     interlaced: true,
@@ -67,7 +68,7 @@ gulp.task('copy', () =>
     'app/**/*',
     '!app/*.html',
     '!app/*.sketch',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    'app/.htaccess'
     ], {
       dot: true
     }).pipe(gulp.dest('dist'))
@@ -126,6 +127,7 @@ gulp.task('scripts', () =>
       './app/scripts/magnific-popup-options.js',
       './app/scripts/jquery.stellar.min.js',
       './app/scripts/angular.min.js',
+      './node_modules/angular-scroll/angular-scroll.min.js',
       './app/scripts/angular-ui-router.min.js',
       './app/scripts/app.js',
       './app/scripts/directives.js',
@@ -186,7 +188,10 @@ gulp.task('serve', ['scripts', 'styles'], () => {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: ['.tmp', 'app'],
+    server: {
+      baseDir: ['.tmp', 'app'],
+      middleware: [historyApiFallback()]
+    },
     port: 3000
   });
 
@@ -207,7 +212,10 @@ gulp.task('serve:dist', ['default'], () =>
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist',
+    server: {
+      baseDir: 'dist',
+      middleware: [historyApiFallback()]
+    },
     port: 3001
   })
   );

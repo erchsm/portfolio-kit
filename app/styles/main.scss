@@ -1282,7 +1282,53 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   @include image-mask();
 
-  @import 'resume';
+  &--resume  {
+
+    .fh5co-heading {
+      h2 {
+        font-size: 40px;
+        color: _palette($theme,brand-primary);
+        font-weight: bold;
+        line-height: 1em;
+        text-transform: initial;
+      }
+      .info-block {
+        margin-bottom: 30px;
+
+        h3 {
+          // font-size: 24px;
+          margin: 0;
+        }
+
+        span {
+          font-size: 1.1em;
+        }
+
+        ul {
+          padding-left: 21px;
+          li {
+            list-style-type: decimal;
+            list-style-position: outside;
+            padding-left: 11px;
+            line-height: 1.2em;
+            font-size: 1.2em;
+            margin-bottom: 6px;
+
+            &:first-child {
+              margin-top: 6px;
+            }
+
+          }
+        }
+        &--small {
+          h3 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -1368,7 +1414,50 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 
+.download-pdf {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 18px;
+  top: 18px;
 
+  &:hover {
+    span {
+      opacity: 1;
+    }  
+  }
+
+  i {
+    color: _palette($theme,brand-black);
+    font-size: 36px;
+    -webkit-text-stroke: 2px #fff;
+  }
+
+  span {
+    margin-top: 6px;
+    transition: opacity _animation(duration) _animation(easing2);
+    opacity: 0;
+    background: rgba(_palette($theme, brand-black), 0.8);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-right: 12px;
+    color: rgba(_palette($theme, brand-white), 1);
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0; 
+      height: 0; 
+      margin-left: 12px;
+      margin-top: 6px;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid rgba(_palette($theme, brand-black), 0.8);
+    }
+  }
+}
 
 // Burger Menu
 .fh5co-nav-toggle {
@@ -1427,7 +1516,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 .fh5co-nav-toggle i::after {
   bottom: -7px;
-  width: 50%;
+  width: 18.54101966px;
 }
 .fh5co-nav-toggle:hover i::before {
 }
