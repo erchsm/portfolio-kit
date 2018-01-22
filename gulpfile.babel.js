@@ -125,6 +125,8 @@ gulp.task('scripts', () =>
       './app/scripts/jquery.magnific-popup.min.js',
       './app/scripts/magnific-popup-options.js',
       './app/scripts/jquery.stellar.min.js',
+      './app/scripts/path-data-polyfill.js',
+      './app/scripts/mo.min.js',
       './app/scripts/angular.min.js',
       './node_modules/angular-scroll/angular-scroll.min.js',
       './app/scripts/angular-ui-router.min.js',
